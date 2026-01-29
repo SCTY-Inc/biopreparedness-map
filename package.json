@@ -1,0 +1,12 @@
+{
+  "name": "special-pathogens-map",
+  "version": "1.0.0",
+  "description": "Special Pathogens Biopreparedness Map",
+  "scripts": {
+    "start": "python3 -m http.server 8000",
+    "convert-yaml": "node convert-yaml.js"
+  },
+  "devDependencies": {
+    "js-yaml": "^4.1.0"
+  }
+}
