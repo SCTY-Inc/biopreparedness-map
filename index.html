@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Special Pathogens Biopreparedness Map</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <!-- noUiSlider CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nouislider@15.7.1/dist/nouislider.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="min-h-screen flex flex-col bg-white text-slate-700">
+        <!-- Header -->
+        <header class="bg-white sticky top-0 z-50 border-b border-slate-200">
+            <div class="max-w-[1440px] mx-auto px-4 lg:px-6 py-3 flex justify-between items-center">
+                <!-- Logo -->
+                <a href="https://www.nychealthandhospitals.org/" target="_blank" class="shrink-0">
+                    <img src="assets/hhs_logo.png" alt="NYC Health + Hospitals" class="h-10 lg:h-12 w-auto">
+                </a>
+
+                <!-- Donate button -->
+                <a href="https://www.nychealthandhospitals.org/donate/" target="_blank" class="bg-[#F28B46] hover:bg-[#e07a35] text-white px-5 py-2 rounded text-sm font-semibold transition-all">
+                    Donate
+                </a>
+            </div>
+
+            <!-- Nav bar with orange accent -->
+            <div class="border-b-4 border-[#F28B46]">
+                <nav class="max-w-[1440px] mx-auto px-4 lg:px-6 flex items-center justify-between">
+                    <div class="flex items-center gap-6">
+                        <button class="nav-tab active" data-tab="home">Home</button>
+                        <button class="nav-tab" data-tab="about">About</button>
+                    </div>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Page Title Banner -->
+        <div class="bg-[#003976] text-white py-4">
+            <div class="max-w-[1440px] mx-auto px-4 lg:px-6">
+                <h1 class="text-lg lg:text-xl font-bold">Special Pathogens Biopreparedness Map</h1>
+                <p class="text-blue-200 text-sm">Developed by NYC Health + Hospitals System Biopreparedness Program</p>
+            </div>
+        </div>
+
+        <main class="flex-grow max-w-[1440px] mx-auto w-full px-4 lg:px-6 py-6">
+            <!-- Home Tab Content -->
+            <div id="home-tab" class="main-tab-content active">
+                <div class="flex flex-col lg:flex-row gap-6">
+                    <!-- Sidebar Filters -->
+                    <aside class="w-full lg:w-72 xl:w-80 shrink-0">
+                        <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-4 lg:p-5 space-y-4">
+                            <h4 class="text-xl font-bold text-[#003976] mb-2">Filters</h4>
+
+                            <!-- Country Filter -->
+                            <div class="space-y-2">
+                                <label for="country-filter" class="text-sm font-medium text-slate-700">Country:</label>
+                                <select id="country-filter" class="w-full border border-slate-300 rounded px-3 py-2 text-slate-700 bg-white focus:outline-none focus:ring-2 focus:ring-[#005999]/20 focus:border-[#005999]">
+                                    <option value="all">All</option>
+                                </select>
+                            </div>
+
+                            <!-- Disease Filter -->
+                            <div class="space-y-2">
+                                <label for="disease-filter" class="text-sm font-medium text-slate-700">Disease:</label>
+                                <select id="disease-filter" class="w-full border border-slate-300 rounded px-3 py-2 text-slate-700 bg-white focus:outline-none focus:ring-2 focus:ring-[#005999]/20 focus:border-[#005999]">
+                                    <option value="all">All</option>
+                                </select>
+                            </div>
+
+                            <!-- Cases Filter -->
+                            <div class="space-y-3">
+                                <label class="text-sm font-medium text-slate-700">Number of Cases:</label>
+                                <div class="flex items-center gap-3">
+                                    <input type="number" id="cases-min-input" min="1" max="6000" value="1" class="w-16 px-2 py-1.5 text-sm border border-slate-300 rounded text-center bg-white">
+                                    <div id="cases-slider" class="flex-1 h-6"></div>
+                                    <input type="number" id="cases-max-input" min="1" max="6000" value="6000" class="w-16 px-2 py-1.5 text-sm border border-slate-300 rounded text-center bg-white">
+                                </div>
+                                <div class="flex justify-between text-[10px] text-slate-400">
+                                    <span>1</span>
+                                    <span>601</span>
+                                    <span>1,201</span>
+                                    <span>2,401</span>
+                                    <span>3,601</span>
+                                    <span>4,801</span>
+                                    <span>6,000</span>
+                                </div>
+                            </div>
+
+                            <!-- Stats Card -->
+                            <div class="bg-[#003976] rounded-lg p-4 text-center">
+                                <div class="text-xs font-bold text-white uppercase tracking-wider mb-1">Diseases</div>
+                                <div id="disease-count" class="text-3xl font-extrabold text-white">0</div>
+                            </div>
+
+                            <!-- Definitions -->
+                            <div class="space-y-3 pt-4 border-t border-slate-200">
+                                <h5 class="text-base font-semibold text-[#003976]">Definitions</h5>
+                                <div class="space-y-2 text-sm text-slate-600">
+                                    <p><span class="font-bold text-slate-800">Continued transmission:</span> Ongoing transmission with active cases</p>
+                                    <p><span class="font-bold text-slate-800">No continued transmission:</span> Within a second incubation period (no active cases; outbreak nearing closure)</p>
+                                    <p><span class="font-bold text-slate-800">Endemic:</span> Constant presence or usual prevalence of a disease or infectious agent in a population within a geographic area (CDC)</p>
+                                    <p class="text-xs text-slate-500 italic mt-3">If an endemic country reports high or concerning levels of active cases of an endemic special pathogen disease, these are classified as "Active Transmission" on the map.</p>
+                                </div>
+                            </div>
+
+                            <button id="outbreak-list-btn" class="w-full bg-[#F28B46] hover:bg-[#e07a35] text-white py-3 rounded-lg text-sm font-bold transition-colors">
+                                View Monthly Outbreak List
+                            </button>
+
+                            <!-- Footer info -->
+                            <div class="pt-4 border-t border-slate-200 space-y-2">
+                                <p class="text-xs text-slate-500 leading-relaxed">
+                                    Data collected from a variety of trusted sources. This dashboard is maintained for special pathogens. See the About page for more details.
+                                </p>
+                                <p class="text-xs text-slate-600">Data updated on <span id="data-update-date"></span></p>
+                            </div>
+                        </div>
+                    </aside>
+
+                    <!-- Map & Content Section -->
+                    <div class="flex-grow min-w-0 space-y-4">
+                        <!-- Content Tabs -->
+                        <div class="content-tabs">
+                            <button class="content-tab active" data-content="map">Map</button>
+                            <button class="content-tab" data-content="table">Data Table</button>
+                            <button class="content-tab" data-content="resources">NYC Health + Hospitals Resources</button>
+                        </div>
+
+                        <!-- Map Tab Content -->
+                        <div id="map-content" class="content-panel active">
+                            <p class="text-sm text-slate-600 mb-4"><strong>Instructions:</strong> Click on individual countries for details. Some countries may differ slightly from legend colors due to the presence of multiple outbreaks.</p>
+                            <div class="map-card">
+                                <div id="map" class="map-container w-full"></div>
+
+                                <!-- Floating Map Controls -->
+                                <div class="map-overlay top-right">
+                                    <div class="map-overlay-card">
+                                        <label class="map-toggle">
+                                            <input type="checkbox" id="show-outbreaks" checked>
+                                            <span>Outbreaks</span>
+                                        </label>
+                                        <label class="map-toggle">
+                                            <input type="checkbox" id="show-endemic" checked>
+                                            <span>Endemic</span>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- Floating Legend -->
+                                <div class="map-overlay bottom-right">
+                                    <div class="map-overlay-card">
+                                        <h6 class="legend-title">Outbreak Status</h6>
+                                        <div class="legend-items">
+                                            <div id="legend-continued" class="legend-item">
+                                                <span class="legend-dot continued"></span>
+                                                <span>Continued transmission</span>
+                                            </div>
+                                            <div id="legend-no-transmission" class="legend-item">
+                                                <span class="legend-dot no-transmission"></span>
+                                                <span>No continued transmission</span>
+                                            </div>
+                                            <div id="legend-endemic" class="legend-item">
+                                                <span class="legend-dot endemic"></span>
+                                                <span>Endemic</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- About Section on Home -->
+                            <div class="about-home-section">
+                                <h3 class="text-xl font-bold text-[#003976] mb-4">About the System Biopreparedness Program</h3>
+                                <p class="text-slate-600 leading-relaxed">The NYC Health + Hospitals System Biopreparedness Program was established in response to the 2014 Ebola outbreak and operates within the Central Office of Biopreparedness and Emergency Management. As part of the largest municipal healthcare system in the United States, our system-wide program takes an "all-infectious-diseases" approach to biological preparedness and response.</p>
+                            </div>
+
+                            <!-- Partner Logos -->
+                            <div class="partner-section">
+                                <h4 class="text-center text-[#F28B46] text-lg font-semibold mb-6">Enhancing biopreparedness one outbreak at a time</h4>
+                                <div class="partner-logos-grid">
+                                    <img src="assets/HealthforUS_Color.png" alt="Health for US" onerror="this.style.display='none'">
+                                    <img src="assets/ceidlogo.png" alt="CEID" onerror="this.style.display='none'">
+                                    <img src="assets/beacon.png" alt="Beacon" onerror="this.style.display='none'">
+                                    <img src="assets/georgetown.png" alt="Georgetown" onerror="this.style.display='none'">
+                                    <img src="assets/brown.jpg" alt="Brown" onerror="this.style.display='none'">
+                                    <img src="assets/healthmap.png" alt="HealthMap" onerror="this.style.display='none'">
+                                    <img src="assets/cuny.png" alt="CUNY" onerror="this.style.display='none'">
+                                    <img src="assets/icap.png" alt="ICAP" onerror="this.style.display='none'">
+                                    <img src="assets/pri.png" alt="PRI" onerror="this.style.display='none'">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Data Table Tab Content -->
+                        <div id="table-content" class="content-panel">
+                            <div class="table-controls">
+                                <input type="text" id="table-search" placeholder="Search..." class="search-input">
+                                <button id="export-csv" class="export-button">Export CSV</button>
+                            </div>
+                            <div class="table-container">
+                                <table id="data-table" class="data-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Disease</th>
+                                            <th>Location</th>
+                                            <th>Country</th>
+                                            <th>Transmission Status</th>
+                                            <th>Last Updated</th>
+                                            <th>Notes</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="table-body"></tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Resources Tab Content -->
+                        <div id="resources-content" class="content-panel">
+                            <section class="resources-section">
+                                <h4>NYC Health + Hospitals Resources</h4>
+                                <p>Resources and fact sheets for special pathogens will be available here.</p>
+                                <ul>
+                                    <li><a href="https://www.nychealthandhospitals.org/institute-for-disease-and-disaster-management/" target="_blank">Institute for Disease and Disaster Management</a></li>
+                                    <li><a href="https://hhinternet.blob.core.windows.net/uploads/2019/07/NYCHH-Frontline-Hospital-Planning-Guide.pdf" target="_blank">Special Pathogens Frontline Playbook</a></li>
+                                </ul>
+                            </section>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- About Tab Content -->
+            <div id="about-tab-content" class="main-tab-content">
+                <section class="about-section">
+                    <h2>About the Special Pathogens Biopreparedness Map</h2>
+                    <p>The Special Pathogens Biopreparedness Map is an open-source initiative developed by the NYC Health + Hospitals System Biopreparedness Program and embedded into our Institute for Diseases and Disaster Management website. This interactive tool visualizes real-time outbreak data to support clinicians, public health officials, and emergency management professionals in monitoring and responding to special pathogens and other biothreats.</p>
+                    <p>The System Biopreparedness Program operates within NYC Health + Hospitals' Central Office of Biopreparedness and Emergency Management, part of the largest municipal healthcare system in the United States. Established in response to the 2014 Ebola outbreak, the program takes an "all-infectious-diseases" approach to biological preparedness and response.</p>
+                    <p>The map is actively maintained by members of the System Biopreparedness Program, including Syra Madad, DHSc, MSc, MCP, CHEP; Keira Wickliffe Berger, MSN, MPH, RN, CHEP; and George Johnson, MPH.</p>
+                </section>
+
+                <section class="about-section">
+                    <h3>About the System Biopreparedness Program</h3>
+                    <p>The NYC Health + Hospitals System Biopreparedness Program was established in response to the 2014 Ebola outbreak and operates within the Central Office of Biopreparedness and Emergency Management. As part of the largest municipal healthcare system in the United States, our system-wide program takes an "all-infectious-diseases" approach to biological preparedness and response.</p>
+                </section>
+
+                <section class="about-section">
+                    <h3>Enhancing biopreparedness one outbreak at a time</h3>
+                    <div class="partner-logos about-logos">
+                        <img src="assets/HealthforUS_Color.png" alt="Health for US" onerror="this.style.display='none'">
+                        <img src="assets/ceidlogo.png" alt="CEID" onerror="this.style.display='none'">
+                        <img src="assets/beacon.png" alt="Beacon" onerror="this.style.display='none'">
+                        <img src="assets/georgetown.png" alt="Georgetown" onerror="this.style.display='none'">
+                        <img src="assets/brown.jpg" alt="Brown" onerror="this.style.display='none'">
+                        <img src="assets/healthmap.png" alt="HealthMap" onerror="this.style.display='none'">
+                        <img src="assets/cuny.png" alt="CUNY" onerror="this.style.display='none'">
+                        <img src="assets/icap.png" alt="ICAP" onerror="this.style.display='none'">
+                        <img src="assets/pri.png" alt="PRI" onerror="this.style.display='none'">
+                    </div>
+                </section>
+
+                <section class="about-section">
+                    <h2>Goals</h2>
+                    <ol>
+                        <li>Support healthcare delivery screening and initial response for special pathogens, following the CDC's "Identify, Isolate, and Inform" strategy.</li>
+                        <li>Provide access to disease-specific resources for end users, including two-page Special Pathogen Clinician Fact Sheets for each pathogen that outline case definitions, signs and symptoms, epidemiological risk factors, infection prevention and control (IPC) guidance, and link to local health department contacts.</li>
+                        <li>Promote situational awareness of both current special pathogen outbreaks and endemic special pathogen threats globally.</li>
+                    </ol>
+                    <p><strong>Note:</strong> Endemic vector-borne diseases are not monitored within this dashboard due to the complexities of surveillance. However, these diseases are regularly tracked and reported through the Monthly Outbreak List, which is updated in near real-time.</p>
+                </section>
+
+                <section class="about-section">
+                    <h2>Definitions</h2>
+                    <p>According to our published <a href="https://hhinternet.blob.core.windows.net/uploads/2019/07/NYCHH-Frontline-Hospital-Planning-Guide.pdf" target="_blank">Special Pathogens Frontline Playbook</a>, special pathogens:</p>
+                    <ul>
+                        <li>Are associated with high morbidity and/or mortality;</li>
+                        <li>Have a high likelihood of secondary cases (person-to-person spread);</li>
+                        <li>Lack an effective vaccine, prophylaxis, or treatment; and</li>
+                        <li>Might prompt the use of a biocontainment unit due to clinical or public health concerns.</li>
+                    </ul>
+                    <p>Special pathogens pose a significant risk to healthcare personnel and require specific facility processes to ensure early identification and isolation of infected patients, as well as the use of effective infection control practices to prevent transmission during evaluation.</p>
+
+                    <h3>Transmission Status Definitions</h3>
+                    <ul>
+                        <li><strong>Continued transmission:</strong> Ongoing transmission with active cases</li>
+                        <li><strong>No continued transmission:</strong> Within a second incubation period (no active cases; outbreak nearing closure)</li>
+                        <li><strong>Endemic:</strong> Constant presence or usual prevalence of a disease or infectious agent in a population within a geographic area (CDC).</li>
+                    </ul>
+                    <p>If an endemic country reports active cases of endemic diseases or any other special pathogen, they will be marked under high concern.</p>
+                </section>
+
+                <section class="about-section">
+                    <h2>Contact</h2>
+                    <ul>
+                        <li><strong>Email:</strong> <a href="mailto:SystemBiopreparedness@nychhc.org">SystemBiopreparedness@nychhc.org</a></li>
+                        <li><strong>Website:</strong> <a href="https://www.nychealthandhospitals.org/institute-for-disease-and-disaster-management/" target="_blank">NYC Health + Hospitals Institute for Diseases and Disaster Management</a></li>
+                    </ul>
+                </section>
+            </div>
+        </main>
+
+        <footer class="bg-[#003976] text-white py-8 lg:py-10 mt-8 lg:mt-12">
+            <div class="max-w-[1440px] mx-auto px-4 lg:px-6">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
+                    <div>
+                        <div class="leading-none mb-3">
+                            <span class="text-white font-black text-base">NYC</span><br>
+                            <span class="text-white font-black text-base">HEALTH</span><span class="text-[#F28B46] font-black text-base">+</span><br>
+                            <span class="text-[#F28B46] font-black text-base">HOSPITALS</span>
+                        </div>
+                        <p class="text-blue-200 text-sm">System Biopreparedness Program</p>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-4 sm:gap-8 text-sm">
+                        <a href="mailto:SystemBiopreparedness@nychhc.org" class="text-blue-200 hover:text-white transition-colors flex items-center gap-2">
+                            <iconify-icon icon="lucide:mail"></iconify-icon>
+                            SystemBiopreparedness@nychhc.org
+                        </a>
+                        <a href="https://www.nychealthandhospitals.org/institute-for-disease-and-disaster-management/" target="_blank" class="text-blue-200 hover:text-white transition-colors">
+                            Institute for Disease & Disaster Management
+                        </a>
+                    </div>
+                </div>
+                <div class="border-t border-blue-800 mt-6 pt-6 text-xs text-blue-300">
+                    <p>© 2026 NYC Health + Hospitals. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- noUiSlider JS -->
+    <script src="https://cdn.jsdelivr.net/npm/nouislider@15.7.1/dist/nouislider.min.js"></script>
+
+    <!-- Custom JS -->
+    <script src="app.js"></script>
+</body>
+</html>

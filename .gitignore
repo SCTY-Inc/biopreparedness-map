@@ -1,0 +1,7 @@
+node_modules/
+.DS_Store
+*.log
+data.yaml
+# Keep data.json as example, but you can ignore it if you want
+# data.json
+.superdesign
