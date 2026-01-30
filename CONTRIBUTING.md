@@ -18,11 +18,12 @@ If you are updating outbreak data:
 - Edit `data.json` only.
 - Required fields: `disease`, `country`, `transmissionStatus`.
 - Valid `transmissionStatus` values: `Continued Transmission`, `No Continued Transmission`, `Endemic`.
-- Ensure country names match the GeoJSON or add a mapping in `app.js` under `countryNameMap`.
+- Run validation by loading the site; schema rules live in `schema.json`.
+- Ensure country names match the GeoJSON or add a mapping in `js/config.js` under `COUNTRY_NAME_MAP`.
 
 ## Code changes
 
-- Keep the map tile provider and attribution unchanged.
+- Keep the map tile provider and attribution unchanged unless explicitly requested (see `config.json`).
 - Preserve NYC Health + Hospitals branding and partner logos.
 - Avoid removing existing data entries without approval from the maintainers.
 

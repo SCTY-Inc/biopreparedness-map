@@ -11,20 +11,23 @@ Interactive map tracking global disease outbreaks and endemic regions, developed
 ## Tech Stack
 
 - **Frontend:** Vanilla JS + Tailwind CSS (CDN)
-- **Map:** Leaflet.js with Carto basemap
+- **Map:** Leaflet.js (Carto basemap)
 - **Slider:** noUiSlider
 - **Hosting:** Cloudflare Pages
 - **Repo:** github.com/SCTY-Inc/bio-map
 
 ## Key Files
 
-| File | Purpose |
-|------|---------|
-| `index.html` | Main HTML structure, Tailwind classes |
-| `app.js` | Map logic, filtering, data loading |
-| `styles.css` | Custom CSS, component styles |
-| `data.json` | Pathogen/outbreak data (update monthly) |
-| `assets/` | Partner logos, H+H branding |
+| File          | Purpose                                 |
+| ------------- | --------------------------------------- |
+| `index.html`  | Main HTML structure, Tailwind classes   |
+| `app.js`      | Module entry point                      |
+| `js/`         | Application logic modules               |
+| `styles.css`  | Custom CSS, component styles            |
+| `config.json` | Site + map configuration                |
+| `schema.json` | Data validation rules                   |
+| `data.json`   | Pathogen/outbreak data (update monthly) |
+| `assets/`     | Partner logos, H+H branding             |
 
 ## Data Updates
 
@@ -47,13 +50,14 @@ Monthly data updates go in `data.json`. Structure:
 ```
 
 **Transmission statuses:**
+
 - `Continued Transmission` - Active outbreak (orange)
 - `No Continued Transmission` - Outbreak winding down (blue)
 - `Endemic` - Constant presence in region (green)
 
 ## Country Name Mapping
 
-Country names must match GeoJSON. If a new country doesn't appear on map, add mapping in `app.js` `countryNameMap` object.
+Country names must match GeoJSON. If a new country doesn't appear on map, add mapping in `js/config.js` under `COUNTRY_NAME_MAP`.
 
 ## Deployment
 
@@ -68,13 +72,16 @@ git push
 ## Common Tasks
 
 ### Add new disease
+
 1. Add entries to `data.json`
 2. Disease will auto-populate in filter dropdown
 
 ### Add new country
+
 1. Add to `data.json`
-2. If not showing on map, add to `countryNameMap` in `app.js`
+2. If not showing on map, add to `COUNTRY_NAME_MAP` in `js/config.js`
 
 ### Update partner logos
+
 1. Add image to `assets/`
 2. Update `index.html` partner section

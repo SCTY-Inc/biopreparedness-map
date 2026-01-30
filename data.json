@@ -19,7 +19,7 @@
       "lastUpdated": "2024-12-08",
       "notes": "Clade 1b - 26 cases",
       "cases": 26,
-      "latitude": -6.3690,
+      "latitude": -6.369,
       "longitude": 34.8888
     },
     {
@@ -63,7 +63,7 @@
       "lastUpdated": "2024-12-08",
       "notes": "Clade 1b - 23 cases",
       "cases": 23,
-      "latitude": -0.2280,
+      "latitude": -0.228,
       "longitude": 15.8277
     },
     {
@@ -85,7 +85,7 @@
       "lastUpdated": "2024-12-08",
       "notes": "Outbreak began in the Omo Region - 206 cases",
       "cases": 206,
-      "latitude": 9.1450,
+      "latitude": 9.145,
       "longitude": 38.7667
     },
     {
@@ -140,7 +140,7 @@
       "lastUpdated": "2024-12-08",
       "notes": "Numbers reflect those reported for the entire year - 1119 cases",
       "cases": 1119,
-      "latitude": 9.0820,
+      "latitude": 9.082,
       "longitude": 8.6753
     },
     {
@@ -171,7 +171,7 @@
       "transmissionStatus": "Endemic",
       "lastUpdated": "2024-12-08",
       "notes": "Endemic region",
-      "latitude": 7.5400,
+      "latitude": 7.54,
       "longitude": -5.5471
     },
     {
@@ -241,7 +241,7 @@
       "transmissionStatus": "Endemic",
       "lastUpdated": "2024-12-08",
       "notes": "Endemic region",
-      "latitude": 23.6850,
+      "latitude": 23.685,
       "longitude": 90.3563
     },
     {
@@ -262,7 +262,7 @@
       "lastUpdated": "2024-12-08",
       "notes": "Endemic region",
       "latitude": 33.9391,
-      "longitude": 67.7100
+      "longitude": 67.71
     },
     {
       "disease": "Crimean Congo Hemorrhagic Fever",
@@ -272,7 +272,7 @@
       "lastUpdated": "2024-12-08",
       "notes": "Endemic region",
       "latitude": 32.4279,
-      "longitude": 53.6880
+      "longitude": 53.688
     },
     {
       "disease": "Crimean Congo Hemorrhagic Fever",
@@ -291,7 +291,7 @@
       "transmissionStatus": "Endemic",
       "lastUpdated": "2024-12-08",
       "notes": "Southern endemic foci",
-      "latitude": 61.5240,
+      "latitude": 61.524,
       "longitude": 105.3188
     },
     {
@@ -381,7 +381,7 @@
       "transmissionStatus": "Endemic",
       "lastUpdated": "2024-12-08",
       "notes": "Endemic region",
-      "latitude": 7.5400,
+      "latitude": 7.54,
       "longitude": -5.5471
     },
     {
@@ -431,7 +431,7 @@
       "transmissionStatus": "Endemic",
       "lastUpdated": "2024-12-08",
       "notes": "Endemic region",
-      "latitude": -0.2280,
+      "latitude": -0.228,
       "longitude": 15.8277
     },
     {
@@ -531,7 +531,7 @@
       "transmissionStatus": "Endemic",
       "lastUpdated": "2024-12-08",
       "notes": "Endemic region",
-      "latitude": -6.3690,
+      "latitude": -6.369,
       "longitude": 34.8888
     },
     {

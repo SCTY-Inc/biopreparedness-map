@@ -12,14 +12,21 @@ python3 -m http.server 8000
 
 Open http://localhost:8000.
 
+## Configuration
+
+Site and map settings live in `config.json`. The map boundaries are stored in `assets/world.geojson`.
+
 ## Data updates
 
 Edit `data.json`. Required fields: `disease`, `country`, `transmissionStatus`.
 
 Valid `transmissionStatus` values:
+
 - `Continued Transmission`
 - `No Continued Transmission`
 - `Endemic`
+
+Validation rules are defined in `schema.json` and errors surface in the UI.
 
 ## Open source
 
