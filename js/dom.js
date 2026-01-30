@@ -1,0 +1,29 @@
+export let dom = {};
+
+export function initDom() {
+    dom = {
+        navTabs: document.querySelectorAll('.nav-tab'),
+        contentTabs: document.querySelectorAll('.content-tab'),
+        contentPanels: document.querySelectorAll('.content-panel'),
+        homeTab: document.getElementById('home-tab'),
+        aboutTab: document.getElementById('about-tab-content'),
+        countryFilter: document.getElementById('country-filter'),
+        diseaseFilter: document.getElementById('disease-filter'),
+        casesSlider: document.getElementById('cases-slider'),
+        casesMinInput: document.getElementById('cases-min-input'),
+        casesMaxInput: document.getElementById('cases-max-input'),
+        showOutbreaks: document.getElementById('show-outbreaks'),
+        showEndemic: document.getElementById('show-endemic'),
+        legendContinued: document.getElementById('legend-continued'),
+        legendNoTransmission: document.getElementById('legend-no-transmission'),
+        legendEndemic: document.getElementById('legend-endemic'),
+        dataUpdateDate: document.getElementById('data-update-date'),
+        diseaseCount: document.getElementById('disease-count'),
+        tableBody: document.getElementById('table-body'),
+        tableSearch: document.getElementById('table-search'),
+        exportCsv: document.getElementById('export-csv'),
+        resourceSelect: document.getElementById('resource-select')
+    };
+
+    return dom;
+}

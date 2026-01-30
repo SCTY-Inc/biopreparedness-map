@@ -1,10 +1,10 @@
 # Assets Directory
 
-Place your logo and partner images in this directory:
+Store NYC Health + Hospitals branding and partner logos here.
 
 ## Required Assets
 
-- `bio.png` - NYC Health + Hospitals logo (header logo)
+- `hhs_logo.png` - NYC Health + Hospitals logo used in the header
 
 ## Partner Logos (optional)
 
@@ -20,7 +20,7 @@ Place your logo and partner images in this directory:
 
 ## Logo Specifications
 
-- Header logo (`bio.png`): Recommended height 60px, PNG format with transparency
+- Header logo (`hhs_logo.png`): Recommended height 60px, PNG format with transparency
 - Partner logos: Recommended max height 50-60px, various formats supported
 
 If logos are not found, they will be hidden automatically (handled by `onerror` attributes in HTML).
