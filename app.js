@@ -1,6 +1,6 @@
 // Global state
 let map;
-let countryLayers = {}; // Store country polygon layers
+let countriesLayerGroup; // Layer group for country polygons
 let allData = [];
 let currentFilters = {
     country: 'all',
@@ -41,7 +41,7 @@ const countryNameMap = {
     'Afghanistan': ['Afghanistan'],
     'Iran': ['Iran', 'Iran, Islamic Republic of'],
     'Russia': ['Russian Federation', 'Russia'],
-    'Türkiye': ['Türkiye', 'Turkey'],
+    'Turkey': ['Türkiye', 'Turkey'],
     'Jordan': ['Jordan'],
     'Kuwait': ['Kuwait'],
     'Oman': ['Oman'],
@@ -98,7 +98,7 @@ function initializeCasesSlider() {
     });
 
     // Update inputs when slider changes
-    sliderEl.noUiSlider.on('update', function(values) {
+    sliderEl.noUiSlider.on('update', function (values) {
         const minInput = document.getElementById('cases-min-input');
         const maxInput = document.getElementById('cases-max-input');
         if (minInput) minInput.value = values[0];
@@ -109,7 +109,7 @@ function initializeCasesSlider() {
     });
 
     // Apply filters when slider changes end
-    sliderEl.noUiSlider.on('change', function() {
+    sliderEl.noUiSlider.on('change', function () {
         applyFilters();
     });
 
@@ -118,12 +118,12 @@ function initializeCasesSlider() {
     const maxInput = document.getElementById('cases-max-input');
 
     if (minInput) {
-        minInput.addEventListener('change', function() {
+        minInput.addEventListener('change', function () {
             sliderEl.noUiSlider.set([this.value, null]);
         });
     }
     if (maxInput) {
-        maxInput.addEventListener('change', function() {
+        maxInput.addEventListener('change', function () {
             sliderEl.noUiSlider.set([null, this.value]);
         });
     }
@@ -139,7 +139,7 @@ async function loadData() {
         const data = await response.json();
         allData = data.pathogens || [];
         console.log(`Data loaded: ${allData.length} pathogen entries`);
-        
+
         if (allData.length === 0) {
             console.warn('No pathogen data found in data.json');
         }
@@ -168,6 +168,9 @@ function initializeMap() {
 
     // Style the map background
     map.getContainer().style.backgroundColor = '#D8DCDC';
+
+    // Initialize layer group for countries
+    countriesLayerGroup = L.layerGroup().addTo(map);
 }
 
 // Load country boundaries from a GeoJSON source
@@ -178,10 +181,10 @@ async function loadCountryBoundaries() {
             'https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/world.geojson',
             'https://raw.githubusercontent.com/johan/world.geo.json/master/countries.geo.json'
         ];
-        
+
         let geoData = null;
         let lastError = null;
-        
+
         for (const source of sources) {
             try {
                 const response = await fetch(source);
@@ -195,11 +198,11 @@ async function loadCountryBoundaries() {
                 console.warn(`Failed to load from ${source}:`, err);
             }
         }
-        
+
         if (!geoData) {
             throw lastError || new Error('Could not load country boundaries from any source');
         }
-        
+
         // Process data and create country polygons
         processCountryData(geoData);
         updateMapCountries();
@@ -215,11 +218,11 @@ async function loadCountryBoundaries() {
 function processCountryData(geoData) {
     // Group data by country
     const countryData = {};
-    
+
     allData.forEach(item => {
         const country = item.country;
         if (!country) return;
-        
+
         if (!countryData[country]) {
             countryData[country] = [];
         }
@@ -229,7 +232,7 @@ function processCountryData(geoData) {
     // Store country data mapping
     window.countryDataMap = countryData;
     window.geoData = geoData;
-    
+
     // Log available countries from data
     console.log('Countries in data:', Object.keys(countryData));
     console.log('Sample GeoJSON properties:', geoData.features[0]?.properties);
@@ -237,13 +240,10 @@ function processCountryData(geoData) {
 
 // Update map with country polygons
 function updateMapCountries() {
-    // Clear ALL existing country layers first
-    Object.values(countryLayers).forEach(layer => {
-        if (map.hasLayer(layer)) {
-            map.removeLayer(layer);
-        }
-    });
-    countryLayers = {};
+    // Clear ALL existing country layers using the layer group
+    if (countriesLayerGroup) {
+        countriesLayerGroup.clearLayers();
+    }
 
     // If both toggles are off, don't show anything
     if (!currentFilters.showOutbreaks && !currentFilters.showEndemic) {
@@ -294,79 +294,112 @@ function updateMapCountries() {
 
     // Create polygons for each country
     let matchedCount = 0;
-    let unmatchedCountries = [];
-    
-    window.geoData.features.forEach(feature => {
-        // Try multiple property names that different GeoJSON sources might use
-        const countryName = feature.properties.NAME || 
-                           feature.properties.name || 
-                           feature.properties.NAME_LONG ||
-                           feature.properties.ADMIN ||
-                           feature.properties.NAME_EN ||
-                           feature.properties.NAME_ENG ||
-                           feature.properties.country ||
-                           feature.properties.Country;
-        
-        if (!countryName) return;
-        
-        const mappedCountry = findMatchingCountry(countryName, Object.keys(countryStatusMap));
-        
-        if (mappedCountry && countryStatusMap[mappedCountry]) {
-            matchedCount++;
+    const matchedCountries = new Set();
+
+    // Use a single GeoJSON layer for better performance and cleaner DOM
+    L.geoJSON(window.geoData, {
+        filter: function (feature) {
+            const countryName = feature.properties.NAME ||
+                feature.properties.name ||
+                feature.properties.NAME_LONG ||
+                feature.properties.ADMIN ||
+                feature.properties.NAME_EN ||
+                feature.properties.NAME_ENG ||
+                feature.properties.country ||
+                feature.properties.Country;
+
+            if (!countryName) return false;
+            const mappedCountry = findMatchingCountry(countryName, Object.keys(countryStatusMap));
+
+            if (mappedCountry && countryStatusMap[mappedCountry]) {
+                const countryData = window.countryDataMap[mappedCountry] || [];
+                const hasVisibleData = countryData.some(item => {
+                    const itemStatus = (item.transmissionStatus || '').toLowerCase();
+                    const isEndemic = itemStatus.includes('endemic');
+                    const isOutbreak = !isEndemic && (itemStatus.includes('transmission') || itemStatus.includes('outbreak'));
+
+                    if (isEndemic && !currentFilters.showEndemic) return false;
+                    if (isOutbreak && !currentFilters.showOutbreaks) return false;
+                    return true;
+                });
+                return hasVisibleData;
+            }
+            return false;
+        },
+        style: function (feature) {
+            const countryName = feature.properties.NAME ||
+                feature.properties.name ||
+                feature.properties.NAME_LONG ||
+                feature.properties.ADMIN ||
+                feature.properties.NAME_EN ||
+                feature.properties.NAME_ENG ||
+                feature.properties.country ||
+                feature.properties.Country;
+
+            if (!countryName) return {};
+            const mappedCountry = findMatchingCountry(countryName, Object.keys(countryStatusMap));
+            if (!mappedCountry) return {};
+
             const status = countryStatusMap[mappedCountry].status;
             const color = getStatusColor(status);
-            
-            const layer = L.geoJSON(feature, {
-                style: {
-                    fillColor: color,
-                    fillOpacity: 0.7,
-                    color: '#333',
-                    weight: 1,
-                    opacity: 0.8
-                },
-                onEachFeature: function(feature, layer) {
-                    // Create popup with all diseases for this country
-                    const countryData = window.countryDataMap[mappedCountry] || [];
-                    const filteredCountryData = countryData.filter(item => {
-                        const itemStatus = (item.transmissionStatus || '').toLowerCase();
-                        const isEndemic = itemStatus.includes('endemic');
-                        const isOutbreak = !isEndemic && (itemStatus.includes('transmission') || itemStatus.includes('outbreak'));
-                        
-                        if (isEndemic && !currentFilters.showEndemic) return false;
-                        if (isOutbreak && !currentFilters.showOutbreaks) return false;
-                        return true;
-                    });
 
-                    if (filteredCountryData.length > 0) {
-                        const popupContent = createCountryPopup(filteredCountryData, mappedCountry);
-                        layer.bindPopup(popupContent);
-                    }
-                }
-            }).addTo(map);
+            return {
+                fillColor: color,
+                fillOpacity: 0.7,
+                color: '#333',
+                weight: 1,
+                opacity: 0.8
+            };
+        },
+        onEachFeature: function (feature, layer) {
+            const countryName = feature.properties.NAME ||
+                feature.properties.name ||
+                feature.properties.NAME_LONG ||
+                feature.properties.ADMIN ||
+                feature.properties.NAME_EN ||
+                feature.properties.NAME_ENG ||
+                feature.properties.country ||
+                feature.properties.Country;
 
-            countryLayers[mappedCountry] = layer;
-        } else if (Object.keys(countryStatusMap).length > 0) {
-            // Track unmatched countries for debugging
-            unmatchedCountries.push({ geoName: countryName, dataCountries: Object.keys(countryStatusMap) });
+            // Note: filter() runs before onEachFeature, so we know it's a valid match here
+            const mappedCountry = findMatchingCountry(countryName, Object.keys(countryStatusMap));
+            if (!mappedCountry) return;
+
+            matchedCount++;
+            matchedCountries.add(mappedCountry);
+
+            // Create popup with all diseases for this country
+            const countryData = window.countryDataMap[mappedCountry] || [];
+            const filteredCountryData = countryData.filter(item => {
+                const itemStatus = (item.transmissionStatus || '').toLowerCase();
+                const isEndemic = itemStatus.includes('endemic');
+                const isOutbreak = !isEndemic && (itemStatus.includes('transmission') || itemStatus.includes('outbreak'));
+
+                if (isEndemic && !currentFilters.showEndemic) return false;
+                if (isOutbreak && !currentFilters.showOutbreaks) return false;
+                return true;
+            });
+
+            if (filteredCountryData.length > 0) {
+                const popupContent = createCountryPopup(filteredCountryData, mappedCountry);
+                layer.bindPopup(popupContent);
+            }
         }
-    });
-    
-    console.log(`Matched ${matchedCount} countries out of ${Object.keys(countryStatusMap).length} countries with data`);
+    }).addTo(countriesLayerGroup);
 
-    // Log unmatched data countries (countries in our data that couldn't be found in GeoJSON)
-    const matchedDataCountries = Object.keys(countryLayers);
-    const unmatchedDataCountries = Object.keys(countryStatusMap).filter(c => !matchedDataCountries.includes(c));
+    console.log(`Matched ${matchedCount} features for ${matchedCountries.size} unique countries`);
+
+    // Log unmatched data countries
+    const unmatchedDataCountries = Object.keys(countryStatusMap).filter(c => !matchedCountries.has(c));
     if (unmatchedDataCountries.length > 0) {
         console.warn('Countries in data not matched to GeoJSON:', unmatchedDataCountries);
     }
-
-    // Don't auto-fit bounds - keep the initial view centered on Africa/Middle East
 }
 
 // Find matching country name (handles variations)
 function findMatchingCountry(geoName, dataCountries) {
     if (!geoName) return null;
-    
+
     // Direct match (case-insensitive)
     const geoLower = geoName.toLowerCase().trim();
     for (const dataCountry of dataCountries) {
@@ -374,7 +407,7 @@ function findMatchingCountry(geoName, dataCountries) {
             return dataCountry;
         }
     }
-    
+
     // Check mapped names
     for (const dataCountry of dataCountries) {
         const mappings = countryNameMap[dataCountry];
@@ -386,7 +419,7 @@ function findMatchingCountry(geoName, dataCountries) {
             }
         }
     }
-    
+
     // Reverse check - check if geoName is a key in countryNameMap
     for (const [key, values] of Object.entries(countryNameMap)) {
         if (key.toLowerCase().trim() === geoLower) {
@@ -398,8 +431,10 @@ function findMatchingCountry(geoName, dataCountries) {
             }
         }
     }
-    
-    // Partial match (contains)
+
+    // Partial match (contains) - REMOVED strictly to prevent false positives (e.g. Guinea matching Equatorial Guinea)
+    // The previous logic was causing artifacts where countries with similar names were incorrectly colored.
+    /*
     for (const dataCountry of dataCountries) {
         const dataLower = dataCountry.toLowerCase();
         if (geoLower.includes(dataLower) || dataLower.includes(geoLower)) {
@@ -409,7 +444,8 @@ function findMatchingCountry(geoName, dataCountries) {
             }
         }
     }
-    
+    */
+
     return null;
 }
 
@@ -426,7 +462,7 @@ function getStatusPriority(status) {
 function createCountryPopup(countryData, countryName) {
     let html = `<div style="min-width: 250px; font-family: Arial, sans-serif;">`;
     html += `<h3 style="margin: 0 0 10px 0; color: #0072BC; font-size: 16px;">${countryName}</h3>`;
-    
+
     // Group by disease
     const diseases = {};
     countryData.forEach(item => {
@@ -440,7 +476,7 @@ function createCountryPopup(countryData, countryName) {
         const items = diseases[disease];
         html += `<div style="margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid #E0E0E0;">`;
         html += `<strong style="color: #333; font-size: 14px;">${disease}</strong>`;
-        
+
         items.forEach(item => {
             html += `<p style="margin: 5px 0; font-size: 12px; color: #666;">`;
             html += `<strong>Status:</strong> ${item.transmissionStatus || 'N/A'}<br>`;
@@ -457,7 +493,7 @@ function createCountryPopup(countryData, countryName) {
         });
         html += `</div>`;
     });
-    
+
     html += `</div>`;
     return html;
 }
@@ -477,7 +513,7 @@ function updateMapMarkers() {
             if (isOutbreak && !currentFilters.showOutbreaks) return;
 
             const color = getStatusColor(item.transmissionStatus);
-            
+
             const marker = L.circleMarker([item.latitude, item.longitude], {
                 radius: 8,
                 fillColor: color,
@@ -485,7 +521,7 @@ function updateMapMarkers() {
                 weight: 2,
                 opacity: 1,
                 fillOpacity: 0.7
-            }).addTo(map);
+            }).addTo(countriesLayerGroup);
 
             const popupContent = `
                 <div style="min-width: 200px; font-family: Arial, sans-serif;">
@@ -588,7 +624,7 @@ function setupEventListeners() {
             updateMapCountries();
         });
     }
-    
+
     // Initialize legend visibility
     updateLegendVisibility();
 
@@ -606,15 +642,23 @@ function setupEventListeners() {
         exportBtn.addEventListener('click', exportToCSV);
     }
 
-    // Outbreak list button
-    const outbreakBtn = document.getElementById('outbreak-list-btn');
-    if (outbreakBtn) {
-        outbreakBtn.addEventListener('click', () => {
-            alert('Monthly Outbreak List feature coming soon. This would link to the monthly outbreak list.');
+    // Resources select
+    const resourceSelect = document.getElementById('resource-select');
+    if (resourceSelect) {
+        resourceSelect.addEventListener('change', (e) => {
+            if (e.target.value) {
+                window.open(e.target.value, '_blank');
+                // Reset select after opening
+                setTimeout(() => {
+                    e.target.value = '';
+                }, 500);
+            }
         });
     }
 
-    }
+
+
+}
 
 // Switch navigation tabs (Home/About)
 function switchNavTab(tabName) {
@@ -739,7 +783,7 @@ function updateLegendVisibility() {
     const legendContinued = document.getElementById('legend-continued');
     const legendNoTransmission = document.getElementById('legend-no-transmission');
     const legendEndemic = document.getElementById('legend-endemic');
-    
+
     // Check if we have data for each status type in the full dataset (before toggle filtering)
     const hasContinued = allData.some(item => {
         const status = (item.transmissionStatus || '').toLowerCase();
@@ -753,18 +797,20 @@ function updateLegendVisibility() {
         const status = (item.transmissionStatus || '').toLowerCase();
         return status.includes('endemic');
     });
-    
+
     // Show legend items only if:
     // 1. We have data for that status type in the dataset, AND
     // 2. The corresponding toggle is checked
+    // Show legend items if we have data for that status type in the dataset
+    // (User requested legend to always be on/visible regardless of filter state)
     if (legendContinued) {
-        legendContinued.style.display = (hasContinued && currentFilters.showOutbreaks) ? 'flex' : 'none';
+        legendContinued.style.display = hasContinued ? 'flex' : 'none';
     }
     if (legendNoTransmission) {
-        legendNoTransmission.style.display = (hasNoTransmission && currentFilters.showOutbreaks) ? 'flex' : 'none';
+        legendNoTransmission.style.display = 'flex'; // Always show this if the box is visible
     }
     if (legendEndemic) {
-        legendEndemic.style.display = (hasEndemic && currentFilters.showEndemic) ? 'flex' : 'none';
+        legendEndemic.style.display = hasEndemic ? 'flex' : 'none';
     }
 }
 
@@ -864,10 +910,10 @@ function renderTable(searchTerm = '') {
 // Export to CSV
 function exportToCSV() {
     const filtered = getFilteredData();
-    
+
     // CSV headers
     const headers = ['Disease', 'Location', 'Country', 'Transmission Status', 'Last Updated', 'Notes', 'Latitude', 'Longitude'];
-    
+
     // CSV rows
     const rows = filtered.map(item => [
         item.disease || '',
