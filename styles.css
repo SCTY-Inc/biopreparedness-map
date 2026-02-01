@@ -510,6 +510,22 @@ h4 {
   color: #475569;
 }
 
+.about-section ol {
+  list-style-type: decimal;
+  padding-left: 1.5rem;
+  margin: 1rem 0;
+}
+
+.about-section ul {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  margin: 1rem 0;
+}
+
+.about-section li {
+  margin-bottom: 0.5rem;
+}
+
 .about-section a {
   color: var(--accent-blue);
 }
