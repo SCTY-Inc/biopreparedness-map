@@ -167,7 +167,7 @@
     {
       "disease": "Lassa Fever",
       "location": "Multiple regions",
-      "country": "Côte d'Ivoire",
+      "country": "C\u00f4te d'Ivoire",
       "transmissionStatus": "Endemic",
       "lastUpdated": "2024-12-08",
       "notes": "Endemic region",
@@ -243,16 +243,6 @@
       "notes": "Endemic region",
       "latitude": 23.685,
       "longitude": 90.3563
-    },
-    {
-      "disease": "Nipah",
-      "location": "Multiple regions",
-      "country": "India",
-      "transmissionStatus": "Endemic",
-      "lastUpdated": "2024-12-08",
-      "notes": "Endemic region",
-      "latitude": 20.5937,
-      "longitude": 78.9629
     },
     {
       "disease": "Crimean Congo Hemorrhagic Fever",
@@ -377,7 +367,7 @@
     {
       "disease": "Ebola",
       "location": "Multiple regions",
-      "country": "Côte d'Ivoire",
+      "country": "C\u00f4te d'Ivoire",
       "transmissionStatus": "Endemic",
       "lastUpdated": "2024-12-08",
       "notes": "Endemic region",
