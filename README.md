@@ -14,7 +14,7 @@ Open http://localhost:8000.
 
 ## Configuration
 
-Default site and map settings live in `js/config.js`. `config.json` is optional override-only config. The map boundaries are stored in `assets/world.geojson`.
+Site and map settings live in `js/config.js`. Country boundaries are in `assets/world.geojson`.
 
 ## Data updates
 
