@@ -13,7 +13,7 @@ Interactive map tracking global disease outbreaks and endemic regions, developed
 - **Frontend:** Vanilla JS + Tailwind CSS (CDN)
 - **Map:** Leaflet.js (Carto basemap)
 - **Hosting:** Cloudflare Pages
-- **Repo:** github.com/SCTY-Inc/bio-map
+- **Repo:** github.com/SCTY-Inc/biopreparedness-map
 
 ## Key Files
 
