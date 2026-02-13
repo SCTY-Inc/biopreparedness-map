@@ -48,13 +48,13 @@ Read the PDF and extract every disease, country, transmission status, and any no
 Compare extracted list against current `data.json`:
 
 - **Removed countries/diseases** — delete entries
-- **New countries** — need lat/lng coordinates and `COUNTRY_NAME_MAP` entry in `js/config.js`
+- **New countries** — need `COUNTRY_NAME_MAP` entry in `js/config.js` (coordinates derived from GeoJSON automatically)
 - **Status changes** — update `transmissionStatus`
 - **Note changes** — update `notes` (clade info, case details)
 
 ### Step 3 — Update data.json
 
-Entry schema (no `cases` field):
+Entry schema (no `cases` or coordinate fields — centroids derived from GeoJSON at runtime):
 
 ```json
 {
@@ -63,9 +63,7 @@ Entry schema (no `cases` field):
   "country": "Uganda",
   "transmissionStatus": "Continued Transmission",
   "lastUpdated": "2026-02-11",
-  "notes": "Clade 1b",
-  "latitude": 1.3733,
-  "longitude": 32.2903
+  "notes": "Clade 1b"
 }
 ```
 
@@ -86,7 +84,7 @@ Run a count check: total entries, diseases, countries, statuses. Verify no dangl
 |-------|-----------|
 | Country in multiple categories (e.g., DRC Clade 1a + 1b) | Keep higher-priority status ("Continued Transmission"), combine in notes |
 | Country name doesn't match GeoJSON | Add variant to `COUNTRY_NAME_MAP` (check `assets/world.geojson` for exact name) |
-| New country missing from map | Needs both lat/lng in `data.json` AND `COUNTRY_NAME_MAP` entry |
+| New country missing from map | Needs `COUNTRY_NAME_MAP` entry in `js/config.js` (country name must match GeoJSON) |
 | PDF has case counts but data model dropped `cases` field | Put notable counts in `notes` text only |
 | Disease name inconsistency (e.g., "Nipah" vs "Nipah Virus") | Use canonical name matching existing entries; if changing, update all entries |
 
@@ -120,7 +118,7 @@ Push to `main` branch auto-deploys to Cloudflare Pages.
 
 ### Add new country
 
-1. Add to `data.json` with lat/lng coordinates
+1. Add to `data.json` (no coordinates needed — derived from GeoJSON)
 2. Add to `COUNTRY_NAME_MAP` in `js/config.js` with any GeoJSON name variants
 
 ### Update partner logos

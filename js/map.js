@@ -3,7 +3,7 @@ import { getFilteredData } from './data.js';
 import { getStatusColor, getStatusInfo, getStatusPriority } from './status.js';
 import { COUNTRY_NAME_MAP } from './config.js';
 
-// --- Geo helpers (absorbed from geo.js) ---
+// --- Geo helpers ---
 
 function getGeoCountryName(feature) {
   return (
@@ -22,12 +22,15 @@ function findMatchingCountry(geoName, dataCountries) {
   if (!geoName) return null;
 
   const geoLower = geoName.toLowerCase().trim();
+
+  // Direct match
   for (const dataCountry of dataCountries) {
     if (dataCountry.toLowerCase().trim() === geoLower) {
       return dataCountry;
     }
   }
 
+  // Check COUNTRY_NAME_MAP variants
   for (const dataCountry of dataCountries) {
     const mappings = COUNTRY_NAME_MAP[dataCountry];
     if (mappings) {
@@ -39,13 +42,87 @@ function findMatchingCountry(geoName, dataCountries) {
     }
   }
 
-  for (const [key, values] of Object.entries(COUNTRY_NAME_MAP)) {
-    if (key.toLowerCase().trim() === geoLower) {
-      if (dataCountries.includes(key)) return key;
+  return null;
+}
+
+// --- Geometry helpers ---
+
+/**
+ * Filter out overseas territory polygons for countries like France.
+ * Keeps only polygons whose centroid falls within a reasonable bounding box
+ * around the country's expected location (metropolitan territory).
+ */
+function filterOverseasTerritories(feature) {
+  if (!feature.geometry || feature.geometry.type !== 'MultiPolygon') return feature;
+
+  const name = getGeoCountryName(feature);
+  if (!name) return feature;
+
+  // Countries with overseas territories that cause rendering issues
+  const bounds = {
+    France: { minLat: 41, maxLat: 52, minLng: -6, maxLng: 10 },
+  };
+
+  const countryBounds = bounds[name];
+  if (!countryBounds) return feature;
+
+  const filtered = feature.geometry.coordinates.filter((polygon) => {
+    // Get rough centroid from first ring of polygon
+    const ring = polygon[0];
+    if (!ring || ring.length === 0) return true;
+    const avgLng = ring.reduce((s, c) => s + c[0], 0) / ring.length;
+    const avgLat = ring.reduce((s, c) => s + c[1], 0) / ring.length;
+    return (
+      avgLat >= countryBounds.minLat &&
+      avgLat <= countryBounds.maxLat &&
+      avgLng >= countryBounds.minLng &&
+      avgLng <= countryBounds.maxLng
+    );
+  });
+
+  if (filtered.length === 0) return feature; // fallback: don't remove everything
+
+  return {
+    ...feature,
+    geometry: { ...feature.geometry, coordinates: filtered },
+  };
+}
+
+// --- Country centroid lookup (derived from GeoJSON) ---
+
+const countryCentroids = {};
+
+function buildCountryCentroids(geoJson) {
+  for (const feature of geoJson.features) {
+    const name = getGeoCountryName(feature);
+    if (!name) continue;
+
+    const layer = L.geoJSON(feature);
+    const center = layer.getBounds().getCenter();
+    countryCentroids[name] = [center.lat, center.lng];
+  }
+  console.log(`Built centroids for ${Object.keys(countryCentroids).length} countries`);
+}
+
+/**
+ * Look up a centroid by data country name, checking COUNTRY_NAME_MAP variants.
+ */
+function getCountryCentroid(countryName) {
+  if (countryCentroids[countryName]) return countryCentroids[countryName];
+
+  // Check COUNTRY_NAME_MAP variants
+  const mappings = COUNTRY_NAME_MAP[countryName];
+  if (mappings) {
+    for (const variant of mappings) {
+      if (countryCentroids[variant]) return countryCentroids[variant];
     }
-    for (const value of values) {
-      if (value.toLowerCase().trim() === geoLower) {
-        if (dataCountries.includes(key)) return key;
+  }
+
+  // Reverse lookup: check if any map key's variants match
+  for (const [, variants] of Object.entries(COUNTRY_NAME_MAP)) {
+    for (const variant of variants) {
+      if (variant.toLowerCase() === countryName.toLowerCase() && countryCentroids[variant]) {
+        return countryCentroids[variant];
       }
     }
   }
@@ -99,8 +176,12 @@ export async function loadCountryBoundaries() {
       throw lastError || new Error('Could not load country boundaries from any source');
     }
 
-    state.geoData = geoJson;
-    console.log('Sample GeoJSON properties:', geoJson.features[0]?.properties);
+    // Filter overseas territories once, reuse everywhere
+    state.geoData = {
+      ...geoJson,
+      features: geoJson.features.map(filterOverseasTerritories),
+    };
+    buildCountryCentroids(state.geoData);
     updateMapCountries();
   } catch (error) {
     console.error('Error loading country boundaries:', error);
@@ -270,15 +351,14 @@ function updateMapMarkers() {
   }
 
   filtered.forEach((item) => {
-    const latitude = Number(item.latitude);
-    const longitude = Number(item.longitude);
-    if (!Number.isFinite(latitude) || !Number.isFinite(longitude)) return;
+    const centroid = getCountryCentroid(item.country);
+    if (!centroid) return;
 
     const statusInfo = getStatusInfo(item.transmissionStatus);
     if (statusInfo.isEndemic && !state.filters.showEndemic) return;
     if (statusInfo.isOutbreak && !state.filters.showOutbreaks) return;
 
-    const marker = L.circleMarker([latitude, longitude], {
+    const marker = L.circleMarker(centroid, {
       radius: 8,
       fillColor: getStatusColor(item.transmissionStatus),
       color: '#333',
