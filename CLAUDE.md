@@ -26,11 +26,16 @@ Interactive map tracking global disease outbreaks and endemic regions, developed
 | `config.json` | Site + map configuration                |
 | `schema.json` | Data validation rules                   |
 | `data.json`   | Pathogen/outbreak data (update monthly) |
+| `updates/`    | Monthly outbreak list PDFs (source docs) |
 | `assets/`     | Partner logos, H+H branding             |
 
 ## Monthly Data Update Workflow
 
 Source: **Travel Screening Outbreak List PDF** (forwarded monthly by the team).
+
+### Step 0 — Store the PDF
+
+Save the PDF to `updates/` with naming convention: `YYYY-MM-outbreak-list.pdf` (e.g., `2026-02-outbreak-list.pdf`).
 
 ### Step 1 — Extract from PDF
 
