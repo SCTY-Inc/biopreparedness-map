@@ -1,6 +1,4 @@
-import { state } from './state.js';
-import { getFilteredData } from './data.js';
-import { getStatusColor, getStatusInfo, getStatusPriority } from './status.js';
+import { state, getFilteredData, getStatusColor, getStatusInfo, getStatusPriority } from './app.js';
 import { COUNTRY_NAME_MAP } from './config.js';
 
 // --- Geo helpers ---

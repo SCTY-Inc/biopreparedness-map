@@ -20,8 +20,9 @@ Interactive map tracking global disease outbreaks and endemic regions, developed
 | File          | Purpose                                 |
 | ------------- | --------------------------------------- |
 | `index.html`  | Main HTML structure, Tailwind classes   |
-| `js/main.js`  | Module entry point                      |
-| `js/`         | Application logic modules               |
+| `js/app.js`   | Entry point, state, data, UI, status    |
+| `js/map.js`   | Leaflet map rendering, geo helpers      |
+| `js/config.js` | Config, status definitions, country name map |
 | `styles.css`  | Custom CSS, component styles            |
 | `data.json`   | Pathogen/outbreak data (update monthly) |
 | `updates/`    | Monthly outbreak list PDFs (source docs) |
