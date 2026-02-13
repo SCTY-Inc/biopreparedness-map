@@ -1,18 +1,7 @@
 import { state } from './state.js';
 import { getStatusKey } from './status.js';
 
-export async function loadSchema() {
-  try {
-    const response = await fetch('schema.json');
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    state.schema = await response.json();
-  } catch (error) {
-    console.warn('Could not load schema.json:', error);
-    state.schema = null;
-  }
-}
+const SCHEMA = { required: ['disease', 'country', 'transmissionStatus'] };
 
 export async function loadData() {
   try {
@@ -80,11 +69,9 @@ export function getFilteredData(searchTerm = '') {
 }
 
 function validateData(items) {
-  if (!state.schema?.required) return [];
-
   const errors = [];
   items.forEach((item, index) => {
-    state.schema.required.forEach((field) => {
+    SCHEMA.required.forEach((field) => {
       if (!item[field]) {
         errors.push(`Row ${index + 1} missing required field: ${field}`);
       }

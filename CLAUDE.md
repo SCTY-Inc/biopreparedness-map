@@ -20,11 +20,9 @@ Interactive map tracking global disease outbreaks and endemic regions, developed
 | File          | Purpose                                 |
 | ------------- | --------------------------------------- |
 | `index.html`  | Main HTML structure, Tailwind classes   |
-| `app.js`      | Module entry point                      |
+| `js/main.js`  | Module entry point                      |
 | `js/`         | Application logic modules               |
 | `styles.css`  | Custom CSS, component styles            |
-| `config.json` | Optional runtime overrides              |
-| `schema.json` | Data validation rules                   |
 | `data.json`   | Pathogen/outbreak data (update monthly) |
 | `updates/`    | Monthly outbreak list PDFs (source docs) |
 | `assets/`     | Partner logos, H+H branding             |

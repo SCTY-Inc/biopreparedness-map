@@ -5,7 +5,6 @@ export const state = {
   geoData: null,
   countryDataMap: {},
   config: null,
-  schema: null,
   dataErrors: [],
   filters: {
     country: 'all',

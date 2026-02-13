@@ -1,6 +1,7 @@
-import { initDom } from './dom.js';
-import { loadData, buildCountryDataMap, loadSchema } from './data.js';
-import { loadConfig } from './config-loader.js';
+import { initDom } from './ui.js';
+import { loadData, buildCountryDataMap } from './data.js';
+import { DEFAULT_CONFIG } from './config.js';
+import { state } from './state.js';
 import { initializeMap, loadCountryBoundaries } from './map.js';
 import {
   applyConfigToUI,
@@ -12,9 +13,8 @@ import {
 
 async function initApp() {
   initDom();
-  await loadConfig();
+  state.config = DEFAULT_CONFIG;
   applyConfigToUI();
-  await loadSchema();
   await loadData();
   buildCountryDataMap();
   initializeMap();

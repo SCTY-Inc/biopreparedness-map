@@ -1,4 +1,0 @@
-{
-  "required": ["disease", "country", "transmissionStatus"],
-  "optional": ["location", "lastUpdated", "notes", "latitude", "longitude"]
-}
