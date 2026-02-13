@@ -23,7 +23,7 @@ If you are updating outbreak data:
 
 ## Code changes
 
-- Keep the map tile provider and attribution unchanged unless explicitly requested (see `config.json`).
+- Keep the map tile provider and attribution unchanged unless explicitly requested (see `js/config.js`).
 - Preserve NYC Health + Hospitals branding and partner logos.
 - Avoid removing existing data entries without approval from the maintainers.
 
@@ -31,10 +31,9 @@ If you are updating outbreak data:
 
 - Map loads without console errors
 - All countries in `data.json` appear on the map
-- Filters work (country, disease, case slider)
+- Filters work (country, disease)
 - Toggle checkboxes show/hide correctly
 - Popups display on country click
-- Data table shows filtered results
 
 ## Pull requests
 

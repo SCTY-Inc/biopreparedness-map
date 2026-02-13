@@ -23,7 +23,7 @@ Interactive map tracking global disease outbreaks and endemic regions, developed
 | `app.js`      | Module entry point                      |
 | `js/`         | Application logic modules               |
 | `styles.css`  | Custom CSS, component styles            |
-| `config.json` | Site + map configuration                |
+| `config.json` | Optional runtime overrides              |
 | `schema.json` | Data validation rules                   |
 | `data.json`   | Pathogen/outbreak data (update monthly) |
 | `updates/`    | Monthly outbreak list PDFs (source docs) |

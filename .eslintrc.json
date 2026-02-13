@@ -9,8 +9,7 @@
     "sourceType": "module"
   },
   "globals": {
-    "L": "readonly",
-    "noUiSlider": "readonly"
+    "L": "readonly"
   },
   "rules": {
     "no-unused-vars": ["warn", { "argsIgnorePattern": "^_" }],

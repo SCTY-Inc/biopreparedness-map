@@ -56,7 +56,7 @@ export function setupEventListeners() {
   if (dom.resourceSelect) {
     dom.resourceSelect.addEventListener('change', (e) => {
       if (e.target.value) {
-        window.open(e.target.value, '_blank');
+        window.open(e.target.value, '_blank', 'noopener');
         setTimeout(() => {
           e.target.value = '';
         }, 500);
@@ -117,6 +117,13 @@ function populateDatalist(listEl, values) {
 
 export function updateDataUpdateDate() {
   if (!dom.dataUpdateDate) return;
+
+  const latestDate = getLatestDataDate(state.allData);
+  if (latestDate) {
+    dom.dataUpdateDate.textContent = latestDate;
+    return;
+  }
+
   const today = new Date();
   dom.dataUpdateDate.textContent = today.toISOString().split('T')[0];
 }
@@ -189,6 +196,17 @@ function normalizeFilterValue(value) {
     return 'all';
   }
   return normalized;
+}
+
+function getLatestDataDate(items) {
+  if (!Array.isArray(items) || items.length === 0) return null;
+
+  const timestamps = items
+    .map((item) => Date.parse(item.lastUpdated))
+    .filter((timestamp) => Number.isFinite(timestamp));
+
+  if (timestamps.length === 0) return null;
+  return new Date(Math.max(...timestamps)).toISOString().slice(0, 10);
 }
 
 function switchNavTab(tabName) {

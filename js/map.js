@@ -169,8 +169,9 @@ export function updateMapCountries() {
 }
 
 function createCountryPopup(countryData, countryName) {
+  const safeCountryName = escapeHtml(countryName || 'Unknown');
   let html = '<div style="min-width: 250px; font-family: Arial, sans-serif;">';
-  html += `<h3 style="margin: 0 0 10px 0; color: #0072BC; font-size: 16px;">${countryName}</h3>`;
+  html += `<h3 style="margin: 0 0 10px 0; color: #0072BC; font-size: 16px;">${safeCountryName}</h3>`;
 
   const diseases = {};
   countryData.forEach((item) => {
@@ -182,21 +183,23 @@ function createCountryPopup(countryData, countryName) {
 
   Object.keys(diseases).forEach((disease) => {
     const items = diseases[disease];
+    const safeDisease = escapeHtml(disease || 'N/A');
     html +=
       '<div style="margin-bottom: 10px; padding-bottom: 10px; border-bottom: 1px solid #E0E0E0;">';
-    html += `<strong style="color: #333; font-size: 14px;">${disease}</strong>`;
+    html += `<strong style="color: #333; font-size: 14px;">${safeDisease}</strong>`;
 
     items.forEach((item) => {
+      const safeStatus = escapeHtml(item.transmissionStatus || 'N/A');
       html += '<p style="margin: 5px 0; font-size: 12px; color: #666;">';
-      html += `<strong>Status:</strong> ${item.transmissionStatus || 'N/A'}<br>`;
+      html += `<strong>Status:</strong> ${safeStatus}<br>`;
       if (item.location && item.location !== countryName) {
-        html += `<strong>Location:</strong> ${item.location}<br>`;
+        html += `<strong>Location:</strong> ${escapeHtml(item.location)}<br>`;
       }
       if (item.lastUpdated) {
-        html += `<strong>Last Updated:</strong> ${item.lastUpdated}<br>`;
+        html += `<strong>Last Updated:</strong> ${escapeHtml(item.lastUpdated)}<br>`;
       }
       if (item.notes) {
-        html += `<strong>Notes:</strong> ${item.notes}`;
+        html += `<strong>Notes:</strong> ${escapeHtml(item.notes)}`;
       }
       html += '</p>';
     });
@@ -215,30 +218,45 @@ function updateMapMarkers() {
   }
 
   filtered.forEach((item) => {
-    if (item.latitude && item.longitude) {
-      const statusInfo = getStatusInfo(item.transmissionStatus);
-      if (statusInfo.isEndemic && !state.filters.showEndemic) return;
-      if (statusInfo.isOutbreak && !state.filters.showOutbreaks) return;
+    const latitude = Number(item.latitude);
+    const longitude = Number(item.longitude);
+    if (!Number.isFinite(latitude) || !Number.isFinite(longitude)) return;
 
-      const marker = L.circleMarker([item.latitude, item.longitude], {
-        radius: 8,
-        fillColor: getStatusColor(item.transmissionStatus),
-        color: '#333',
-        weight: 2,
-        opacity: 1,
-        fillOpacity: 0.7,
-      }).addTo(state.countriesLayerGroup);
+    const statusInfo = getStatusInfo(item.transmissionStatus);
+    if (statusInfo.isEndemic && !state.filters.showEndemic) return;
+    if (statusInfo.isOutbreak && !state.filters.showOutbreaks) return;
 
-      marker.bindPopup(`
+    const marker = L.circleMarker([latitude, longitude], {
+      radius: 8,
+      fillColor: getStatusColor(item.transmissionStatus),
+      color: '#333',
+      weight: 2,
+      opacity: 1,
+      fillOpacity: 0.7,
+    }).addTo(state.countriesLayerGroup);
+
+    marker.bindPopup(`
                 <div style="min-width: 200px; font-family: Arial, sans-serif;">
-                    <h3 style="margin: 0 0 10px 0; color: #0072BC; font-size: 16px;">${item.disease || 'N/A'}</h3>
-                    <p style="margin: 5px 0; font-size: 13px;"><strong>Location:</strong> ${item.location || 'N/A'}</p>
-                    <p style="margin: 5px 0; font-size: 13px;"><strong>Country:</strong> ${item.country || 'N/A'}</p>
-                    <p style="margin: 5px 0; font-size: 13px;"><strong>Status:</strong> ${item.transmissionStatus || 'N/A'}</p>
-                    ${item.lastUpdated ? `<p style="margin: 5px 0; font-size: 13px;"><strong>Last Updated:</strong> ${item.lastUpdated}</p>` : ''}
-                    ${item.notes ? `<p style="margin: 5px 0; font-size: 13px;"><strong>Notes:</strong> ${item.notes}</p>` : ''}
+                    <h3 style="margin: 0 0 10px 0; color: #0072BC; font-size: 16px;">${escapeHtml(item.disease || 'N/A')}</h3>
+                    <p style="margin: 5px 0; font-size: 13px;"><strong>Location:</strong> ${escapeHtml(item.location || 'N/A')}</p>
+                    <p style="margin: 5px 0; font-size: 13px;"><strong>Country:</strong> ${escapeHtml(item.country || 'N/A')}</p>
+                    <p style="margin: 5px 0; font-size: 13px;"><strong>Status:</strong> ${escapeHtml(item.transmissionStatus || 'N/A')}</p>
+                    ${item.lastUpdated ? `<p style="margin: 5px 0; font-size: 13px;"><strong>Last Updated:</strong> ${escapeHtml(item.lastUpdated)}</p>` : ''}
+                    ${item.notes ? `<p style="margin: 5px 0; font-size: 13px;"><strong>Notes:</strong> ${escapeHtml(item.notes)}</p>` : ''}
                 </div>
             `);
-    }
+  });
+}
+
+function escapeHtml(value) {
+  return String(value).replace(/[&<>"']/g, (char) => {
+    const entities = {
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
+      "'": '&#39;',
+    };
+    return entities[char];
   });
 }

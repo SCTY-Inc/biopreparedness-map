@@ -81,10 +81,9 @@ Before pushing changes:
 
 - [ ] Map loads without console errors
 - [ ] All countries in data appear on map
-- [ ] Filters work (country, disease, cases slider)
+- [ ] Filters work (country, disease)
 - [ ] Toggle checkboxes show/hide correctly
 - [ ] Popups display on country click
-- [ ] Data table shows filtered results
 
 ## Rollback
 

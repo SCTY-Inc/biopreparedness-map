@@ -44,12 +44,6 @@ export function getStatusColor(status) {
   return key ? definitions[key].color : '#95a5a6';
 }
 
-export function getStatusClass(status) {
-  const key = getStatusKey(status);
-  const definitions = getStatusDefinitionMap();
-  return key ? definitions[key].className : '';
-}
-
 export function getStatusDefinitionMap() {
   return state.config?.statusDefinitions || {};
 }
