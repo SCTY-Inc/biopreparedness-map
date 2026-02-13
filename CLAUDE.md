@@ -77,7 +77,7 @@ Set `lastUpdated` to the PDF date on all entries.
 
 ### Step 5 — Validate
 
-Run a count check: total entries, diseases, countries, statuses. Verify no dangling references.
+Run `node validate.js`. Checks: required fields, valid statuses, every country resolves to a GeoJSON feature, no duplicate country+disease pairs. Prints a summary for quick eyeball review.
 
 ### Known edge cases
 

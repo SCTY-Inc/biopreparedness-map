@@ -55,5 +55,5 @@ export const COUNTRY_NAME_MAP = {
     'Democratic Republic of Congo',
   ],
   Congo: ['Republic of the Congo', 'Congo, Republic of'],
-  Tanzania: ['Tanzania, United Republic of'],
+  Tanzania: ['United Republic of Tanzania', 'Tanzania, United Republic of'],
 };
