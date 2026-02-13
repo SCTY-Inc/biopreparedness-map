@@ -12,7 +12,6 @@ Interactive map tracking global disease outbreaks and endemic regions, developed
 
 - **Frontend:** Vanilla JS + Tailwind CSS (CDN)
 - **Map:** Leaflet.js (Carto basemap)
-- **Slider:** noUiSlider
 - **Hosting:** Cloudflare Pages
 - **Repo:** github.com/SCTY-Inc/bio-map
 
@@ -29,57 +28,97 @@ Interactive map tracking global disease outbreaks and endemic regions, developed
 | `data.json`   | Pathogen/outbreak data (update monthly) |
 | `assets/`     | Partner logos, H+H branding             |
 
-## Data Updates
+## Monthly Data Update Workflow
 
-Monthly data updates go in `data.json`. Structure:
+Source: **Travel Screening Outbreak List PDF** (forwarded monthly by the team).
+
+### Step 1 — Extract from PDF
+
+Read the PDF and extract every disease, country, transmission status, and any notes (clade info, case counts, specific regions). Ask clarifying questions if:
+
+- A country appears under multiple categories (e.g., DRC in both Clade 1a and 1b)
+- A status is ambiguous (endemic country with active cases — classify as "Continued Transmission" or "Endemic"?)
+- The disease list changed (diseases added or removed entirely)
+
+### Step 2 — Diff against current data
+
+Compare extracted list against current `data.json`:
+
+- **Removed countries/diseases** — delete entries
+- **New countries** — need lat/lng coordinates and `COUNTRY_NAME_MAP` entry in `js/config.js`
+- **Status changes** — update `transmissionStatus`
+- **Note changes** — update `notes` (clade info, case details)
+
+### Step 3 — Update data.json
+
+Entry schema (no `cases` field):
 
 ```json
 {
-  "pathogens": [
-    {
-      "disease": "Mpox",
-      "country": "Uganda",
-      "location": "Multiple regions",
-      "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2024-12-08",
-      "notes": "Clade 1b - 6000 cases",
-      "cases": 6000
-    }
-  ]
+  "disease": "Mpox",
+  "location": "Multiple regions",
+  "country": "Uganda",
+  "transmissionStatus": "Continued Transmission",
+  "lastUpdated": "2026-02-11",
+  "notes": "Clade 1b",
+  "latitude": 1.3733,
+  "longitude": 32.2903
 }
 ```
 
-**Transmission statuses:**
+Set `lastUpdated` to the PDF date on all entries.
 
-- `Continued Transmission` - Active outbreak (orange)
-- `No Continued Transmission` - Outbreak winding down (blue)
-- `Endemic` - Constant presence in region (green)
+### Step 4 — Update config if needed
 
-## Country Name Mapping
+- New countries → add to `COUNTRY_NAME_MAP` in `js/config.js`
+- Removed countries → remove stale entries from `COUNTRY_NAME_MAP`
 
-Country names must match GeoJSON. If a new country doesn't appear on map, add mapping in `js/config.js` under `COUNTRY_NAME_MAP`.
+### Step 5 — Validate
+
+Run a count check: total entries, diseases, countries, statuses. Verify no dangling references.
+
+### Known edge cases
+
+| Issue | Resolution |
+|-------|-----------|
+| Country in multiple categories (e.g., DRC Clade 1a + 1b) | Keep higher-priority status ("Continued Transmission"), combine in notes |
+| Country name doesn't match GeoJSON | Add variant to `COUNTRY_NAME_MAP` (check `assets/world.geojson` for exact name) |
+| New country missing from map | Needs both lat/lng in `data.json` AND `COUNTRY_NAME_MAP` entry |
+| PDF has case counts but data model dropped `cases` field | Put notable counts in `notes` text only |
+| Disease name inconsistency (e.g., "Nipah" vs "Nipah Virus") | Use canonical name matching existing entries; if changing, update all entries |
+
+### Canonical disease names
+
+Use these exact strings in `data.json`:
+
+- `Mpox`
+- `Lassa Fever`
+- `Nipah Virus`
+
+If a new disease is added, establish the canonical name and document it here.
+
+### Transmission statuses
+
+- `Continued Transmission` — active outbreak (orange on map)
+- `No Continued Transmission` — outbreak winding down (blue on map)
+- `Endemic` — constant presence in region (green on map)
 
 ## Deployment
 
 Push to `main` branch auto-deploys to Cloudflare Pages.
 
-```bash
-git add .
-git commit -m "Update data for [month]"
-git push
-```
-
 ## Common Tasks
 
 ### Add new disease
 
-1. Add entries to `data.json`
-2. Disease will auto-populate in filter dropdown
+1. Add entries to `data.json` using canonical name
+2. Disease auto-populates in filter dropdown
+3. Document canonical name in this file
 
 ### Add new country
 
-1. Add to `data.json`
-2. If not showing on map, add to `COUNTRY_NAME_MAP` in `js/config.js`
+1. Add to `data.json` with lat/lng coordinates
+2. Add to `COUNTRY_NAME_MAP` in `js/config.js` with any GeoJSON name variants
 
 ### Update partner logos
 
