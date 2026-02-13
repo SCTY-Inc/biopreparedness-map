@@ -65,13 +65,6 @@ export function getFilteredData(searchTerm = '') {
     filtered = filtered.filter((item) => item.disease === state.filters.disease);
   }
 
-  filtered = filtered.filter((item) => {
-    if (item.cases === undefined || item.cases === null) {
-      return true;
-    }
-    return item.cases >= state.filters.casesMin && item.cases <= state.filters.casesMax;
-  });
-
   if (searchTerm) {
     const term = searchTerm.toLowerCase();
     filtered = filtered.filter(

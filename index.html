@@ -12,12 +12,6 @@
     <!-- Leaflet CSS -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 
-    <!-- noUiSlider CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/nouislider@15.7.1/dist/nouislider.min.css"
-    />
-
     <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css" />
   </head>
@@ -114,39 +108,6 @@
                   <datalist id="disease-options"></datalist>
                 </div>
 
-                <!-- Cases Filter -->
-                <div class="space-y-3">
-                  <label class="text-sm font-medium text-slate-700">Number of Cases:</label>
-                  <div class="flex items-center gap-3">
-                    <input
-                      type="number"
-                      id="cases-min-input"
-                      min="1"
-                      max="6000"
-                      value="1"
-                      class="w-16 px-2 py-1.5 text-sm border border-slate-300 rounded text-center bg-white"
-                    />
-                    <div id="cases-slider" class="flex-1 h-6"></div>
-                    <input
-                      type="number"
-                      id="cases-max-input"
-                      min="1"
-                      max="6000"
-                      value="6000"
-                      class="w-16 px-2 py-1.5 text-sm border border-slate-300 rounded text-center bg-white"
-                    />
-                  </div>
-                  <div class="flex justify-between text-[10px] text-slate-400">
-                    <span>1</span>
-                    <span>601</span>
-                    <span>1,201</span>
-                    <span>2,401</span>
-                    <span>3,601</span>
-                    <span>4,801</span>
-                    <span>6,000</span>
-                  </div>
-                </div>
-
                 <!-- Stats Card -->
                 <div class="bg-[#003976] rounded-lg p-4 text-center">
                   <div class="text-xs font-bold text-white uppercase tracking-wider mb-1">
@@ -206,7 +167,6 @@
               <!-- Content Tabs -->
               <div class="content-tabs">
                 <button class="content-tab active" data-content="map">Map</button>
-                <button class="content-tab" data-content="table">Data Table</button>
                 <button class="content-tab" data-content="resources">
                   NYC Health + Hospitals Resources
                 </button>
@@ -293,45 +253,6 @@
                     <img src="assets/cuny.png" alt="CUNY" onerror="this.style.display = 'none'" />
                     <img src="assets/icap.png" alt="ICAP" onerror="this.style.display = 'none'" />
                     <img src="assets/pri.png" alt="PRI" onerror="this.style.display = 'none'" />
-                  </div>
-                </div>
-              </div>
-
-              <!-- Data Table Tab Content -->
-              <div id="table-content" class="content-panel">
-                <div class="table-controls">
-                  <input
-                    type="text"
-                    id="table-search"
-                    placeholder="Search..."
-                    class="search-input"
-                  />
-                  <div class="table-actions">
-                    <select id="rows-per-page" class="rows-select"></select>
-                    <button id="export-csv" class="export-button">Export CSV</button>
-                  </div>
-                </div>
-                <div class="table-container">
-                  <table id="data-table" class="data-table">
-                    <thead>
-                      <tr>
-                        <th>Disease</th>
-                        <th>Location</th>
-                        <th>Country</th>
-                        <th>Transmission Status</th>
-                        <th>Last Updated</th>
-                        <th>Notes</th>
-                      </tr>
-                    </thead>
-                    <tbody id="table-body"></tbody>
-                  </table>
-                </div>
-                <div class="table-pagination">
-                  <span id="page-info" class="page-info"></span>
-                  <div class="pagination-controls">
-                    <button id="page-prev" class="page-button" type="button">Prev</button>
-                    <span id="page-count" class="page-count"></span>
-                    <button id="page-next" class="page-button" type="button">Next</button>
                   </div>
                 </div>
               </div>
@@ -573,9 +494,6 @@
 
     <!-- Leaflet JS -->
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
-    <!-- noUiSlider JS -->
-    <script src="https://cdn.jsdelivr.net/npm/nouislider@15.7.1/dist/nouislider.min.js"></script>
 
     <!-- Custom JS -->
     <script type="module" src="app.js"></script>

@@ -5,7 +5,6 @@ import { initializeMap, loadCountryBoundaries } from './map.js';
 import {
   applyConfigToUI,
   applyFilters,
-  initializeCasesSlider,
   populateFilters,
   setupEventListeners,
   updateDataUpdateDate,
@@ -19,7 +18,6 @@ async function initApp() {
   await loadData();
   buildCountryDataMap();
   initializeMap();
-  initializeCasesSlider();
   setupEventListeners();
   populateFilters();
   updateDataUpdateDate();

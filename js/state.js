@@ -1,5 +1,3 @@
-import { CASES_MIN, CASES_MAX } from './config.js';
-
 export const state = {
   map: null,
   countriesLayerGroup: null,
@@ -12,13 +10,7 @@ export const state = {
   filters: {
     country: 'all',
     disease: 'all',
-    casesMin: CASES_MIN,
-    casesMax: CASES_MAX,
     showOutbreaks: true,
     showEndemic: true,
-  },
-  table: {
-    page: 1,
-    rowsPerPage: 25,
   },
 };
