@@ -13,37 +13,27 @@ Special Pathogens Biopreparedness Map — NYC Health + Hospitals System Bioprepa
 | `js/app.js` | Entry point, state, UI |
 | `js/map.js` | Leaflet map rendering |
 | `validate.js` | Pre-commit validation |
-| `updates/` | Source PDFs/spreadsheets |
 
 ## Monthly Data Update
 
-Source: **Travel Screening Outbreak List** — arrives as email attachment (PDF or spreadsheet).
+Source: **Travel Screening Outbreak List** — shared as a Google Sheet link with `agent@scty.org` (viewer access).
 
-### Tooling
+### Step 1 — Read the spreadsheet
 
 ```bash
-# Parse xlsx/xls files
-uv run --with openpyxl python3 script.py
-
-# Read Google Sheets (if shared as sheet)
 GOG_KEYRING_PASSWORD=min gog sheets read "<spreadsheetId>" "Sheet1!A1:Z200" -a agent@scty.org
-
-# Download from Drive
-GOG_KEYRING_PASSWORD=min gog drive download "<fileId>" -a agent@scty.org
 ```
 
-### Step 1 — Extract data
+Extract the spreadsheet ID from the URL: `docs.google.com/spreadsheets/d/<THIS_PART>/edit`
 
-Extract every row: disease, country, transmission status, surveillance window, notes.
-
-The source has 3 sections:
+The sheet has 3 sections:
 - **Continued Transmission** — active outbreaks
 - **No Continued Transmission** — winding down
 - **Endemic Special Pathogen Diseases** — baseline endemic presence
 
-### Step 2 — Build complete data.json from scratch
+### Step 2 — Rebuild data.json from scratch
 
-**Do NOT diff/patch the old file.** Rebuild `data.json` entirely from the source spreadsheet. This prevents stale entries from persisting.
+**FULL REPLACE every time.** The spreadsheet is the source of truth. Do NOT diff/patch the old file.
 
 Entry schema — NO `latitude`, `longitude`, or `cases` fields (centroids derived from GeoJSON at runtime):
 
