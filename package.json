@@ -6,11 +6,6 @@
   "type": "module",
   "scripts": {
     "start": "python3 -m http.server 8000",
-    "lint": "eslint \"js/**/*.js\"",
-    "format": "prettier --write \"**/*.{js,css,html,json,md}\""
-  },
-  "devDependencies": {
-    "eslint": "^8.57.0",
-    "prettier": "^3.2.5"
+    "validate": "node validate.js"
   }
 }
