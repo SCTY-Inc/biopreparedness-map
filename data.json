@@ -3,162 +3,784 @@
     {
       "disease": "Mpox",
       "location": "Multiple regions",
-      "country": "Democratic Republic of the Congo",
+      "country": "Spain",
       "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-02-11",
-      "notes": "Clade 1a and 1b"
-    },
-    {
-      "disease": "Mpox",
-      "location": "Multiple regions",
-      "country": "Burundi",
-      "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-02-11",
-      "notes": "Clade 1b"
-    },
-    {
-      "disease": "Mpox",
-      "location": "Multiple regions",
-      "country": "Kenya",
-      "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-02-11",
-      "notes": "Clade 1b"
+      "lastUpdated": "2024-12-08",
+      "notes": "Clade 1b - 1 case",
+      "cases": 1,
+      "latitude": 40.4637,
+      "longitude": -3.7492
     },
     {
       "disease": "Mpox",
       "location": "Multiple regions",
       "country": "Tanzania",
       "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-02-11",
-      "notes": "Clade 1b"
-    },
-    {
-      "disease": "Mpox",
-      "location": "Multiple regions",
-      "country": "Congo",
-      "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-02-11",
-      "notes": "Clade 1a and 1b"
-    },
-    {
-      "disease": "Mpox",
-      "location": "Multiple regions",
-      "country": "Mozambique",
-      "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-02-11",
-      "notes": "Clade 1b"
-    },
-    {
-      "disease": "Mpox",
-      "location": "Multiple regions",
-      "country": "Malawi",
-      "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-02-11",
-      "notes": "Clade 1b"
+      "lastUpdated": "2024-12-08",
+      "notes": "Clade 1b - 26 cases",
+      "cases": 26,
+      "latitude": -6.369,
+      "longitude": 34.8888
     },
     {
       "disease": "Mpox",
       "location": "Multiple regions",
       "country": "Uganda",
       "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-02-11",
-      "notes": "Clade 1b"
+      "lastUpdated": "2024-12-08",
+      "notes": "Clade 1b - 6000 cases",
+      "cases": 6000,
+      "latitude": 1.3733,
+      "longitude": 32.2903
     },
     {
       "disease": "Mpox",
       "location": "Multiple regions",
       "country": "Zambia",
       "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-02-11",
-      "notes": "Clade 1b"
+      "lastUpdated": "2024-12-08",
+      "notes": "Clade 1b - 30 cases",
+      "cases": 30,
+      "latitude": -13.1339,
+      "longitude": 27.8493
     },
     {
       "disease": "Mpox",
       "location": "Multiple regions",
-      "country": "Rwanda",
+      "country": "Burundi",
       "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-02-11",
-      "notes": "Clade 1b"
+      "lastUpdated": "2024-12-08",
+      "notes": "Clade 1b - 3800 cases",
+      "cases": 3800,
+      "latitude": -3.3731,
+      "longitude": 29.9189
     },
     {
       "disease": "Mpox",
       "location": "Multiple regions",
-      "country": "Spain",
+      "country": "Congo",
       "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-02-11",
-      "notes": "Clade 1b"
+      "lastUpdated": "2024-12-08",
+      "notes": "Clade 1b - 23 cases",
+      "cases": 23,
+      "latitude": -0.228,
+      "longitude": 15.8277
     },
     {
       "disease": "Mpox",
       "location": "Multiple regions",
-      "country": "South Sudan",
+      "country": "Democratic Republic of the Congo",
       "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-02-11",
-      "notes": "Clade 1b"
+      "lastUpdated": "2024-12-08",
+      "notes": "Clade 1b - 1189 cases",
+      "cases": 1189,
+      "latitude": -4.0383,
+      "longitude": 21.7587
     },
     {
       "disease": "Mpox",
       "location": "Multiple regions",
-      "country": "South Africa",
+      "country": "Kenya",
       "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-02-11",
-      "notes": "Clade 1b"
+      "lastUpdated": "2024-12-08",
+      "notes": "Clade 1b - 285 cases",
+      "cases": 285,
+      "latitude": -0.0236,
+      "longitude": 37.9062
     },
     {
       "disease": "Mpox",
       "location": "Multiple regions",
-      "country": "Madagascar",
+      "country": "Malawi",
       "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-02-11",
-      "notes": "Clade 1b"
+      "lastUpdated": "2024-12-08",
+      "notes": "Clade 1b - 38 cases",
+      "cases": 38,
+      "latitude": -13.2543,
+      "longitude": 34.3015
     },
     {
       "disease": "Mpox",
       "location": "Multiple regions",
-      "country": "France",
+      "country": "Mozambique",
       "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-02-11",
-      "notes": "Clade 1b"
-    },
-    {
-      "disease": "Mpox",
-      "location": "Multiple regions",
-      "country": "Cameroon",
-      "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-02-11",
-      "notes": "Clade 1a"
-    },
-    {
-      "disease": "Mpox",
-      "location": "Multiple regions",
-      "country": "Central African Republic",
-      "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-02-11",
-      "notes": "Clade 1a"
-    },
-    {
-      "disease": "Mpox",
-      "location": "Multiple regions",
-      "country": "Sudan",
-      "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-02-11",
-      "notes": "Clade 1a"
+      "lastUpdated": "2024-12-08",
+      "notes": "Clade 1b - 1 case",
+      "cases": 1,
+      "latitude": -18.6657,
+      "longitude": 35.5296
     },
     {
       "disease": "Lassa Fever",
       "location": "Multiple states",
       "country": "Nigeria",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-02-11",
-      "notes": "Endemic region"
+      "lastUpdated": "2024-12-08",
+      "notes": "Numbers reflect those reported for the entire year - 1119 cases",
+      "cases": 1119,
+      "latitude": 9.082,
+      "longitude": 8.6753
     },
     {
-      "disease": "Nipah Virus",
-      "location": "Rajshahi Division",
-      "country": "Bangladesh",
+      "disease": "Mpox",
+      "location": "Multiple regions",
+      "country": "Rwanda",
       "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-02-11",
-      "notes": "1 confirmed case Feb 3, 2026, Rajshahi Division"
+      "lastUpdated": "2024-12-08",
+      "notes": "Clade 1b - 4 cases",
+      "cases": 4,
+      "latitude": -1.9441,
+      "longitude": 30.0619
+    },
+    {
+      "disease": "Lassa Fever",
+      "location": "Multiple regions",
+      "country": "Benin",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2024-12-08",
+      "notes": "Endemic region",
+      "latitude": 9.3077,
+      "longitude": 2.3158
+    },
+    {
+      "disease": "Lassa Fever",
+      "location": "Multiple regions",
+      "country": "Côte d'Ivoire",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2024-12-08",
+      "notes": "Endemic region",
+      "latitude": 7.54,
+      "longitude": -5.5471
+    },
+    {
+      "disease": "Lassa Fever",
+      "location": "Multiple regions",
+      "country": "Ghana",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2024-12-08",
+      "notes": "Endemic region",
+      "latitude": 7.9465,
+      "longitude": -1.0232
+    },
+    {
+      "disease": "Lassa Fever",
+      "location": "Multiple regions",
+      "country": "Guinea",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2024-12-08",
+      "notes": "Endemic region",
+      "latitude": 9.9456,
+      "longitude": -9.6966
+    },
+    {
+      "disease": "Lassa Fever",
+      "location": "Multiple regions",
+      "country": "Liberia",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2024-12-08",
+      "notes": "Endemic region",
+      "latitude": 6.4281,
+      "longitude": -9.4295
+    },
+    {
+      "disease": "Lassa Fever",
+      "location": "Multiple regions",
+      "country": "Mali",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2024-12-08",
+      "notes": "Endemic region",
+      "latitude": 17.5707,
+      "longitude": -3.9962
+    },
+    {
+      "disease": "Lassa Fever",
+      "location": "Multiple regions",
+      "country": "Sierra Leone",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2024-12-08",
+      "notes": "Endemic region",
+      "latitude": 8.4606,
+      "longitude": -11.7799
+    },
+    {
+      "disease": "Lassa Fever",
+      "location": "Multiple regions",
+      "country": "Togo",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2024-12-08",
+      "notes": "Endemic region",
+      "latitude": 8.6195,
+      "longitude": 0.8248
+    },
+    {
+      "disease": "Nipah",
+      "location": "Multiple regions",
+      "country": "Bangladesh",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2024-12-08",
+      "notes": "Endemic region",
+      "latitude": 23.685,
+      "longitude": 90.3563
+    },
+    {
+      "disease": "Crimean Congo Hemorrhagic Fever",
+      "location": "Multiple regions",
+      "country": "Afghanistan",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2024-12-08",
+      "notes": "Endemic region",
+      "latitude": 33.9391,
+      "longitude": 67.71
+    },
+    {
+      "disease": "Crimean Congo Hemorrhagic Fever",
+      "location": "Multiple regions",
+      "country": "Iran",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2024-12-08",
+      "notes": "Endemic region",
+      "latitude": 32.4279,
+      "longitude": 53.688
+    },
+    {
+      "disease": "Crimean Congo Hemorrhagic Fever",
+      "location": "Multiple regions",
+      "country": "Pakistan",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2024-12-08",
+      "notes": "Endemic region",
+      "latitude": 30.3753,
+      "longitude": 69.3451
+    },
+    {
+      "disease": "Crimean Congo Hemorrhagic Fever",
+      "location": "Southern regions",
+      "country": "Russia",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2024-12-08",
+      "notes": "Southern endemic foci",
+      "latitude": 61.524,
+      "longitude": 105.3188
+    },
+    {
+      "disease": "Crimean Congo Hemorrhagic Fever",
+      "location": "Multiple regions",
+      "country": "Turkey",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2024-12-08",
+      "notes": "Endemic region",
+      "latitude": 38.9637,
+      "longitude": 35.2433
+    },
+    {
+      "disease": "Mers",
+      "location": "Multiple regions",
+      "country": "Jordan",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2024-12-08",
+      "notes": "Endemic region",
+      "latitude": 30.5852,
+      "longitude": 36.2384
+    },
+    {
+      "disease": "Mers",
+      "location": "Multiple regions",
+      "country": "Kuwait",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2024-12-08",
+      "notes": "Endemic region",
+      "latitude": 29.3117,
+      "longitude": 47.4818
+    },
+    {
+      "disease": "Mers",
+      "location": "Multiple regions",
+      "country": "Oman",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2024-12-08",
+      "notes": "Endemic region",
+      "latitude": 21.4735,
+      "longitude": 55.9754
+    },
+    {
+      "disease": "Mers",
+      "location": "Multiple regions",
+      "country": "Qatar",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2024-12-08",
+      "notes": "Endemic region",
+      "latitude": 25.3548,
+      "longitude": 51.1839
+    },
+    {
+      "disease": "Mers",
+      "location": "Multiple regions",
+      "country": "Saudi Arabia",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2024-12-08",
+      "notes": "Endemic region",
+      "latitude": 23.8859,
+      "longitude": 45.0792
+    },
+    {
+      "disease": "Mers",
+      "location": "Multiple regions",
+      "country": "United Arab Emirates",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2024-12-08",
+      "notes": "Endemic region",
+      "latitude": 23.4241,
+      "longitude": 53.8478
+    },
+    {
+      "disease": "Mers",
+      "location": "Multiple regions",
+      "country": "Yemen",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2024-12-08",
+      "notes": "Endemic region",
+      "latitude": 15.5527,
+      "longitude": 48.5164
+    },
+    {
+      "disease": "Ebola",
+      "location": "Multiple regions",
+      "country": "Côte d'Ivoire",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2024-12-08",
+      "notes": "Endemic region",
+      "latitude": 7.54,
+      "longitude": -5.5471
+    },
+    {
+      "disease": "Ebola",
+      "location": "Multiple regions",
+      "country": "Democratic Republic of the Congo",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2024-12-08",
+      "notes": "Endemic region",
+      "latitude": -4.0383,
+      "longitude": 21.7587
+    },
+    {
+      "disease": "Ebola",
+      "location": "Multiple regions",
+      "country": "Gabon",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2024-12-08",
+      "notes": "Endemic region",
+      "latitude": -0.8037,
+      "longitude": 11.6094
+    },
+    {
+      "disease": "Ebola",
+      "location": "Multiple regions",
+      "country": "Guinea",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2024-12-08",
+      "notes": "Endemic region",
+      "latitude": 9.9456,
+      "longitude": -9.6966
+    },
+    {
+      "disease": "Ebola",
+      "location": "Multiple regions",
+      "country": "Liberia",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2024-12-08",
+      "notes": "Endemic region",
+      "latitude": 6.4281,
+      "longitude": -9.4295
+    },
+    {
+      "disease": "Ebola",
+      "location": "Multiple regions",
+      "country": "Congo",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2024-12-08",
+      "notes": "Endemic region",
+      "latitude": -0.228,
+      "longitude": 15.8277
+    },
+    {
+      "disease": "Ebola",
+      "location": "Multiple regions",
+      "country": "Sierra Leone",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2024-12-08",
+      "notes": "Endemic region",
+      "latitude": 8.4606,
+      "longitude": -11.7799
+    },
+    {
+      "disease": "Ebola",
+      "location": "Multiple regions",
+      "country": "Sudan",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2024-12-08",
+      "notes": "Endemic region",
+      "latitude": 12.8628,
+      "longitude": 30.2176
+    },
+    {
+      "disease": "Ebola",
+      "location": "Multiple regions",
+      "country": "Uganda",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2024-12-08",
+      "notes": "Endemic region",
+      "latitude": 1.3733,
+      "longitude": 32.2903
+    },
+    {
+      "disease": "Marburg",
+      "location": "Multiple regions",
+      "country": "Angola",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2024-12-08",
+      "notes": "Endemic region",
+      "latitude": -11.2027,
+      "longitude": 17.8739
+    },
+    {
+      "disease": "Marburg",
+      "location": "Multiple regions",
+      "country": "Democratic Republic of the Congo",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2024-12-08",
+      "notes": "Endemic region",
+      "latitude": -4.0383,
+      "longitude": 21.7587
+    },
+    {
+      "disease": "Marburg",
+      "location": "Multiple regions",
+      "country": "Ghana",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2024-12-08",
+      "notes": "Endemic region",
+      "latitude": 7.9465,
+      "longitude": -1.0232
+    },
+    {
+      "disease": "Marburg",
+      "location": "Multiple regions",
+      "country": "Guinea",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2024-12-08",
+      "notes": "Endemic region",
+      "latitude": 9.9456,
+      "longitude": -9.6966
+    },
+    {
+      "disease": "Marburg",
+      "location": "Multiple regions",
+      "country": "Kenya",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2024-12-08",
+      "notes": "Endemic region",
+      "latitude": -0.0236,
+      "longitude": 37.9062
+    },
+    {
+      "disease": "Marburg",
+      "location": "Multiple regions",
+      "country": "Rwanda",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2024-12-08",
+      "notes": "Endemic region",
+      "latitude": -1.9441,
+      "longitude": 30.0619
+    },
+    {
+      "disease": "Marburg",
+      "location": "Multiple regions",
+      "country": "Tanzania",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2024-12-08",
+      "notes": "Endemic region",
+      "latitude": -6.369,
+      "longitude": 34.8888
+    },
+    {
+      "disease": "Marburg",
+      "location": "Multiple regions",
+      "country": "Uganda",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2024-12-08",
+      "notes": "Endemic region",
+      "latitude": 1.3733,
+      "longitude": 32.2903
+    },
+    {
+      "disease": "Mpox",
+      "location": "Multiple regions",
+      "country": "South Sudan",
+      "transmissionStatus": "Continued Transmission",
+      "lastUpdated": "2026-02-18",
+      "notes": "Clade 1b",
+      "latitude": 6.877,
+      "longitude": 31.307
+    },
+    {
+      "disease": "Mpox",
+      "location": "Multiple regions",
+      "country": "South Africa",
+      "transmissionStatus": "Continued Transmission",
+      "lastUpdated": "2026-02-18",
+      "notes": "Clade 1b",
+      "latitude": -30.5595,
+      "longitude": 22.9375
+    },
+    {
+      "disease": "Mpox",
+      "location": "Multiple regions",
+      "country": "Madagascar",
+      "transmissionStatus": "Continued Transmission",
+      "lastUpdated": "2026-02-18",
+      "notes": "Clade 1b",
+      "latitude": -18.7669,
+      "longitude": 46.8691
+    },
+    {
+      "disease": "Mpox",
+      "location": "Multiple regions",
+      "country": "France",
+      "transmissionStatus": "Continued Transmission",
+      "lastUpdated": "2026-02-18",
+      "notes": "Clade 1b",
+      "latitude": 46.2276,
+      "longitude": 2.2137
+    },
+    {
+      "disease": "Mpox",
+      "location": "Multiple regions",
+      "country": "Portugal",
+      "transmissionStatus": "Continued Transmission",
+      "lastUpdated": "2026-02-18",
+      "notes": "Clade 1b",
+      "latitude": 39.3999,
+      "longitude": -8.2245
+    },
+    {
+      "disease": "Mpox",
+      "location": "Multiple regions",
+      "country": "Cameroon",
+      "transmissionStatus": "Continued Transmission",
+      "lastUpdated": "2026-02-18",
+      "notes": "Clade 1a",
+      "latitude": 7.3697,
+      "longitude": 12.3547
+    },
+    {
+      "disease": "Mpox",
+      "location": "Multiple regions",
+      "country": "Central African Republic",
+      "transmissionStatus": "Continued Transmission",
+      "lastUpdated": "2026-02-18",
+      "notes": "Clade 1a",
+      "latitude": 6.6111,
+      "longitude": 20.9394
+    },
+    {
+      "disease": "Mpox",
+      "location": "Multiple regions",
+      "country": "Sudan",
+      "transmissionStatus": "Continued Transmission",
+      "lastUpdated": "2026-02-18",
+      "notes": "Clade 1a",
+      "latitude": 12.8628,
+      "longitude": 30.2176
+    },
+    {
+      "disease": "Nipah",
+      "location": "Multiple regions",
+      "country": "India",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2026-02-18",
+      "notes": "Endemic region",
+      "latitude": 20.5937,
+      "longitude": 78.9629
+    },
+    {
+      "disease": "Sudan virus",
+      "location": "Multiple regions",
+      "country": "South Sudan",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2026-02-18",
+      "notes": "Endemic region",
+      "latitude": 6.877,
+      "longitude": 31.307
+    },
+    {
+      "disease": "Sudan virus",
+      "location": "Multiple regions",
+      "country": "Uganda",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2026-02-18",
+      "notes": "Endemic region",
+      "latitude": 1.3733,
+      "longitude": 32.2903
+    },
+    {
+      "disease": "Bundibugyo virus",
+      "location": "Multiple regions",
+      "country": "Democratic Republic of the Congo",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2026-02-18",
+      "notes": "Endemic region",
+      "latitude": -4.0383,
+      "longitude": 21.7587
+    },
+    {
+      "disease": "Bundibugyo virus",
+      "location": "Multiple regions",
+      "country": "Uganda",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2026-02-18",
+      "notes": "Endemic region",
+      "latitude": 1.3733,
+      "longitude": 32.2903
+    },
+    {
+      "disease": "Taï Forest virus",
+      "location": "Multiple regions",
+      "country": "Côte d'Ivoire",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2026-02-18",
+      "notes": "Endemic region",
+      "latitude": 7.54,
+      "longitude": -5.5471
+    },
+    {
+      "disease": "Ravn virus",
+      "location": "Multiple regions",
+      "country": "Democratic Republic of the Congo",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2026-02-18",
+      "notes": "Endemic region",
+      "latitude": -4.0383,
+      "longitude": 21.7587
+    },
+    {
+      "disease": "Ravn virus",
+      "location": "Multiple regions",
+      "country": "Kenya",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2026-02-18",
+      "notes": "Endemic region",
+      "latitude": -0.0236,
+      "longitude": 37.9062
+    },
+    {
+      "disease": "Ravn virus",
+      "location": "Multiple regions",
+      "country": "Uganda",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2026-02-18",
+      "notes": "Endemic region",
+      "latitude": 1.3733,
+      "longitude": 32.2903
+    },
+    {
+      "disease": "Lujo virus",
+      "location": "Multiple regions",
+      "country": "Zambia",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2026-02-18",
+      "notes": "Endemic region",
+      "latitude": -13.1339,
+      "longitude": 27.8493
+    },
+    {
+      "disease": "Junin virus",
+      "location": "Argentine Pampas",
+      "country": "Argentina",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2026-02-18",
+      "notes": "Endemic region",
+      "latitude": -38.4161,
+      "longitude": -63.6167
+    },
+    {
+      "disease": "Chapare virus",
+      "location": "Chapare region",
+      "country": "Bolivia",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2026-02-18",
+      "notes": "Endemic region",
+      "latitude": -16.2902,
+      "longitude": -63.5887
+    },
+    {
+      "disease": "Sabia virus",
+      "location": "São Paulo state",
+      "country": "Brazil",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2026-02-18",
+      "notes": "Endemic region",
+      "latitude": -14.235,
+      "longitude": -51.9253
+    },
+    {
+      "disease": "Machupo virus",
+      "location": "Beni department",
+      "country": "Bolivia",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2026-02-18",
+      "notes": "Endemic region",
+      "latitude": -16.2902,
+      "longitude": -63.5887
+    },
+    {
+      "disease": "Guanarito virus",
+      "location": "Portuguesa state",
+      "country": "Venezuela",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2026-02-18",
+      "notes": "Endemic region",
+      "latitude": 6.4238,
+      "longitude": -66.5897
+    },
+    {
+      "disease": "Alkhurma hemorrhagic fever virus",
+      "location": "Multiple regions",
+      "country": "Saudi Arabia",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2026-02-18",
+      "notes": "Endemic region",
+      "latitude": 23.8859,
+      "longitude": 45.0792
+    },
+    {
+      "disease": "Alkhurma hemorrhagic fever virus",
+      "location": "Multiple regions",
+      "country": "Egypt",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2026-02-18",
+      "notes": "Endemic region",
+      "latitude": 26.8206,
+      "longitude": 30.8025
+    },
+    {
+      "disease": "Kyasanur Forest Disease virus",
+      "location": "Karnataka State",
+      "country": "India",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2026-02-18",
+      "notes": "Endemic region",
+      "latitude": 15.3173,
+      "longitude": 75.7139
+    },
+    {
+      "disease": "Omsk Hemorrhagic Fever virus",
+      "location": "Western Siberia",
+      "country": "Russia",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2026-02-18",
+      "notes": "Endemic region - Omsk, Novosibirsk, Kurgan, Tyumen",
+      "latitude": 55.0084,
+      "longitude": 73.3745
     }
   ]
 }
