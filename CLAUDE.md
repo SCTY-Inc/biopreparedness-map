@@ -23,7 +23,7 @@ Source: **Travel Screening Outbreak List** — arrives as email attachment (PDF 
 
 ```bash
 # Parse xlsx/xls files
-~/.local/share/bioprep-venv/bin/python3 -c "import openpyxl; ..."
+uv run --with openpyxl python3 script.py
 
 # Read Google Sheets (if shared as sheet)
 GOG_KEYRING_PASSWORD=min gog sheets read "<spreadsheetId>" "Sheet1!A1:Z200" -a agent@scty.org
