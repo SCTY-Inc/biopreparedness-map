@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "NYC Health + Hospitals Special Pathogens Biopreparedness Map",
   "private": true,
+  "type": "module",
   "scripts": {
     "start": "python3 -m http.server 8000",
     "lint": "eslint \"js/**/*.js\"",
