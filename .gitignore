@@ -4,3 +4,4 @@ node_modules/
 # Keep data.json as example, but you can ignore it if you want
 # data.json
 .superdesign
+.claude/
