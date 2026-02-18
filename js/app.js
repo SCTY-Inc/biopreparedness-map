@@ -316,7 +316,11 @@ function updateDataUpdateDate() {
 function updateDiseaseCount() {
   if (!dom.diseaseCount) return;
   const filtered = getFilteredData();
-  const uniqueDiseases = new Set(filtered.map((item) => item.disease));
+  const uniqueDiseases = new Set(
+    filtered
+      .filter((item) => getStatusInfo(item.transmissionStatus).isContinued)
+      .map((item) => item.disease)
+  );
   dom.diseaseCount.textContent = uniqueDiseases.size;
 }
 
