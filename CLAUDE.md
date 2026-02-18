@@ -131,19 +131,9 @@ Auto-deploys to Cloudflare Pages.
 
 ## Known Gotchas (learned the hard way)
 
-### 🚨 Never commit `.claude/` to this repo
+### `.claude/` is gitignored — keep it that way
 
-`.claude/skills` is a symlink to `/home/deploy/skills` — a local path that doesn't exist on Cloudflare Pages. If it gets committed, **every build will fail silently** with:
-
-```
-Failed: build output directory contains links to files that can't be accessed
-```
-
-The site stays frozen at the last successful deployment with no visible error on the live URL. `.claude/` is in `.gitignore`. Do not remove it from there. When committing, run:
-
-```bash
-git status  # confirm .claude/ is not staged
-```
+`.claude/skills` is a local symlink that breaks Cloudflare Pages builds if committed. It's in `.gitignore` — don't remove it.
 
 ### "Active Outbreak Diseases" counter counts CT only
 
