@@ -157,8 +157,6 @@ function initDom() {
     aboutTab: document.getElementById('about-tab-content'),
     countryFilter: document.getElementById('country-filter'),
     diseaseFilter: document.getElementById('disease-filter'),
-    countryOptions: document.getElementById('country-options'),
-    diseaseOptions: document.getElementById('disease-options'),
     showOutbreaks: document.getElementById('show-outbreaks'),
     showEndemic: document.getElementById('show-endemic'),
     legendContinued: document.getElementById('legend-continued'),
@@ -196,21 +194,17 @@ function setupEventListeners() {
   });
 
   if (dom.countryFilter) {
-    const handler = (e) => {
-      state.filters.country = normalizeFilterValue(e.target.value);
+    dom.countryFilter.addEventListener('change', (e) => {
+      state.filters.country = e.target.value;
       applyFilters();
-    };
-    dom.countryFilter.addEventListener('input', handler);
-    dom.countryFilter.addEventListener('change', handler);
+    });
   }
 
   if (dom.diseaseFilter) {
-    const handler = (e) => {
-      state.filters.disease = normalizeFilterValue(e.target.value);
+    dom.diseaseFilter.addEventListener('change', (e) => {
+      state.filters.disease = e.target.value;
       applyFilters();
-    };
-    dom.diseaseFilter.addEventListener('input', handler);
-    dom.diseaseFilter.addEventListener('change', handler);
+    });
   }
 
   if (dom.showOutbreaks) {
@@ -275,28 +269,34 @@ function applyConfigToUI() {
 }
 
 function populateFilters() {
-  populateDatalist(
-    dom.countryOptions,
+  populateSelect(
+    dom.countryFilter,
+    'All Countries',
     state.allData.map((item) => item.country)
   );
-  populateDatalist(
-    dom.diseaseOptions,
+  populateSelect(
+    dom.diseaseFilter,
+    'All Diseases',
     state.allData.map((item) => item.disease)
   );
-
-  if (dom.countryFilter) dom.countryFilter.value = '';
-  if (dom.diseaseFilter) dom.diseaseFilter.value = '';
 }
 
-function populateDatalist(listEl, values) {
-  if (!listEl) return;
-  listEl.innerHTML = '';
+function populateSelect(selectEl, allLabel, values) {
+  if (!selectEl) return;
+  const current = selectEl.value;
+  selectEl.innerHTML = '';
+  const allOption = document.createElement('option');
+  allOption.value = 'all';
+  allOption.textContent = allLabel;
+  selectEl.appendChild(allOption);
   const uniqueValues = Array.from(new Set(values.filter(Boolean))).sort();
   uniqueValues.forEach((value) => {
     const option = document.createElement('option');
     option.value = value;
-    listEl.appendChild(option);
+    option.textContent = value;
+    selectEl.appendChild(option);
   });
+  selectEl.value = current && uniqueValues.includes(current) ? current : 'all';
 }
 
 function updateDataUpdateDate() {
@@ -356,12 +356,6 @@ function updateDataErrorBanner() {
   const more = state.dataErrors.length > 3 ? ` (+${state.dataErrors.length - 3} more)` : '';
   dom.dataErrorMessage.textContent = `${preview}${more}`;
   dom.dataErrorBanner.classList.remove('hidden');
-}
-
-function normalizeFilterValue(value) {
-  const normalized = value.trim();
-  if (!normalized || normalized.toLowerCase() === 'all') return 'all';
-  return normalized;
 }
 
 function switchNavTab(tabName) {
