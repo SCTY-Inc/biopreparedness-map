@@ -128,3 +128,29 @@ Auto-deploys to Cloudflare Pages.
 | "Côte d'Ivoire" encoding | Use the exact UTF-8 string `Côte d'Ivoire` with curly apostrophe — check with validate.js |
 | Spreadsheet has case counts | Ignore — do not add to data.json |
 | New disease not in canonical table | Use Title Case, add to table above, commit CLAUDE.md too |
+
+## Known Gotchas (learned the hard way)
+
+### 🚨 Never commit `.claude/` to this repo
+
+`.claude/skills` is a symlink to `/home/deploy/skills` — a local path that doesn't exist on Cloudflare Pages. If it gets committed, **every build will fail silently** with:
+
+```
+Failed: build output directory contains links to files that can't be accessed
+```
+
+The site stays frozen at the last successful deployment with no visible error on the live URL. `.claude/` is in `.gitignore`. Do not remove it from there. When committing, run:
+
+```bash
+git status  # confirm .claude/ is not staged
+```
+
+### "Active Outbreak Diseases" counter counts CT only
+
+The stat widget on the map shows **"Active Outbreak Diseases"** — it counts only diseases with `Continued Transmission` status, not all 20 tracked diseases. This is intentional per Syra Madad's spec (Feb 2026). Do not change it to count all diseases.
+
+Example: if Mpox, Lassa Fever, and Nipah Virus are the only active outbreaks, the counter shows **3**, not 20.
+
+### Map color priority
+
+A country that appears in both Endemic and Continued Transmission in the spreadsheet shows **orange** (CT takes priority). Its endemic status is still in `data.json` and visible in the country popup. Do not remove the endemic entry to "fix" the color — that would be wrong.
