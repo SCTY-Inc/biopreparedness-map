@@ -1,61 +1,51 @@
 # CLAUDE.md
 
-Project instructions for Claude Code when working on the Special Pathogens Biopreparedness Map.
+Special Pathogens Biopreparedness Map — NYC Health + Hospitals System Biopreparedness Program.
 
-## Project Overview
-
-Interactive map tracking global disease outbreaks and endemic regions, developed for NYC Health + Hospitals System Biopreparedness Program.
-
-**Live site:** https://biopreparednessmap.org
-
-## Tech Stack
-
-- **Frontend:** Vanilla JS + Tailwind CSS (CDN)
-- **Map:** Leaflet.js (Carto basemap)
-- **Hosting:** Cloudflare Pages
-- **Repo:** github.com/SCTY-Inc/biopreparedness-map
+**Live:** https://biopreparednessmap.org | **Repo:** github.com/SCTY-Inc/biopreparedness-map | **Deploy:** push to `main` → Cloudflare Pages
 
 ## Key Files
 
-| File          | Purpose                                 |
-| ------------- | --------------------------------------- |
-| `index.html`  | Main HTML structure, Tailwind classes   |
-| `js/app.js`   | Entry point, state, data, UI, status    |
-| `js/map.js`   | Leaflet map rendering, geo helpers      |
-| `js/config.js` | Config, status definitions, country name map |
-| `styles.css`  | Custom CSS, component styles            |
-| `data.json`   | Pathogen/outbreak data (update monthly) |
-| `updates/`    | Monthly outbreak list PDFs (source docs) |
-| `assets/`     | Partner logos, H+H branding             |
+| File | Purpose |
+|------|---------|
+| `data.json` | All pathogen/outbreak data (update monthly) |
+| `js/config.js` | Status definitions, `COUNTRY_NAME_MAP` |
+| `js/app.js` | Entry point, state, UI |
+| `js/map.js` | Leaflet map rendering |
+| `validate.js` | Pre-commit validation |
+| `updates/` | Source PDFs/spreadsheets |
 
-## Monthly Data Update Workflow
+## Monthly Data Update
 
-Source: **Travel Screening Outbreak List PDF** (forwarded monthly by the team).
+Source: **Travel Screening Outbreak List** — arrives as email attachment (PDF or spreadsheet).
 
-### Step 0 — Store the PDF
+### Tooling
 
-Save the PDF to `updates/` with naming convention: `YYYY-MM-outbreak-list.pdf` (e.g., `2026-02-outbreak-list.pdf`).
+```bash
+# Parse xlsx/xls files
+~/.local/share/bioprep-venv/bin/python3 -c "import openpyxl; ..."
 
-### Step 1 — Extract from PDF
+# Read Google Sheets (if shared as sheet)
+GOG_KEYRING_PASSWORD=min gog sheets read "<spreadsheetId>" "Sheet1!A1:Z200" -a agent@scty.org
 
-Read the PDF and extract every disease, country, transmission status, and any notes (clade info, case counts, specific regions). Ask clarifying questions if:
+# Download from Drive
+GOG_KEYRING_PASSWORD=min gog drive download "<fileId>" -a agent@scty.org
+```
 
-- A country appears under multiple categories (e.g., DRC in both Clade 1a and 1b)
-- A status is ambiguous (endemic country with active cases — classify as "Continued Transmission" or "Endemic"?)
-- The disease list changed (diseases added or removed entirely)
+### Step 1 — Extract data
 
-### Step 2 — Diff against current data
+Extract every row: disease, country, transmission status, surveillance window, notes.
 
-Compare extracted list against current `data.json`:
+The source has 3 sections:
+- **Continued Transmission** — active outbreaks
+- **No Continued Transmission** — winding down
+- **Endemic Special Pathogen Diseases** — baseline endemic presence
 
-- **Removed countries/diseases** — delete entries
-- **New countries** — need `COUNTRY_NAME_MAP` entry in `js/config.js` (coordinates derived from GeoJSON automatically)
-- **Status changes** — update `transmissionStatus`
-- **Note changes** — update `notes` (clade info, case details)
+### Step 2 — Build complete data.json from scratch
 
-### Step 3 — Update data.json
+**Do NOT diff/patch the old file.** Rebuild `data.json` entirely from the source spreadsheet. This prevents stale entries from persisting.
 
-Entry schema (no `cases` or coordinate fields — centroids derived from GeoJSON at runtime):
+Entry schema — NO `latitude`, `longitude`, or `cases` fields (centroids derived from GeoJSON at runtime):
 
 ```json
 {
@@ -63,66 +53,88 @@ Entry schema (no `cases` or coordinate fields — centroids derived from GeoJSON
   "location": "Multiple regions",
   "country": "Uganda",
   "transmissionStatus": "Continued Transmission",
-  "lastUpdated": "2026-02-11",
+  "lastUpdated": "2026-02-18",
   "notes": "Clade 1b"
 }
 ```
 
-Set `lastUpdated` to the PDF date on all entries.
+### Step 3 — Apply these rules (MANDATORY)
 
-### Step 4 — Update config if needed
+**Disease names** — use these exact canonical strings:
 
-- New countries → add to `COUNTRY_NAME_MAP` in `js/config.js`
-- Removed countries → remove stale entries from `COUNTRY_NAME_MAP`
+| Spreadsheet name | data.json name |
+|-----------------|----------------|
+| Mpox Clade 1a / Mpox Clade 1b | `Mpox` |
+| Lassa Fever / Lassa fever | `Lassa Fever` |
+| Nipah Virus / Nipah virus | `Nipah Virus` |
+| Crimean-Congo hemorrhagic fever (CCHF) | `Crimean-Congo Hemorrhagic Fever` |
+| MERS | `MERS` |
+| Ebola | `Ebola` |
+| Marburg | `Marburg` |
+| Sudan virus (SUDV) | `Sudan Virus` |
+| Bundibugyo virus (BDBV) | `Bundibugyo Virus` |
+| Taï Forest virus (TAFV) | `Taï Forest Virus` |
+| Ravn virus (RAVN) | `Ravn Virus` |
+| Lujo virus | `Lujo Virus` |
+| Junin virus | `Junin Virus` |
+| Chapare virus | `Chapare Virus` |
+| Sabia virus | `Sabia Virus` |
+| Machupo virus | `Machupo Virus` |
+| Guanarito virus | `Guanarito Virus` |
+| Alkhurma hemorrhagic fever virus | `Alkhurma Hemorrhagic Fever Virus` |
+| Kyasanur Forest Disease virus | `Kyasanur Forest Disease Virus` |
+| Omsk Hemorrhagic Fever virus | `Omsk Hemorrhagic Fever Virus` |
 
-### Step 5 — Validate
+New disease? Use Title Case, add to this table.
 
-Run `node validate.js`. Checks: required fields, valid statuses, every country resolves to a GeoJSON feature, no duplicate country+disease pairs. Prints a summary for quick eyeball review.
+**Transmission statuses** — only these 3 values:
 
-### Known edge cases
+| Value | Meaning | Map color |
+|-------|---------|-----------|
+| `Continued Transmission` | Active outbreak | Orange |
+| `No Continued Transmission` | Winding down | Blue |
+| `Endemic` | Baseline presence | Green |
+
+**Duplicate resolution** — a country+disease can only appear ONCE:
+
+- If a country appears in both "Continued Transmission" AND "Endemic" sections → use `Continued Transmission` (higher priority)
+- If Mpox appears under both Clade 1a and 1b for same country → one entry, notes = `Clade 1a + 1b`
+
+**Notes field:**
+
+- Mpox Continued Transmission: use `Clade 1b`, `Clade 1a`, or `Clade 1a + 1b`
+- Endemic entries: use `Endemic region` (or specific location like `Western Siberia`)
+- Do NOT put case counts in notes (they go stale)
+
+**lastUpdated:** set to today's date on ALL entries.
+
+**location field:** use `Multiple regions` unless source specifies (e.g., `Karnataka State`, `Western Siberia`, `Chapare region`).
+
+### Step 4 — Validate
+
+```bash
+cd ~/scty-repos/biopreparedness-map && node validate.js
+```
+
+Must pass with 0 errors before committing. If a country fails GeoJSON resolution, add it to `COUNTRY_NAME_MAP` in `js/config.js`.
+
+### Step 5 — Commit and push
+
+```bash
+git add data.json js/config.js
+git commit -m "Update data.json to <Month Year> outbreak list"
+git push
+```
+
+Auto-deploys to Cloudflare Pages.
+
+### Edge cases
 
 | Issue | Resolution |
 |-------|-----------|
-| Country in multiple categories (e.g., DRC Clade 1a + 1b) | Keep higher-priority status ("Continued Transmission"), combine in notes |
-| Country name doesn't match GeoJSON | Add variant to `COUNTRY_NAME_MAP` (check `assets/world.geojson` for exact name) |
-| New country missing from map | Needs `COUNTRY_NAME_MAP` entry in `js/config.js` (country name must match GeoJSON) |
-| PDF has case counts but data model dropped `cases` field | Put notable counts in `notes` text only |
-| Disease name inconsistency (e.g., "Nipah" vs "Nipah Virus") | Use canonical name matching existing entries; if changing, update all entries |
-
-### Canonical disease names
-
-Use these exact strings in `data.json`:
-
-- `Mpox`
-- `Lassa Fever`
-- `Nipah Virus`
-
-If a new disease is added, establish the canonical name and document it here.
-
-### Transmission statuses
-
-- `Continued Transmission` — active outbreak (orange on map)
-- `No Continued Transmission` — outbreak winding down (blue on map)
-- `Endemic` — constant presence in region (green on map)
-
-## Deployment
-
-Push to `main` branch auto-deploys to Cloudflare Pages.
-
-## Common Tasks
-
-### Add new disease
-
-1. Add entries to `data.json` using canonical name
-2. Disease auto-populates in filter dropdown
-3. Document canonical name in this file
-
-### Add new country
-
-1. Add to `data.json` (no coordinates needed — derived from GeoJSON)
-2. Add to `COUNTRY_NAME_MAP` in `js/config.js` with any GeoJSON name variants
-
-### Update partner logos
-
-1. Add image to `assets/`
-2. Update `index.html` partner section
+| Country in multiple categories | One entry, highest-priority status, combine in notes |
+| Country name not in GeoJSON | Add to `COUNTRY_NAME_MAP` in `js/config.js` |
+| "Congo" vs "Republic of the Congo" | Use `Congo` in data.json (resolves via COUNTRY_NAME_MAP) |
+| "Côte d'Ivoire" encoding | Use the exact UTF-8 string `Côte d'Ivoire` with curly apostrophe — check with validate.js |
+| Spreadsheet has case counts | Ignore — do not add to data.json |
+| New disease not in canonical table | Use Title Case, add to table above, commit CLAUDE.md too |
