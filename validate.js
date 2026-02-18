@@ -21,6 +21,7 @@ const COUNTRY_NAME_MAP = {
   ],
   Congo: ['Republic of the Congo', 'Congo, Republic of'],
   Tanzania: ['United Republic of Tanzania', 'Tanzania, United Republic of'],
+  "Côte d'Ivoire": ['Ivory Coast', 'Cote d\'Ivoire', 'Cote dIvoire'],
 };
 
 const errors = [];
