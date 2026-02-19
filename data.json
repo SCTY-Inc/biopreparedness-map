@@ -164,9 +164,9 @@
       "disease": "Nipah Virus",
       "location": "Multiple regions",
       "country": "Bangladesh",
-      "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-02-18",
-      "notes": "Endemic with active transmission"
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2026-02-19",
+      "notes": "Endemic region"
     },
     {
       "disease": "Lassa Fever",
@@ -615,6 +615,13 @@
       "transmissionStatus": "Endemic",
       "lastUpdated": "2026-02-18",
       "notes": "Endemic region - Omsk, Novosibirsk, Kurgan, Tyumen"
+    },
+    {
+      "disease": "Crimean-Congo Hemorrhagic Fever",
+      "location": "Multiple regions",
+      "country": "Uganda",
+      "transmissionStatus": "Continued Transmission",
+      "lastUpdated": "2026-02-19"
     }
   ]
 }
