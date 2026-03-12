@@ -1,4 +1,4 @@
-import { DEFAULT_CONFIG, COUNTRY_NAME_MAP } from './config.js';
+import { DEFAULT_CONFIG } from './config.js';
 import { initializeMap, loadCountryBoundaries, updateMapCountries } from './map.js';
 
 // --- State ---

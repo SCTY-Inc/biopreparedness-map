@@ -7,27 +7,16 @@
  */
 
 import { readFileSync } from 'fs';
+import {
+  GEO_EXEMPT_COUNTRIES,
+  canonicalizeCountryName,
+  countriesMatch,
+  getPointGeometryOverride,
+  requiresPointGeometry,
+} from './js/geo.js';
 
 const VALID_STATUSES = ['Continued Transmission', 'No Continued Transmission', 'Endemic'];
-const REQUIRED_FIELDS = ['disease', 'country', 'transmissionStatus'];
-
-// Country name map (must stay in sync with js/config.js)
-const COUNTRY_NAME_MAP = {
-  'Democratic Republic of the Congo': [
-    'DR Congo',
-    'Congo, Democratic Republic of',
-    'Congo, the Democratic Republic of the',
-    'Democratic Republic of Congo',
-  ],
-  Congo: ['Republic of the Congo', 'Congo, Republic of'],
-  Tanzania: ['United Republic of Tanzania', 'Tanzania, United Republic of'],
-  "Côte d'Ivoire": ['Ivory Coast', 'Cote d\'Ivoire', 'Cote dIvoire'],
-  'North Macedonia': ['Macedonia'],
-  'Türkiye': ['Turkey'],
-};
-
-// Countries valid but absent from GeoJSON (city-states, territories too small for this world map)
-const GEO_EXEMPT = new Set(['Singapore']);
+const REQUIRED_FIELDS = ['disease', 'country', 'transmissionStatus', 'lastUpdated'];
 
 const errors = [];
 const warnings = [];
@@ -50,19 +39,12 @@ for (const feature of geo.features) {
 
 // Build reverse lookup: data country name → does it resolve to a GeoJSON feature?
 function resolves(country) {
-  if (geoNames.has(country)) return true;
-  const variants = COUNTRY_NAME_MAP[country];
-  if (variants) {
-    for (const v of variants) {
-      if (geoNames.has(v)) return true;
+  for (const geoName of geoNames) {
+    if (countriesMatch(country, geoName)) {
+      return true;
     }
   }
-  // Check if any variant list contains this name
-  for (const [key, variants] of Object.entries(COUNTRY_NAME_MAP)) {
-    for (const v of variants) {
-      if (v === country && geoNames.has(key)) return true;
-    }
-  }
+
   return false;
 }
 
@@ -86,9 +68,23 @@ entries.forEach((item, i) => {
   }
 });
 
+// Canonical country names
+entries.forEach((item, i) => {
+  const canonicalCountry = canonicalizeCountryName(item.country);
+  if (item.country && canonicalCountry !== item.country) {
+    errors.push(
+      `Entry ${i + 1}: use canonical country "${canonicalCountry}" instead of "${item.country}"`
+    );
+  }
+});
+
 // Country resolves to GeoJSON
 entries.forEach((item, i) => {
-  if (item.country && !resolves(item.country) && !GEO_EXEMPT.has(item.country)) {
+  if (
+    item.country &&
+    !resolves(item.country) &&
+    !GEO_EXEMPT_COUNTRIES.has(canonicalizeCountryName(item.country))
+  ) {
     errors.push(
       `Entry ${i + 1}: country "${item.country}" not found in GeoJSON. Add to COUNTRY_NAME_MAP?`
     );
@@ -98,17 +94,26 @@ entries.forEach((item, i) => {
 // Duplicate country+disease
 const seen = new Set();
 entries.forEach((item, i) => {
-  const key = `${item.disease}::${item.country}`;
+  const key = `${item.disease}::${canonicalizeCountryName(item.country)}`;
   if (seen.has(key)) {
     errors.push(`Entry ${i + 1}: duplicate ${item.disease} + ${item.country}`);
   }
   seen.add(key);
 });
 
+// Point geometry coverage for exempt countries and regional endemic entries
+entries.forEach((item, i) => {
+  if (requiresPointGeometry(item) && !getPointGeometryOverride(item)) {
+    errors.push(
+      `Entry ${i + 1}: "${item.country}" / "${item.location}" needs a point geometry override`
+    );
+  }
+});
+
 // Consistent lastUpdated
 const dates = new Set(entries.map((item) => item.lastUpdated).filter(Boolean));
 if (dates.size > 1) {
-  warnings.push(`Multiple lastUpdated dates found: ${[...dates].join(', ')}`);
+  errors.push(`Multiple lastUpdated dates found: ${[...dates].join(', ')}`);
 }
 
 // --- Summary ---

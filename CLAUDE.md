@@ -103,7 +103,7 @@ New disease? Use Title Case, add to this table.
 ### Step 4 — Validate
 
 ```bash
-cd ~/scty-repos/biopreparedness-map && node validate.js
+cd ~/scty-repos/bio-map && node validate.js
 ```
 
 Must pass with 0 errors before committing. If a country fails GeoJSON resolution, add it to `COUNTRY_NAME_MAP` in `js/config.js`.
@@ -123,11 +123,12 @@ Auto-deploys to Cloudflare Pages.
 | Issue | Resolution |
 |-------|-----------|
 | Country in multiple categories | One entry, highest-priority status, combine in notes |
-| Country name not in GeoJSON | Add to `COUNTRY_NAME_MAP` in `js/config.js` |
+| Country name not in GeoJSON | Add alias handling or a point override in `js/geo.js` |
 | "Congo" vs "Republic of the Congo" | Use `Congo` in data.json (resolves via COUNTRY_NAME_MAP) |
 | "Côte d'Ivoire" encoding | Use the exact UTF-8 string `Côte d'Ivoire` with curly apostrophe — check with validate.js |
 | Spreadsheet has case counts | Ignore — do not add to data.json |
 | New disease not in canonical table | Use Title Case, add to table above, commit CLAUDE.md too |
+| Microstate or regional endemic zone | Add a point override in `js/geo.js` so it renders on the map |
 
 ## Known Gotchas (learned the hard way)
 
@@ -144,3 +145,16 @@ Example: if Mpox, Lassa Fever, and Nipah Virus are the only active outbreaks, th
 ### Map color priority
 
 A country that appears in both Endemic and Continued Transmission in the spreadsheet shows **orange** (CT takes priority). Its endemic status is still in `data.json` and visible in the country popup. Do not remove the endemic entry to "fix" the color — that would be wrong.
+
+### Mixed geometry support
+
+The map now supports a mixed geometry model:
+
+- Country polygons for country-wide statuses
+- Point overrides in `js/geo.js` for microstates and regional endemic zones
+
+Examples: `Singapore`, `Russia - Southern endemic foci`, `China - Northwestern/Xinjiang`.
+
+### `lastUpdated` must be uniform
+
+`validate.js` now fails if `data.json` contains multiple `lastUpdated` dates. A monthly refresh is an all-file update, not a partial patch.

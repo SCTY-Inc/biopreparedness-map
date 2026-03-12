@@ -29,3 +29,6 @@ jobs:
 
       - name: Validate data.json
         run: node validate.js
+
+      - name: Run geometry and matching tests
+        run: npm test

@@ -1,3 +1,7 @@
+import { COUNTRY_NAME_MAP } from './geo.js';
+
+export { COUNTRY_NAME_MAP } from './geo.js';
+
 export const DEFAULT_CONFIG = {
   siteTitle: 'Special Pathogens Biopreparedness Map',
   subtitle: 'Developed by NYC Health + Hospitals System Biopreparedness Program',
@@ -43,20 +47,4 @@ export const DEFAULT_CONFIG = {
       },
     },
   },
-};
-
-// Maps data.json country names to GeoJSON name variants.
-// Only needed when the GeoJSON name differs from data.json.
-export const COUNTRY_NAME_MAP = {
-  'Democratic Republic of the Congo': [
-    'DR Congo',
-    'Congo, Democratic Republic of',
-    'Congo, the Democratic Republic of the',
-    'Democratic Republic of Congo',
-  ],
-  Congo: ['Republic of the Congo', 'Congo, Republic of'],
-  Tanzania: ['United Republic of Tanzania', 'Tanzania, United Republic of'],
-  "Côte d'Ivoire": ['Ivory Coast', 'Cote d\'Ivoire', 'Cote dIvoire'],
-  'North Macedonia': ['Macedonia'],
-  'Türkiye': ['Turkey'],
 };

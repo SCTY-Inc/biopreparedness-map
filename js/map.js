@@ -1,5 +1,10 @@
 import { state, getFilteredData, getStatusColor, getStatusInfo, getStatusPriority } from './app.js';
-import { COUNTRY_NAME_MAP } from './config.js';
+import {
+  countriesMatch,
+  findMatchingCountryName,
+  getPointGeometryOverride,
+  usesPointGeometry,
+} from './geo.js';
 
 // --- Geo helpers ---
 
@@ -18,29 +23,7 @@ function getGeoCountryName(feature) {
 
 function findMatchingCountry(geoName, dataCountries) {
   if (!geoName) return null;
-
-  const geoLower = geoName.toLowerCase().trim();
-
-  // Direct match
-  for (const dataCountry of dataCountries) {
-    if (dataCountry.toLowerCase().trim() === geoLower) {
-      return dataCountry;
-    }
-  }
-
-  // Check COUNTRY_NAME_MAP variants
-  for (const dataCountry of dataCountries) {
-    const mappings = COUNTRY_NAME_MAP[dataCountry];
-    if (mappings) {
-      for (const mappedName of mappings) {
-        if (mappedName.toLowerCase().trim() === geoLower) {
-          return dataCountry;
-        }
-      }
-    }
-  }
-
-  return null;
+  return findMatchingCountryName(geoName, dataCountries);
 }
 
 // --- Geometry helpers ---
@@ -56,7 +39,6 @@ function filterOverseasTerritories(feature) {
   const name = getGeoCountryName(feature);
   if (!name) return feature;
 
-  // Countries with overseas territories that cause rendering issues
   const bounds = {
     France: { minLat: 41, maxLat: 52, minLng: -6, maxLng: 10 },
   };
@@ -65,11 +47,12 @@ function filterOverseasTerritories(feature) {
   if (!countryBounds) return feature;
 
   const filtered = feature.geometry.coordinates.filter((polygon) => {
-    // Get rough centroid from first ring of polygon
     const ring = polygon[0];
     if (!ring || ring.length === 0) return true;
-    const avgLng = ring.reduce((s, c) => s + c[0], 0) / ring.length;
-    const avgLat = ring.reduce((s, c) => s + c[1], 0) / ring.length;
+
+    const avgLng = ring.reduce((sum, coordinate) => sum + coordinate[0], 0) / ring.length;
+    const avgLat = ring.reduce((sum, coordinate) => sum + coordinate[1], 0) / ring.length;
+
     return (
       avgLat >= countryBounds.minLat &&
       avgLat <= countryBounds.maxLat &&
@@ -78,7 +61,7 @@ function filterOverseasTerritories(feature) {
     );
   });
 
-  if (filtered.length === 0) return feature; // fallback: don't remove everything
+  if (filtered.length === 0) return feature;
 
   return {
     ...feature,
@@ -91,6 +74,8 @@ function filterOverseasTerritories(feature) {
 const countryCentroids = {};
 
 function buildCountryCentroids(geoJson) {
+  Object.keys(countryCentroids).forEach((key) => delete countryCentroids[key]);
+
   for (const feature of geoJson.features) {
     const name = getGeoCountryName(feature);
     if (!name) continue;
@@ -99,33 +84,71 @@ function buildCountryCentroids(geoJson) {
     const center = layer.getBounds().getCenter();
     countryCentroids[name] = [center.lat, center.lng];
   }
+
   console.log(`Built centroids for ${Object.keys(countryCentroids).length} countries`);
 }
 
-/**
- * Look up a centroid by data country name, checking COUNTRY_NAME_MAP variants.
- */
 function getCountryCentroid(countryName) {
-  if (countryCentroids[countryName]) return countryCentroids[countryName];
-
-  // Check COUNTRY_NAME_MAP variants
-  const mappings = COUNTRY_NAME_MAP[countryName];
-  if (mappings) {
-    for (const variant of mappings) {
-      if (countryCentroids[variant]) return countryCentroids[variant];
-    }
-  }
-
-  // Reverse lookup: check if any map key's variants match
-  for (const [, variants] of Object.entries(COUNTRY_NAME_MAP)) {
-    for (const variant of variants) {
-      if (variant.toLowerCase() === countryName.toLowerCase() && countryCentroids[variant]) {
-        return countryCentroids[variant];
-      }
+  for (const [centroidCountry, centroid] of Object.entries(countryCentroids)) {
+    if (countriesMatch(countryName, centroidCountry)) {
+      return centroid;
     }
   }
 
   return null;
+}
+
+function isVisibleItem(item) {
+  const statusInfo = getStatusInfo(item.transmissionStatus);
+  if (statusInfo.isEndemic && !state.filters.showEndemic) return false;
+  if (statusInfo.isOutbreak && !state.filters.showOutbreaks) return false;
+  return statusInfo.isEndemic || statusInfo.isOutbreak;
+}
+
+function groupPointItems(items) {
+  const grouped = new Map();
+
+  items.forEach((item) => {
+    const override = getPointGeometryOverride(item);
+    if (!override) return;
+
+    if (!grouped.has(override.id)) {
+      grouped.set(override.id, {
+        override,
+        items: [],
+      });
+    }
+
+    grouped.get(override.id).items.push(item);
+  });
+
+  return Array.from(grouped.values());
+}
+
+function renderPointGeometryItems(items) {
+  groupPointItems(items).forEach(({ override, items: groupItems }) => {
+    if (!groupItems.length) return;
+
+    const primaryItem = groupItems.reduce((highestPriorityItem, item) => {
+      if (!highestPriorityItem) return item;
+
+      return getStatusPriority(item.transmissionStatus) >
+        getStatusPriority(highestPriorityItem.transmissionStatus)
+        ? item
+        : highestPriorityItem;
+    }, null);
+
+    const marker = L.circleMarker(override.coordinates, {
+      radius: 8,
+      fillColor: getStatusColor(primaryItem.transmissionStatus),
+      color: '#333',
+      weight: 2,
+      opacity: 1,
+      fillOpacity: 0.85,
+    }).addTo(state.countriesLayerGroup);
+
+    marker.bindPopup(createCountryPopup(groupItems, override.label || groupItems[0].country));
+  });
 }
 
 // --- Map logic ---
@@ -174,7 +197,6 @@ export async function loadCountryBoundaries() {
       throw lastError || new Error('Could not load country boundaries from any source');
     }
 
-    // Filter overseas territories once, reuse everywhere
     state.geoData = {
       ...geoJson,
       features: geoJson.features.map(filterOverseasTerritories),
@@ -183,8 +205,8 @@ export async function loadCountryBoundaries() {
     updateMapCountries();
   } catch (error) {
     console.error('Error loading country boundaries:', error);
-    console.log('Falling back to marker-based visualization');
-    updateMapMarkers();
+    state.geoData = null;
+    updateMapCountries();
   }
 }
 
@@ -197,21 +219,19 @@ export function updateMapCountries() {
     return;
   }
 
+  const filtered = getFilteredData().filter(isVisibleItem);
+  const pointGeometryItems = filtered.filter((item) => usesPointGeometry(item));
+  const polygonItems = filtered.filter((item) => !usesPointGeometry(item));
+
   if (!state.geoData || !state.countryDataMap) {
-    updateMapMarkers();
+    updateMapMarkers(filtered);
     return;
   }
 
-  const filtered = getFilteredData();
   const countryStatusMap = {};
 
-  filtered.forEach((item) => {
+  polygonItems.forEach((item) => {
     if (!item.country) return;
-
-    const statusInfo = getStatusInfo(item.transmissionStatus);
-    if (statusInfo.isEndemic && !state.filters.showEndemic) return;
-    if (statusInfo.isOutbreak && !state.filters.showOutbreaks) return;
-    if (!statusInfo.isEndemic && !statusInfo.isOutbreak) return;
 
     const country = item.country;
     if (!countryStatusMap[country]) {
@@ -219,15 +239,16 @@ export function updateMapCountries() {
         status: item.transmissionStatus,
         priority: getStatusPriority(item.transmissionStatus),
       };
-    } else {
-      const currentPriority = countryStatusMap[country].priority;
-      const newPriority = getStatusPriority(item.transmissionStatus);
-      if (newPriority > currentPriority) {
-        countryStatusMap[country] = {
-          status: item.transmissionStatus,
-          priority: newPriority,
-        };
-      }
+      return;
+    }
+
+    const currentPriority = countryStatusMap[country].priority;
+    const newPriority = getStatusPriority(item.transmissionStatus);
+    if (newPriority > currentPriority) {
+      countryStatusMap[country] = {
+        status: item.transmissionStatus,
+        priority: newPriority,
+      };
     }
   });
 
@@ -238,23 +259,19 @@ export function updateMapCountries() {
     filter: (feature) => {
       const countryName = getGeoCountryName(feature);
       if (!countryName) return false;
-      const mappedCountry = findMatchingCountry(countryName, Object.keys(countryStatusMap));
 
-      if (mappedCountry && countryStatusMap[mappedCountry]) {
-        const countryData = state.countryDataMap[mappedCountry] || [];
-        const hasVisibleData = countryData.some((item) => {
-          const statusInfo = getStatusInfo(item.transmissionStatus);
-          if (statusInfo.isEndemic && !state.filters.showEndemic) return false;
-          if (statusInfo.isOutbreak && !state.filters.showOutbreaks) return false;
-          return statusInfo.isEndemic || statusInfo.isOutbreak;
-        });
-        return hasVisibleData;
+      const mappedCountry = findMatchingCountry(countryName, Object.keys(countryStatusMap));
+      if (!mappedCountry || !countryStatusMap[mappedCountry]) {
+        return false;
       }
-      return false;
+
+      const countryData = state.countryDataMap[mappedCountry] || [];
+      return countryData.some((item) => !usesPointGeometry(item) && isVisibleItem(item));
     },
     style: (feature) => {
       const countryName = getGeoCountryName(feature);
       if (!countryName) return {};
+
       const mappedCountry = findMatchingCountry(countryName, Object.keys(countryStatusMap));
       if (!mappedCountry) return {};
 
@@ -276,12 +293,9 @@ export function updateMapCountries() {
       matchedCountries.add(mappedCountry);
 
       const countryData = state.countryDataMap[mappedCountry] || [];
-      const filteredCountryData = countryData.filter((item) => {
-        const statusInfo = getStatusInfo(item.transmissionStatus);
-        if (statusInfo.isEndemic && !state.filters.showEndemic) return false;
-        if (statusInfo.isOutbreak && !state.filters.showOutbreaks) return false;
-        return statusInfo.isEndemic || statusInfo.isOutbreak;
-      });
+      const filteredCountryData = countryData.filter(
+        (item) => !usesPointGeometry(item) && isVisibleItem(item)
+      );
 
       if (filteredCountryData.length > 0) {
         layer.bindPopup(createCountryPopup(filteredCountryData, mappedCountry));
@@ -292,11 +306,13 @@ export function updateMapCountries() {
   console.log(`Matched ${matchedCount} features for ${matchedCountries.size} unique countries`);
 
   const unmatchedDataCountries = Object.keys(countryStatusMap).filter(
-    (c) => !matchedCountries.has(c)
+    (country) => !matchedCountries.has(country)
   );
   if (unmatchedDataCountries.length > 0) {
     console.warn('Countries in data not matched to GeoJSON:', unmatchedDataCountries);
   }
+
+  renderPointGeometryItems(pointGeometryItems);
 }
 
 function createCountryPopup(countryData, countryName) {
@@ -341,41 +357,40 @@ function createCountryPopup(countryData, countryName) {
   return html;
 }
 
-function updateMapMarkers() {
-  const filtered = getFilteredData();
-
+function updateMapMarkers(filteredItems = getFilteredData().filter(isVisibleItem)) {
   if (state.countriesLayerGroup) {
     state.countriesLayerGroup.clearLayers();
   }
 
-  filtered.forEach((item) => {
-    const centroid = getCountryCentroid(item.country);
-    if (!centroid) return;
+  const pointGeometryItems = filteredItems.filter((item) => usesPointGeometry(item));
+  renderPointGeometryItems(pointGeometryItems);
 
-    const statusInfo = getStatusInfo(item.transmissionStatus);
-    if (statusInfo.isEndemic && !state.filters.showEndemic) return;
-    if (statusInfo.isOutbreak && !state.filters.showOutbreaks) return;
+  filteredItems
+    .filter((item) => !usesPointGeometry(item))
+    .forEach((item) => {
+      const centroid = getCountryCentroid(item.country);
+      if (!centroid) return;
 
-    const marker = L.circleMarker(centroid, {
-      radius: 8,
-      fillColor: getStatusColor(item.transmissionStatus),
-      color: '#333',
-      weight: 2,
-      opacity: 1,
-      fillOpacity: 0.7,
-    }).addTo(state.countriesLayerGroup);
+      const marker = L.circleMarker(centroid, {
+        radius: 8,
+        fillColor: getStatusColor(item.transmissionStatus),
+        color: '#333',
+        weight: 2,
+        opacity: 1,
+        fillOpacity: 0.7,
+      }).addTo(state.countriesLayerGroup);
 
-    marker.bindPopup(`
-                <div style="min-width: 200px; font-family: Arial, sans-serif;">
-                    <h3 style="margin: 0 0 10px 0; color: #0072BC; font-size: 16px;">${escapeHtml(item.disease || 'N/A')}</h3>
-                    <p style="margin: 5px 0; font-size: 13px;"><strong>Location:</strong> ${escapeHtml(item.location || 'N/A')}</p>
-                    <p style="margin: 5px 0; font-size: 13px;"><strong>Country:</strong> ${escapeHtml(item.country || 'N/A')}</p>
-                    <p style="margin: 5px 0; font-size: 13px;"><strong>Status:</strong> ${escapeHtml(item.transmissionStatus || 'N/A')}</p>
-                    ${item.lastUpdated ? `<p style="margin: 5px 0; font-size: 13px;"><strong>Last Updated:</strong> ${escapeHtml(item.lastUpdated)}</p>` : ''}
-                    ${item.notes ? `<p style="margin: 5px 0; font-size: 13px;"><strong>Notes:</strong> ${escapeHtml(item.notes)}</p>` : ''}
-                </div>
-            `);
-  });
+      marker.bindPopup(`
+                  <div style="min-width: 200px; font-family: Arial, sans-serif;">
+                      <h3 style="margin: 0 0 10px 0; color: #0072BC; font-size: 16px;">${escapeHtml(item.disease || 'N/A')}</h3>
+                      <p style="margin: 5px 0; font-size: 13px;"><strong>Location:</strong> ${escapeHtml(item.location || 'N/A')}</p>
+                      <p style="margin: 5px 0; font-size: 13px;"><strong>Country:</strong> ${escapeHtml(item.country || 'N/A')}</p>
+                      <p style="margin: 5px 0; font-size: 13px;"><strong>Status:</strong> ${escapeHtml(item.transmissionStatus || 'N/A')}</p>
+                      ${item.lastUpdated ? `<p style="margin: 5px 0; font-size: 13px;"><strong>Last Updated:</strong> ${escapeHtml(item.lastUpdated)}</p>` : ''}
+                      ${item.notes ? `<p style="margin: 5px 0; font-size: 13px;"><strong>Notes:</strong> ${escapeHtml(item.notes)}</p>` : ''}
+                  </div>
+              `);
+    });
 }
 
 function escapeHtml(value) {
