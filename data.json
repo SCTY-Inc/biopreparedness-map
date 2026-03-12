@@ -622,6 +622,126 @@
       "country": "Uganda",
       "transmissionStatus": "Continued Transmission",
       "lastUpdated": "2026-02-19"
+    },
+    {
+      "disease": "Lassa Fever",
+      "location": "Multiple regions",
+      "country": "Burkina Faso",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2026-03-12",
+      "notes": "Endemic region"
+    },
+    {
+      "disease": "Crimean-Congo Hemorrhagic Fever",
+      "location": "Multiple regions",
+      "country": "Albania",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2026-03-12",
+      "notes": "Endemic region"
+    },
+    {
+      "disease": "Crimean-Congo Hemorrhagic Fever",
+      "location": "Multiple regions",
+      "country": "Bulgaria",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2026-03-12",
+      "notes": "Endemic region"
+    },
+    {
+      "disease": "Crimean-Congo Hemorrhagic Fever",
+      "location": "Multiple regions",
+      "country": "Georgia",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2026-03-12",
+      "notes": "Endemic region"
+    },
+    {
+      "disease": "Crimean-Congo Hemorrhagic Fever",
+      "location": "Multiple regions",
+      "country": "Iraq",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2026-03-12",
+      "notes": "Endemic region"
+    },
+    {
+      "disease": "Crimean-Congo Hemorrhagic Fever",
+      "location": "Multiple regions",
+      "country": "Kazakhstan",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2026-03-12",
+      "notes": "Endemic region"
+    },
+    {
+      "disease": "Crimean-Congo Hemorrhagic Fever",
+      "location": "Multiple regions",
+      "country": "Kosovo",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2026-03-12",
+      "notes": "Endemic region"
+    },
+    {
+      "disease": "Crimean-Congo Hemorrhagic Fever",
+      "location": "Multiple regions",
+      "country": "North Macedonia",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2026-03-12",
+      "notes": "Endemic region"
+    },
+    {
+      "disease": "Crimean-Congo Hemorrhagic Fever",
+      "location": "Multiple regions",
+      "country": "Spain",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2026-03-12",
+      "notes": "Endemic region"
+    },
+    {
+      "disease": "Crimean-Congo Hemorrhagic Fever",
+      "location": "Multiple regions",
+      "country": "Tajikistan",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2026-03-12",
+      "notes": "Endemic region"
+    },
+    {
+      "disease": "Crimean-Congo Hemorrhagic Fever",
+      "location": "Multiple regions",
+      "country": "Türkiye",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2026-03-12",
+      "notes": "Endemic region"
+    },
+    {
+      "disease": "Crimean-Congo Hemorrhagic Fever",
+      "location": "Multiple regions",
+      "country": "Turkmenistan",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2026-03-12",
+      "notes": "Endemic region"
+    },
+    {
+      "disease": "Crimean-Congo Hemorrhagic Fever",
+      "location": "Multiple regions",
+      "country": "Uzbekistan",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2026-03-12",
+      "notes": "Endemic region"
+    },
+    {
+      "disease": "Crimean-Congo Hemorrhagic Fever",
+      "location": "Northwestern/Xinjiang",
+      "country": "China",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2026-03-12",
+      "notes": "Endemic region (northwestern/Xinjiang)"
+    },
+    {
+      "disease": "Marburg",
+      "location": "Multiple regions",
+      "country": "Equatorial Guinea",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2026-03-12",
+      "notes": "Endemic region"
     }
   ]
 }
