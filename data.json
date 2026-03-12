@@ -742,6 +742,30 @@
       "transmissionStatus": "Endemic",
       "lastUpdated": "2026-03-12",
       "notes": "Endemic region"
+    },
+    {
+      "disease": "Nipah Virus",
+      "location": "Multiple regions",
+      "country": "Malaysia",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2026-03-12",
+      "notes": "Endemic region"
+    },
+    {
+      "disease": "Nipah Virus",
+      "location": "Multiple regions",
+      "country": "Singapore",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2026-03-12",
+      "notes": "Endemic region"
+    },
+    {
+      "disease": "Nipah Virus",
+      "location": "Multiple regions",
+      "country": "Philippines",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2026-03-12",
+      "notes": "Endemic region"
     }
   ]
 }

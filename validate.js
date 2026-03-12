@@ -26,6 +26,9 @@ const COUNTRY_NAME_MAP = {
   'Türkiye': ['Turkey'],
 };
 
+// Countries valid but absent from GeoJSON (city-states, territories too small for this world map)
+const GEO_EXEMPT = new Set(['Singapore']);
+
 const errors = [];
 const warnings = [];
 
@@ -85,7 +88,7 @@ entries.forEach((item, i) => {
 
 // Country resolves to GeoJSON
 entries.forEach((item, i) => {
-  if (item.country && !resolves(item.country)) {
+  if (item.country && !resolves(item.country) && !GEO_EXEMPT.has(item.country)) {
     errors.push(
       `Entry ${i + 1}: country "${item.country}" not found in GeoJSON. Add to COUNTRY_NAME_MAP?`
     );
