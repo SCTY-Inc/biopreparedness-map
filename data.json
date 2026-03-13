@@ -179,7 +179,7 @@
     {
       "disease": "Lassa Fever",
       "location": "Multiple regions",
-      "country": "Côte d'Ivoire",
+      "country": "C\u00f4te d'Ivoire",
       "transmissionStatus": "Endemic",
       "lastUpdated": "2026-03-13",
       "notes": "Endemic region"
@@ -331,7 +331,7 @@
     {
       "disease": "Ebola",
       "location": "Multiple regions",
-      "country": "Côte d'Ivoire",
+      "country": "C\u00f4te d'Ivoire",
       "transmissionStatus": "Endemic",
       "lastUpdated": "2026-03-13",
       "notes": "Endemic region"
@@ -497,9 +497,9 @@
       "notes": "Endemic region"
     },
     {
-      "disease": "Taï Forest Virus",
+      "disease": "Ta\u00ef Forest Virus",
       "location": "Multiple regions",
-      "country": "Côte d'Ivoire",
+      "country": "C\u00f4te d'Ivoire",
       "transmissionStatus": "Endemic",
       "lastUpdated": "2026-03-13",
       "notes": "Endemic region"
@@ -554,7 +554,7 @@
     },
     {
       "disease": "Sabia Virus",
-      "location": "São Paulo state",
+      "location": "S\u00e3o Paulo state",
       "country": "Brazil",
       "transmissionStatus": "Endemic",
       "lastUpdated": "2026-03-13",
@@ -698,7 +698,7 @@
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Multiple regions",
-      "country": "Türkiye",
+      "country": "T\u00fcrkiye",
       "transmissionStatus": "Endemic",
       "lastUpdated": "2026-03-13",
       "notes": "Endemic region"
@@ -894,6 +894,134 @@
       "transmissionStatus": "Endemic",
       "lastUpdated": "2026-03-13",
       "notes": "Endemic region"
+    },
+    {
+      "disease": "Crimean-Congo Hemorrhagic Fever",
+      "location": "Multiple regions",
+      "country": "Mauritania",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2026-03-13",
+      "notes": "Endemic per WHO/ECDC surveillance data"
+    },
+    {
+      "disease": "Crimean-Congo Hemorrhagic Fever",
+      "location": "Multiple regions",
+      "country": "Montenegro",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2026-03-13",
+      "notes": "Endemic per WHO/ECDC surveillance data"
+    },
+    {
+      "disease": "Crimean-Congo Hemorrhagic Fever",
+      "location": "Multiple regions",
+      "country": "Namibia",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2026-03-13",
+      "notes": "Endemic per WHO/ECDC surveillance data"
+    },
+    {
+      "disease": "Crimean-Congo Hemorrhagic Fever",
+      "location": "Multiple regions",
+      "country": "Nigeria",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2026-03-13",
+      "notes": "Endemic per WHO/ECDC surveillance data"
+    },
+    {
+      "disease": "Crimean-Congo Hemorrhagic Fever",
+      "location": "Multiple regions",
+      "country": "Oman",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2026-03-13",
+      "notes": "Endemic per WHO/ECDC surveillance data"
+    },
+    {
+      "disease": "Crimean-Congo Hemorrhagic Fever",
+      "location": "Multiple regions",
+      "country": "Saudi Arabia",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2026-03-13",
+      "notes": "Endemic per WHO/ECDC surveillance data"
+    },
+    {
+      "disease": "Crimean-Congo Hemorrhagic Fever",
+      "location": "Multiple regions",
+      "country": "Senegal",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2026-03-13",
+      "notes": "Endemic per WHO/ECDC surveillance data"
+    },
+    {
+      "disease": "Crimean-Congo Hemorrhagic Fever",
+      "location": "Multiple regions",
+      "country": "Republic of Serbia",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2026-03-13",
+      "notes": "Endemic per WHO/ECDC surveillance data"
+    },
+    {
+      "disease": "Crimean-Congo Hemorrhagic Fever",
+      "location": "Multiple regions",
+      "country": "Slovenia",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2026-03-13",
+      "notes": "Endemic per WHO/ECDC surveillance data"
+    },
+    {
+      "disease": "Crimean-Congo Hemorrhagic Fever",
+      "location": "Multiple regions",
+      "country": "South Africa",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2026-03-13",
+      "notes": "Endemic per WHO/ECDC surveillance data"
+    },
+    {
+      "disease": "Crimean-Congo Hemorrhagic Fever",
+      "location": "Multiple regions",
+      "country": "South Sudan",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2026-03-13",
+      "notes": "Endemic per WHO/ECDC surveillance data"
+    },
+    {
+      "disease": "Crimean-Congo Hemorrhagic Fever",
+      "location": "Multiple regions",
+      "country": "Sudan",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2026-03-13",
+      "notes": "Endemic per WHO/ECDC surveillance data"
+    },
+    {
+      "disease": "Crimean-Congo Hemorrhagic Fever",
+      "location": "Multiple regions",
+      "country": "Tanzania",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2026-03-13",
+      "notes": "Endemic per WHO/ECDC surveillance data"
+    },
+    {
+      "disease": "Crimean-Congo Hemorrhagic Fever",
+      "location": "Multiple regions",
+      "country": "Ukraine",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2026-03-13",
+      "notes": "Endemic per WHO/ECDC surveillance data"
+    },
+    {
+      "disease": "Crimean-Congo Hemorrhagic Fever",
+      "location": "Multiple regions",
+      "country": "United Arab Emirates",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2026-03-13",
+      "notes": "Endemic per WHO/ECDC surveillance data"
+    },
+    {
+      "disease": "Crimean-Congo Hemorrhagic Fever",
+      "location": "Multiple regions",
+      "country": "Zimbabwe",
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2026-03-13",
+      "notes": "Endemic per WHO/ECDC surveillance data"
     }
   ]
 }
