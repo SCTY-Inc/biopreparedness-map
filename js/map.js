@@ -348,6 +348,9 @@ function createCountryPopup(countryData, countryName) {
       if (item.notes) {
         html += `<strong>Notes:</strong> ${escapeHtml(item.notes)}`;
       }
+      if (item.reference) {
+        html += `<br><strong>Source:</strong> <a href="${escapeHtml(item.reference)}" target="_blank" rel="noopener noreferrer" style="color: #0072BC;">Link</a>`;
+      }
       html += '</p>';
     });
     html += '</div>';
@@ -388,6 +391,7 @@ function updateMapMarkers(filteredItems = getFilteredData().filter(isVisibleItem
                       <p style="margin: 5px 0; font-size: 13px;"><strong>Status:</strong> ${escapeHtml(item.transmissionStatus || 'N/A')}</p>
                       ${item.lastUpdated ? `<p style="margin: 5px 0; font-size: 13px;"><strong>Last Updated:</strong> ${escapeHtml(item.lastUpdated)}</p>` : ''}
                       ${item.notes ? `<p style="margin: 5px 0; font-size: 13px;"><strong>Notes:</strong> ${escapeHtml(item.notes)}</p>` : ''}
+                      ${item.reference ? `<p style="margin: 5px 0; font-size: 13px;"><strong>Source:</strong> <a href="${escapeHtml(item.reference)}" target="_blank" rel="noopener noreferrer" style="color: #0072BC;">Link</a></p>` : ''}
                   </div>
               `);
     });

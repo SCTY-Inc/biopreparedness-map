@@ -54,7 +54,7 @@ Entry schema — NO `latitude`, `longitude`, or `cases` fields (centroids derive
 
 | Spreadsheet name | data.json name |
 |-----------------|----------------|
-| Mpox Clade 1a / Mpox Clade 1b | `Mpox` |
+| Mpox Clade 1a / Mpox Clade 1b | `Mpox Clade I` |
 | Lassa Fever / Lassa fever | `Lassa Fever` |
 | Nipah Virus / Nipah virus | `Nipah Virus` |
 | Crimean-Congo hemorrhagic fever (CCHF) | `Crimean-Congo Hemorrhagic Fever` |
@@ -74,6 +74,8 @@ Entry schema — NO `latitude`, `longitude`, or `cases` fields (centroids derive
 | Alkhurma hemorrhagic fever virus | `Alkhurma Hemorrhagic Fever Virus` |
 | Kyasanur Forest Disease virus | `Kyasanur Forest Disease Virus` |
 | Omsk Hemorrhagic Fever virus | `Omsk Hemorrhagic Fever Virus` |
+| Severe Fever with Thrombocytopenia Syndrome (SFTS) | `Severe Fever with Thrombocytopenia Syndrome (SFTS)` |
+| Andes Virus (hantavirus) | `Andes Virus` |
 
 New disease? Use Title Case, add to this table.
 

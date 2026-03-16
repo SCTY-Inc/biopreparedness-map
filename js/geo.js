@@ -10,6 +10,9 @@ export const COUNTRY_NAME_MAP = {
   "Côte d'Ivoire": ['Ivory Coast', "Cote d'Ivoire", 'Cote dIvoire'],
   'North Macedonia': ['Macedonia'],
   'Türkiye': ['Turkey'],
+  'South Korea': ['Republic of Korea', 'Korea, Republic of', 'Korea'],
+  'Myanmar': ['Burma'],
+  'United States': ['United States of America', 'USA'],
 };
 
 export const GEO_EXEMPT_COUNTRIES = new Set(['Singapore']);
@@ -92,6 +95,14 @@ export const POINT_GEOMETRY_OVERRIDES = [
     location: 'Karnataka State',
     coordinates: [14.5, 75.9],
     label: 'India - Karnataka State',
+  },
+  {
+    id: 'regional-usa-mpox-nyc',
+    country: 'United States',
+    disease: 'Mpox Clade I',
+    location: 'New York City',
+    coordinates: [40.7128, -74.006],
+    label: 'USA - New York City',
   },
 ];
 
