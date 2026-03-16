@@ -96,14 +96,6 @@ export const POINT_GEOMETRY_OVERRIDES = [
     coordinates: [14.5, 75.9],
     label: 'India - Karnataka State',
   },
-  {
-    id: 'regional-usa-mpox-nyc',
-    country: 'United States',
-    disease: 'Mpox Clade I',
-    location: 'New York City',
-    coordinates: [40.7128, -74.006],
-    label: 'USA - New York City',
-  },
 ];
 
 const GENERIC_LOCATIONS = new Set(['multiple regions', 'multiple states']);
