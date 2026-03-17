@@ -13,9 +13,11 @@ export const COUNTRY_NAME_MAP = {
   'South Korea': ['Republic of Korea', 'Korea, Republic of', 'Korea'],
   'Myanmar': ['Burma'],
   'United States': ['United States of America', 'USA'],
+  'United Kingdom': ['United Kingdom of Great Britain and Northern Ireland', 'Great Britain', 'UK', 'England'],
+  'Comoros': ['Comoro Islands', 'Union of the Comoros'],
 };
 
-export const GEO_EXEMPT_COUNTRIES = new Set(['Singapore']);
+export const GEO_EXEMPT_COUNTRIES = new Set(['Singapore', 'Comoros']);
 
 export const POINT_GEOMETRY_OVERRIDES = [
   {
@@ -23,6 +25,12 @@ export const POINT_GEOMETRY_OVERRIDES = [
     country: 'Singapore',
     coordinates: [1.3521, 103.8198],
     label: 'Singapore',
+  },
+  {
+    id: 'country-comoros',
+    country: 'Comoros',
+    coordinates: [-11.7022, 43.3551],
+    label: 'Comoros',
   },
   {
     id: 'regional-russia-cchf',
