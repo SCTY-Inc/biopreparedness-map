@@ -9,9 +9,9 @@ Special Pathogens Biopreparedness Map — NYC Health + Hospitals System Bioprepa
 | File | Purpose |
 |------|---------|
 | `data.json` | All pathogen/outbreak data (update monthly) |
-| `js/config.js` | Status definitions, `COUNTRY_NAME_MAP` |
-| `js/app.js` | Entry point, state, UI |
-| `js/map.js` | Leaflet map rendering |
+| `js/data.js` | Shared config, status/filter helpers, validation |
+| `js/app.js` | App entry point, UI, and Leaflet rendering |
+| `js/geo.js` | Country aliases and point overrides |
 | `validate.js` | Pre-commit validation |
 
 ## Monthly Data Update
@@ -35,7 +35,7 @@ The sheet has 3 sections:
 
 **FULL REPLACE every time.** The spreadsheet is the source of truth. Do NOT diff/patch the old file.
 
-Entry schema — NO `latitude`, `longitude`, or `cases` fields (centroids derived from GeoJSON at runtime):
+Entry schema — NO `latitude`, `longitude`, or `cases` fields (map geometry comes from country polygons plus `js/geo.js` point overrides at runtime):
 
 ```json
 {
@@ -108,12 +108,12 @@ New disease? Use Title Case, add to this table.
 cd ~/scty-repos/bio-map && node validate.js
 ```
 
-Must pass with 0 errors before committing. If a country fails GeoJSON resolution, add it to `COUNTRY_NAME_MAP` in `js/config.js`.
+Must pass with 0 errors before committing. If a country fails GeoJSON resolution, add it to `COUNTRY_NAME_MAP` in `js/geo.js`.
 
 ### Step 5 — Commit and push
 
 ```bash
-git add data.json js/config.js
+git add data.json js/geo.js
 git commit -m "Update data.json to <Month Year> outbreak list"
 git push
 ```
@@ -156,6 +156,14 @@ The map now supports a mixed geometry model:
 - Point overrides in `js/geo.js` for microstates and regional endemic zones
 
 Examples: `Singapore`, `Russia - Southern endemic foci`, `China - Northwestern/Xinjiang`.
+
+### Runtime validation matches CLI validation
+
+The browser now uses the same validation rules as `validate.js` for required fields, status values, canonical country names, GeoJSON resolvability, point-geometry coverage, duplicate country+disease pairs, and uniform `lastUpdated`. If `data.json` is malformed, the UI will show an issue banner instead of quietly rendering a wrong map.
+
+### Country boundaries are required
+
+`assets/world.geojson` is now a hard dependency for outbreak rendering. If boundary loading fails, the app shows an issue banner and does not attempt a fake centroid-marker fallback. Fix the boundary asset or path instead of trying to patch around it in `data.json`.
 
 ### `lastUpdated` must be uniform
 
