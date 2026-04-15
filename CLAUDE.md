@@ -16,12 +16,12 @@ Special Pathogens Biopreparedness Map — NYC Health + Hospitals System Bioprepa
 
 ## Monthly Data Update
 
-Source: **Travel Screening Outbreak List** — shared as a Google Sheet link with `agent@scty.org` (viewer access).
+Source: **Travel Screening Outbreak List** — sometimes shared as a Google Sheet link, sometimes as a forwarded email/PDF with a final authoritative country list.
 
 ### Step 1 — Read the spreadsheet
 
 ```bash
-GOG_KEYRING_PASSWORD=min gog sheets read "<spreadsheetId>" "Sheet1!A1:Z200" -a agent@scty.org
+gws-account agent sheets spreadsheets values get --params '{"spreadsheetId":"<spreadsheetId>","range":"Sheet1!A1:Z200"}'
 ```
 
 Extract the spreadsheet ID from the URL: `docs.google.com/spreadsheets/d/<THIS_PART>/edit`
@@ -33,7 +33,7 @@ The sheet has 3 sections:
 
 ### Step 2 — Rebuild data.json from scratch
 
-**FULL REPLACE every time.** The spreadsheet is the source of truth. Do NOT diff/patch the old file.
+**FULL REPLACE every time.** The final authoritative list is the source of truth, whether it comes from the spreadsheet or a later confirmation email/PDF. Do NOT preserve older countries just because they were previously live.
 
 Entry schema — NO `latitude`, `longitude`, or `cases` fields (map geometry comes from country polygons plus `js/geo.js` point overrides at runtime):
 
@@ -49,6 +49,8 @@ Entry schema — NO `latitude`, `longitude`, or `cases` fields (map geometry com
 ```
 
 ### Step 3 — Apply these rules (MANDATORY)
+
+If the final source says "only these countries," treat that as authoritative and derive the live-site delta from that exact set.
 
 **Disease names** — use these exact canonical strings:
 
