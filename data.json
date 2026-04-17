@@ -1,17 +1,17 @@
 {
   "pathogens": [
     {
-      "disease": "Mpox Clade I",
+      "disease": "Mpox Clade Ib",
       "location": "Multiple regions",
       "country": "Democratic Republic of the Congo",
       "transmissionStatus": "Continued Transmission",
       "lastUpdated": "2026-04-17",
-      "notes": "Clade 1a + 1b",
+      "notes": "Clade 1b",
       "reference": "https://worldhealthorg.shinyapps.io/mpx_global/",
       "surveillanceWindow": 21
     },
     {
-      "disease": "Mpox Clade I",
+      "disease": "Mpox Clade Ib",
       "location": "Multiple regions",
       "country": "Burundi",
       "transmissionStatus": "Continued Transmission",
@@ -21,7 +21,7 @@
       "surveillanceWindow": 21
     },
     {
-      "disease": "Mpox Clade I",
+      "disease": "Mpox Clade Ib",
       "location": "Multiple regions",
       "country": "Kenya",
       "transmissionStatus": "Continued Transmission",
@@ -31,17 +31,17 @@
       "surveillanceWindow": 21
     },
     {
-      "disease": "Mpox Clade I",
+      "disease": "Mpox Clade Ib",
       "location": "Multiple regions",
       "country": "Congo",
       "transmissionStatus": "Continued Transmission",
       "lastUpdated": "2026-04-17",
-      "notes": "Clade 1a + 1b",
+      "notes": "Clade 1b",
       "reference": "https://worldhealthorg.shinyapps.io/mpx_global/",
       "surveillanceWindow": 21
     },
     {
-      "disease": "Mpox Clade I",
+      "disease": "Mpox Clade Ib",
       "location": "Multiple regions",
       "country": "Malawi",
       "transmissionStatus": "Continued Transmission",
@@ -51,7 +51,7 @@
       "surveillanceWindow": 21
     },
     {
-      "disease": "Mpox Clade I",
+      "disease": "Mpox Clade Ib",
       "location": "Multiple regions",
       "country": "Uganda",
       "transmissionStatus": "Continued Transmission",
@@ -61,7 +61,7 @@
       "surveillanceWindow": 21
     },
     {
-      "disease": "Mpox Clade I",
+      "disease": "Mpox Clade Ib",
       "location": "Multiple regions",
       "country": "South Sudan",
       "transmissionStatus": "Continued Transmission",
@@ -71,7 +71,7 @@
       "surveillanceWindow": 21
     },
     {
-      "disease": "Mpox Clade I",
+      "disease": "Mpox Clade Ib",
       "location": "Multiple regions",
       "country": "Madagascar",
       "transmissionStatus": "Continued Transmission",
@@ -81,7 +81,7 @@
       "surveillanceWindow": 21
     },
     {
-      "disease": "Mpox Clade I",
+      "disease": "Mpox Clade Ib",
       "location": "Multiple regions",
       "country": "Spain",
       "transmissionStatus": "Continued Transmission",
@@ -91,12 +91,12 @@
       "surveillanceWindow": 21
     },
     {
-      "disease": "Mpox Clade I",
+      "disease": "Mpox Clade Ib",
       "location": "Multiple regions",
       "country": "Central African Republic",
       "transmissionStatus": "Continued Transmission",
       "lastUpdated": "2026-04-17",
-      "notes": "Clade 1a",
+      "notes": "Clade 1b",
       "reference": "https://worldhealthorg.shinyapps.io/mpx_global/",
       "surveillanceWindow": 21
     },
@@ -1191,7 +1191,7 @@
       "surveillanceWindow": 14
     },
     {
-      "disease": "Mpox Clade I",
+      "disease": "Mpox Clade Ib",
       "location": "Multiple regions",
       "country": "Belgium",
       "transmissionStatus": "Continued Transmission",
@@ -1291,7 +1291,7 @@
       "surveillanceWindow": 40
     },
     {
-      "disease": "Mpox Clade I",
+      "disease": "Mpox Clade Ib",
       "country": "United Kingdom",
       "location": "Multiple regions",
       "transmissionStatus": "Continued Transmission",
@@ -1301,7 +1301,7 @@
       "surveillanceWindow": 21
     },
     {
-      "disease": "Mpox Clade I",
+      "disease": "Mpox Clade Ib",
       "country": "Comoros",
       "location": "Multiple regions",
       "transmissionStatus": "Continued Transmission",
@@ -1311,7 +1311,7 @@
       "surveillanceWindow": 21
     },
     {
-      "disease": "Mpox Clade I",
+      "disease": "Mpox Clade Ib",
       "location": "Multiple regions",
       "country": "Germany",
       "transmissionStatus": "Continued Transmission",
@@ -1321,7 +1321,7 @@
       "surveillanceWindow": 21
     },
     {
-      "disease": "Mpox Clade I",
+      "disease": "Mpox Clade Ib",
       "location": "Multiple regions",
       "country": "Singapore",
       "transmissionStatus": "Continued Transmission",
@@ -1457,16 +1457,6 @@
       "transmissionStatus": "Endemic",
       "lastUpdated": "2026-04-17",
       "notes": "Clade Ia",
-      "reference": "https://worldhealthorg.shinyapps.io/mpx_global/",
-      "surveillanceWindow": 21
-    },
-    {
-      "disease": "Mpox Clade Ib",
-      "location": "Multiple regions",
-      "country": "Democratic Republic of the Congo",
-      "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-04-17",
-      "notes": "Clade 1b",
       "reference": "https://worldhealthorg.shinyapps.io/mpx_global/",
       "surveillanceWindow": 21
     }
