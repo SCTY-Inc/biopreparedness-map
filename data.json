@@ -162,12 +162,12 @@
     },
     {
       "disease": "Lassa Fever",
-      "location": "Multiple regions",
+      "location": "Bong County",
       "country": "Liberia",
       "transmissionStatus": "Continued Transmission",
       "lastUpdated": "2026-04-23",
-      "notes": "Outbreak",
-      "reference": "https://www.who.int/news-room/fact-sheets/detail/lassa-fever",
+      "notes": "Outbreak. Source: BEACON",
+      "reference": "https://beaconbio.org/en/event/?eventid=dcdd6fd6-32ae-4259-b37f-1b47322cc836&page=3",
       "surveillanceWindow": 21
     },
     {
@@ -1461,23 +1461,23 @@
       "surveillanceWindow": 21
     },
     {
-      "disease": "Highly Pathogenic Avian Influenza, H9N2",
-      "location": "Multiple regions",
+      "disease": "Low Pathogenic Avian Influenza, H9N2",
+      "location": "Guangdong, Yunnan, and Jiangxi provinces",
       "country": "China",
       "transmissionStatus": "Continued Transmission",
       "lastUpdated": "2026-04-23",
-      "notes": "Outbreak",
-      "reference": "",
+      "notes": "Outbreak. Source: BEACON",
+      "reference": "https://beaconbio.org/en/event/?eventid=332198d8-8c87-4f05-86a6-4503d1df4185&page=2",
       "surveillanceWindow": 14
     },
     {
       "disease": "Highly Pathogenic Avian Influenza, H5N1",
-      "location": "Multiple regions",
+      "location": "Trapaing Thkov Village, Pong Teuk Commune, Romduol District, Svay Rieng Province",
       "country": "Cambodia",
       "transmissionStatus": "Continued Transmission",
       "lastUpdated": "2026-04-23",
-      "notes": "Outbreak",
-      "reference": "",
+      "notes": "Outbreak. Source: BEACON",
+      "reference": "https://beaconbio.org/en/event/?eventid=999496bb-0b95-44ec-85c3-42e5d79b8820",
       "surveillanceWindow": 14
     }
   ]
