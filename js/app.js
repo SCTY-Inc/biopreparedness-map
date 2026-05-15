@@ -107,6 +107,7 @@ function initDom() {
     legendEndemicLabel: document.getElementById('legend-endemic-label'),
     dataUpdateDate: document.getElementById('data-update-date'),
     diseaseCount: document.getElementById('disease-count'),
+    activeDiseaseList: document.getElementById('active-disease-list'),
     resourceSelect: document.getElementById('resource-select'),
     dataErrorBanner: document.getElementById('data-error-banner'),
     dataErrorMessage: document.getElementById('data-error-message'),
@@ -331,13 +332,19 @@ function updateDiseaseCount() {
     return;
   }
 
-  const uniqueDiseases = new Set(
-    getRenderableItems()
-      .filter((item) => getStatusInfo(state.config, item.transmissionStatus).isContinued)
-      .map((item) => item.disease)
-  );
+  const activeDiseases = Array.from(
+    new Set(
+      getRenderableItems()
+        .filter((item) => getStatusInfo(state.config, item.transmissionStatus).isContinued)
+        .map((item) => item.disease)
+    )
+  ).sort();
 
-  dom.diseaseCount.textContent = uniqueDiseases.size;
+  dom.diseaseCount.textContent = activeDiseases.length;
+
+  if (dom.activeDiseaseList) {
+    dom.activeDiseaseList.textContent = activeDiseases.join(', ');
+  }
 }
 
 function updateLegendVisibility() {

@@ -332,12 +332,12 @@
     },
     {
       "disease": "Ebola",
-      "location": "Ituri province, primarily Mongwalu and Rwampara health zones, and Bunia",
+      "location": "Multiple regions",
       "country": "Democratic Republic of the Congo",
-      "transmissionStatus": "Continued Transmission",
+      "transmissionStatus": "Endemic",
       "lastUpdated": "2026-05-15",
-      "notes": "endemic with active transmission; non-Zaire ebolavirus, strain unknown at this time",
-      "reference": "https://www.promedmail.org/alert/8732938",
+      "notes": "Endemic region",
+      "reference": "https://www.gov.uk/government/publications/ebola-origins-reservoirs-transmission-and-guidelines/ebola-overview-history-origins-and-transmission",
       "surveillanceWindow": 21
     },
     {
@@ -512,12 +512,12 @@
     },
     {
       "disease": "Bundibugyo Virus",
-      "location": "Multiple regions",
+      "location": "Ituri province, primarily Mongwalu and Rwampara health zones, and Bunia",
       "country": "Democratic Republic of the Congo",
-      "transmissionStatus": "Endemic",
+      "transmissionStatus": "Continued Transmission",
       "lastUpdated": "2026-05-15",
-      "notes": "Endemic region",
-      "reference": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8385243/",
+      "notes": "endemic with active transmission; Ebola virus strain has been identified as Bundibugyo virus",
+      "reference": "https://www.afro.who.int/countries/democratic-republic-of-congo/news/democratic-republic-congo-confirms-new-ebola-outbreak-who-scales-upsupport",
       "surveillanceWindow": 21
     },
     {
