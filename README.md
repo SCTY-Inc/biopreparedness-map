@@ -14,7 +14,7 @@ Open http://localhost:8000.
 
 ## Data updates
 
-Monthly updates from the Travel Screening Outbreak List (Google Sheet). Run `node validate.js` before committing. See `CLAUDE.md` for the full workflow.
+Monthly updates from the Travel Screening Outbreak List (Google Sheet or forwarded email/PDF — whichever carries the final authoritative country list). Run `node validate.js` before committing. See `CLAUDE.md` for the full workflow.
 
 ## Contact
 
