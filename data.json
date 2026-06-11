@@ -174,9 +174,9 @@
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Multiple regions",
       "country": "Afghanistan",
-      "transmissionStatus": "Endemic",
+      "transmissionStatus": "Continued Transmission",
       "lastUpdated": "2026-06-10",
-      "notes": "Endemic region",
+      "notes": "Continued transmission per June Travel Screening update",
       "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html",
       "surveillanceWindow": 14
     },
