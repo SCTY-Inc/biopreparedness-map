@@ -472,7 +472,7 @@
     },
     {
       "disease": "Bundibugyo Virus",
-      "location": "25 health zones (HZ). Ituri (17/36 HZ), North Kivu (7/35 HZ), and South Kivu Provinces (1/34 HZ).",
+      "location": "Multiple regions",
       "country": "Democratic Republic of the Congo",
       "transmissionStatus": "Continued Transmission",
       "lastUpdated": "2026-06-10",
@@ -482,7 +482,7 @@
     },
     {
       "disease": "Bundibugyo Virus",
-      "location": "Kampala and Wakiso",
+      "location": "Multiple regions",
       "country": "Uganda",
       "transmissionStatus": "Continued Transmission",
       "lastUpdated": "2026-06-10",
@@ -496,7 +496,7 @@
       "country": "South Sudan",
       "transmissionStatus": "Continued Transmission",
       "lastUpdated": "2026-06-10",
-      "notes": "endemic with active transmission; Ebola virus strain has been identified as Bundibugyo virus",
+      "notes": "South Sudan has not reported confirmed Ebola cases, but authorities are on high alert due to cross-border risks from outbreaks in the DRC and Uganda.",
       "reference": "https://www.promedmail.org/alert/8733080",
       "surveillanceWindow": 21
     },
