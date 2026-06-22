@@ -477,7 +477,7 @@
       "transmissionStatus": "Continued Transmission",
       "lastUpdated": "2026-06-10",
       "notes": "endemic with active transmission; Ebola virus strain has been identified as Bundibugyo virus",
-      "reference": "https://www.afro.who.int/countries/democratic-republic-of-congo/news/democratic-republic-congo-confirms-new-ebola-outbreak-who-scales-upsupport",
+      "reference": "https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON608",
       "surveillanceWindow": 21
     },
     {
@@ -487,16 +487,16 @@
       "transmissionStatus": "Continued Transmission",
       "lastUpdated": "2026-06-10",
       "notes": "endemic with active transmission; Ebola virus strain has been identified as Bundibugyo virus",
-      "reference": "https://www.who.int/news/item/17-05-2026-epidemic-of-ebola-disease-in-the-democratic-republic-of-the-congo-and-uganda-determined-a-public-health-emergency-of-international-concern",
+      "reference": "https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON608",
       "surveillanceWindow": 21
     },
     {
       "disease": "Bundibugyo Virus",
-      "location": "Western Equatoria",
+      "location": "Multiple regions",
       "country": "South Sudan",
-      "transmissionStatus": "Continued Transmission",
+      "transmissionStatus": "Endemic",
       "lastUpdated": "2026-06-10",
-      "notes": "South Sudan has not reported confirmed Ebola cases, but authorities are on high alert due to cross-border risks from outbreaks in the DRC and Uganda.",
+      "notes": "endemic; authorities remain on alert due to regional Bundibugyo virus activity in DRC and Uganda",
       "reference": "https://www.promedmail.org/alert/8733080",
       "surveillanceWindow": 21
     },
