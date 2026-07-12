@@ -16,3 +16,9 @@ test('interactive page regions expose their accessible controls', () => {
   assert.match(html, /class="content-tab active"[^>]*role="tab"/s);
   assert.match(html, /id="map-loading"[^>]*role="status"/s);
 });
+
+test('deploy-sensitive assets use versioned URLs', () => {
+  assert.match(html, /href="css\/tailwind\.css\?v=[^"]+"/);
+  assert.match(html, /href="css\/site\.css\?v=[^"]+"/);
+  assert.match(html, /src="js\/app\.js\?v=[^"]+"/);
+});
