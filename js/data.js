@@ -55,7 +55,45 @@ export const DEFAULT_CONFIG = {
 
 export const VALID_STATUSES = ['Continued Transmission', 'No Continued Transmission', 'Endemic'];
 
-const REQUIRED_FIELDS = ['disease', 'country', 'transmissionStatus', 'lastUpdated'];
+export const CANONICAL_DISEASES = [
+  'Alkhurma Hemorrhagic Fever Virus',
+  'Andes Virus',
+  'Avian Influenza, H5N1',
+  'Avian Influenza, H9N2',
+  'Bundibugyo Virus',
+  'Chapare Virus',
+  'Crimean-Congo Hemorrhagic Fever',
+  'Ebola',
+  'Guanarito Virus',
+  'Junin Virus',
+  'Kyasanur Forest Disease Virus',
+  'Lassa Fever',
+  'Lujo Virus',
+  'MERS',
+  'Machupo Virus',
+  'Marburg',
+  'Mpox Clade Ia',
+  'Mpox Clade Ib',
+  'Nipah Virus',
+  'Omsk Hemorrhagic Fever Virus',
+  'Ravn Virus',
+  'Sabia Virus',
+  'Severe Fever with Thrombocytopenia Syndrome (SFTS)',
+  'Sudan Virus',
+  'Taï Forest Virus',
+];
+
+const ENTRY_FIELDS = [
+  'disease',
+  'location',
+  'country',
+  'transmissionStatus',
+  'lastUpdated',
+  'notes',
+  'reference',
+];
+const REQUIRED_FIELDS = new Set(ENTRY_FIELDS);
+const ALLOWED_FIELDS = new Set(ENTRY_FIELDS);
 const ISO_DATE_PATTERN = /^\d{4}-\d{2}-\d{2}$/;
 
 function normalizeStatus(status) {
@@ -89,6 +127,15 @@ function isValidDate(value) {
     date.getUTCMonth() === month - 1 &&
     date.getUTCDate() === day
   );
+}
+
+export function getSafeReferenceUrl(value) {
+  try {
+    const url = new URL(String(value));
+    return url.protocol === 'https:' ? url.href : null;
+  } catch {
+    return null;
+  }
 }
 
 function buildGeoNameSet(geoFeatures = []) {
@@ -217,6 +264,22 @@ export function getLegendVisibility(config, items, filters = {}, searchTerm = ''
   };
 }
 
+export function getFilterStatusMessage(config, visibleItems, filters = {}) {
+  if (visibleItems.length === 0) {
+    return 'No map entries match these filters.';
+  }
+
+  const disease = filters.disease;
+  const isEndemicOnly = visibleItems.every(
+    (item) => getStatusInfo(config, item.transmissionStatus).isEndemic
+  );
+  if (disease && disease !== 'all' && isEndemicOnly) {
+    return `${disease} is currently shown as endemic.`;
+  }
+
+  return '';
+}
+
 export function getLatestUpdateDate(items) {
   const validDates = items
     .map((item) => String(item.lastUpdated || '').trim())
@@ -243,6 +306,10 @@ export function groupItemsByDisease(items) {
 }
 
 export function validateEntries(items, { geoFeatures } = {}) {
+  if (!Array.isArray(items)) {
+    return ['Data "pathogens" must be an array'];
+  }
+
   const errors = [];
   const geoNames = Array.isArray(geoFeatures) && geoFeatures.length > 0 ? buildGeoNameSet(geoFeatures) : null;
 
@@ -253,9 +320,29 @@ export function validateEntries(items, { geoFeatures } = {}) {
       }
     }
 
+    for (const field of Object.keys(item)) {
+      if (!ALLOWED_FIELDS.has(field)) {
+        errors.push(
+          `Entry ${index + 1} (${item.country || 'Unknown'}): unsupported field "${field}"`
+        );
+      }
+    }
+
     if (item.transmissionStatus && !VALID_STATUSES.includes(item.transmissionStatus)) {
       errors.push(
         `Entry ${index + 1} (${item.country || 'Unknown'}): invalid status "${item.transmissionStatus}"`
+      );
+    }
+
+    if (item.disease && !CANONICAL_DISEASES.includes(item.disease)) {
+      errors.push(
+        `Entry ${index + 1} (${item.country || 'Unknown'}): non-canonical disease "${item.disease}"`
+      );
+    }
+
+    if (item.reference && !getSafeReferenceUrl(item.reference)) {
+      errors.push(
+        `Entry ${index + 1} (${item.country || 'Unknown'}): reference must be a valid HTTPS URL`
       );
     }
 

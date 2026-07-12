@@ -5,8 +5,13 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "build:css": "BROWSERSLIST_IGNORE_OLD_DATA=true tailwindcss -i ./css/tailwind.input.css -o ./css/tailwind.css --minify",
     "start": "python3 -m http.server 8000",
     "validate": "node validate.js",
-    "test": "node --test"
+    "test": "node --test",
+    "check": "npm run build:css && npm run validate && npm test"
+  },
+  "devDependencies": {
+    "tailwindcss": "3.4.17"
   }
 }

@@ -9,7 +9,6 @@
 import { readFileSync } from 'fs';
 import { validateEntries } from './js/data.js';
 
-const warnings = [];
 const data = JSON.parse(readFileSync('data.json', 'utf8'));
 const geo = JSON.parse(readFileSync('assets/world.geojson', 'utf8'));
 const entries = data.pathogens || [];
@@ -33,11 +32,6 @@ for (const [status, count] of Object.entries(statuses)) {
 }
 if (dates.size === 1) {
   console.log(`Date:      ${[...dates][0]}`);
-}
-
-if (warnings.length > 0) {
-  console.log(`\n--- Warnings (${warnings.length}) ---`);
-  warnings.forEach((warning) => console.log(`  ⚠ ${warning}`));
 }
 
 if (errors.length > 0) {

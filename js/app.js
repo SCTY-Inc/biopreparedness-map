@@ -1,8 +1,10 @@
 import {
   DEFAULT_CONFIG,
+  getFilterStatusMessage,
   getGeoCountryName,
   getLatestUpdateDate,
   getLegendVisibility,
+  getSafeReferenceUrl,
   getStatusColor,
   getStatusInfo,
   getStatusPriority,
@@ -22,6 +24,7 @@ const state = {
   dataLoadErrors: [],
   dataErrors: [],
   mapErrors: [],
+  focusedCountry: null,
   filters: {
     country: 'all',
     disease: 'all',
@@ -109,11 +112,22 @@ function initDom() {
     diseaseCount: document.getElementById('disease-count'),
     activeDiseaseList: document.getElementById('active-disease-list'),
     resourceSelect: document.getElementById('resource-select'),
+    resourceOpen: document.getElementById('resource-open'),
+    filterToggle: document.getElementById('filter-toggle'),
+    filterPanel: document.getElementById('filter-panel'),
+    activeFilters: document.getElementById('active-filters'),
+    filterStatus: document.getElementById('filter-status'),
+    mapElement: document.getElementById('map'),
+    mapLoading: document.getElementById('map-loading'),
     dataErrorBanner: document.getElementById('data-error-banner'),
     dataErrorMessage: document.getElementById('data-error-message'),
     siteTitle: document.getElementById('site-title'),
     siteSubtitle: document.getElementById('site-subtitle'),
     footerText: document.getElementById('footer-text'),
+    donateModal: document.getElementById('donateModal'),
+    openDonateModal: document.getElementById('open-donate-modal'),
+    closeDonateModal: document.querySelectorAll('[data-close-donate-modal]'),
+    partnerLogos: document.querySelectorAll('.partner-logos-grid img'),
   };
 }
 
@@ -147,7 +161,10 @@ async function loadData() {
     }
 
     const data = await response.json();
-    state.allData = data.pathogens || [];
+    if (!Array.isArray(data.pathogens)) {
+      throw new Error('Data "pathogens" must be an array');
+    }
+    state.allData = data.pathogens;
 
     if (state.allData.length === 0) {
       console.warn('No pathogen data found in data.json');
@@ -203,6 +220,11 @@ function refreshValidation() {
   updateIssueBanner();
 }
 
+function setLoading(isLoading) {
+  dom.mapLoading?.classList.toggle('hidden', !isLoading);
+  dom.mapElement?.setAttribute('aria-busy', String(isLoading));
+}
+
 function invalidateMapSizeSoon() {
   if (!state.map || !dom.homeTab?.classList.contains('active') || !dom.mapContent?.classList.contains('active')) {
     return;
@@ -220,12 +242,14 @@ function setupEventListeners() {
     button.addEventListener('click', (event) => {
       switchNavTab(event.currentTarget.dataset.tab);
     });
+    button.addEventListener('keydown', (event) => handleTabKeydown(event, dom.navTabs));
   });
 
   dom.contentTabs.forEach((button) => {
     button.addEventListener('click', (event) => {
       switchContentTab(event.currentTarget.dataset.content);
     });
+    button.addEventListener('keydown', (event) => handleTabKeydown(event, dom.contentTabs));
   });
 
   dom.countryFilter?.addEventListener('change', (event) => {
@@ -248,16 +272,134 @@ function setupEventListeners() {
     applyFilters();
   });
 
-  dom.resourceSelect?.addEventListener('change', (event) => {
-    if (!event.target.value) {
-      return;
+  dom.resourceSelect?.addEventListener('change', () => {
+    if (dom.resourceOpen) {
+      dom.resourceOpen.disabled = !dom.resourceSelect.value;
     }
-
-    window.open(event.target.value, '_blank', 'noopener');
-    window.setTimeout(() => {
-      event.target.value = '';
-    }, 500);
   });
+  dom.resourceOpen?.addEventListener('click', openSelectedResource);
+  dom.filterToggle?.addEventListener('click', toggleMobileFilters);
+  dom.activeFilters?.addEventListener('click', handleActiveFilterClick);
+
+  dom.openDonateModal?.addEventListener('click', openDonateModal);
+  dom.closeDonateModal.forEach((element) => element.addEventListener('click', closeDonateModal));
+  dom.donateModal?.addEventListener('keydown', handleDonateModalKeydown);
+  dom.partnerLogos.forEach((image) => {
+    image.addEventListener('error', () => {
+      image.hidden = true;
+    });
+  });
+}
+
+function handleTabKeydown(event, tabs) {
+  if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) {
+    return;
+  }
+
+  event.preventDefault();
+  const tabList = Array.from(tabs);
+  const currentIndex = tabList.indexOf(event.currentTarget);
+  const nextIndex =
+    event.key === 'Home'
+      ? 0
+      : event.key === 'End'
+        ? tabList.length - 1
+        : (currentIndex + (event.key === 'ArrowRight' ? 1 : -1) + tabList.length) % tabList.length;
+  tabList[nextIndex]?.focus();
+  tabList[nextIndex]?.click();
+}
+
+function openSelectedResource() {
+  const url = getSafeReferenceUrl(dom.resourceSelect?.value);
+  if (url) {
+    window.open(url, '_blank', 'noopener');
+  }
+}
+
+function toggleMobileFilters() {
+  const expanded = dom.filterToggle?.getAttribute('aria-expanded') === 'true';
+  dom.filterToggle?.setAttribute('aria-expanded', String(!expanded));
+  if (dom.filterToggle) {
+    dom.filterToggle.textContent = expanded ? 'Show filters' : 'Hide filters';
+  }
+  dom.filterPanel?.classList.toggle('expanded', !expanded);
+}
+
+function handleActiveFilterClick(event) {
+  const button = event.target.closest('button[data-clear-filter]');
+  if (!button) {
+    return;
+  }
+
+  const filter = button.dataset.clearFilter;
+  if (filter === 'all') {
+    state.filters.country = 'all';
+    state.filters.disease = 'all';
+    state.filters.showOutbreaks = true;
+    state.filters.showEndemic = true;
+  } else if (filter === 'country' || filter === 'disease') {
+    state.filters[filter] = 'all';
+  }
+
+  syncFilterControls();
+  applyFilters();
+}
+
+function syncFilterControls() {
+  if (dom.countryFilter) dom.countryFilter.value = state.filters.country;
+  if (dom.diseaseFilter) dom.diseaseFilter.value = state.filters.disease;
+  if (dom.showOutbreaks) dom.showOutbreaks.checked = state.filters.showOutbreaks;
+  if (dom.showEndemic) dom.showEndemic.checked = state.filters.showEndemic;
+}
+
+function getModalFocusableElements() {
+  if (!dom.donateModal) {
+    return [];
+  }
+
+  return Array.from(dom.donateModal.querySelectorAll('a[href], button:not([disabled])'));
+}
+
+function openDonateModal() {
+  if (!dom.donateModal) {
+    return;
+  }
+
+  dom.donateModal.classList.remove('hidden');
+  document.body.classList.add('overflow-hidden');
+  getModalFocusableElements()[0]?.focus();
+}
+
+function closeDonateModal() {
+  if (!dom.donateModal) {
+    return;
+  }
+
+  dom.donateModal.classList.add('hidden');
+  document.body.classList.remove('overflow-hidden');
+  dom.openDonateModal?.focus();
+}
+
+function handleDonateModalKeydown(event) {
+  if (event.key === 'Escape') {
+    closeDonateModal();
+    return;
+  }
+
+  if (event.key !== 'Tab') {
+    return;
+  }
+
+  const focusable = getModalFocusableElements();
+  const first = focusable[0];
+  const last = focusable.at(-1);
+  if (event.shiftKey && document.activeElement === first) {
+    event.preventDefault();
+    last?.focus();
+  } else if (!event.shiftKey && document.activeElement === last) {
+    event.preventDefault();
+    first?.focus();
+  }
 }
 
 function applyConfigToUI() {
@@ -347,6 +489,35 @@ function updateDiseaseCount() {
   }
 }
 
+function updateFilterSummary() {
+  if (dom.activeFilters) {
+    const chips = [];
+    if (state.filters.country !== 'all') {
+      chips.push(
+        `<button type="button" class="filter-chip" data-clear-filter="country">Country: ${escapeHtml(state.filters.country)} <span aria-hidden="true">×</span><span class="sr-only">Remove country filter</span></button>`
+      );
+    }
+    if (state.filters.disease !== 'all') {
+      chips.push(
+        `<button type="button" class="filter-chip" data-clear-filter="disease">Disease: ${escapeHtml(state.filters.disease)} <span aria-hidden="true">×</span><span class="sr-only">Remove disease filter</span></button>`
+      );
+    }
+
+    const hasStatusFilter = !state.filters.showOutbreaks || !state.filters.showEndemic;
+    if (chips.length > 0 || hasStatusFilter) {
+      chips.push('<button type="button" class="clear-filters" data-clear-filter="all">Clear filters</button>');
+    }
+    dom.activeFilters.innerHTML = chips.join('');
+    dom.activeFilters.classList.toggle('hidden', chips.length === 0);
+  }
+
+  if (dom.filterStatus) {
+    const message = getFilterStatusMessage(state.config, getRenderableItems(), state.filters);
+    dom.filterStatus.textContent = message;
+    dom.filterStatus.classList.toggle('hidden', !message);
+  }
+}
+
 function updateLegendVisibility() {
   const visibility = hasBlockingIssues()
     ? { continued: false, noTransmission: false, endemic: false }
@@ -382,14 +553,19 @@ function updateIssueBanner() {
 }
 
 function applyFilters() {
+  updateFilterSummary();
   updateLegendVisibility();
   updateMapCountries();
   updateDiseaseCount();
 }
 
 function switchNavTab(tabName) {
-  dom.navTabs.forEach((button) => button.classList.remove('active'));
-  document.querySelector(`[data-tab="${tabName}"]`)?.classList.add('active');
+  dom.navTabs.forEach((button) => {
+    const isActive = button.dataset.tab === tabName;
+    button.classList.toggle('active', isActive);
+    button.setAttribute('aria-selected', String(isActive));
+    button.tabIndex = isActive ? 0 : -1;
+  });
 
   if (tabName === 'home') {
     dom.homeTab?.classList.add('active');
@@ -403,8 +579,12 @@ function switchNavTab(tabName) {
 }
 
 function switchContentTab(contentName) {
-  dom.contentTabs.forEach((button) => button.classList.remove('active'));
-  document.querySelector(`[data-content="${contentName}"]`)?.classList.add('active');
+  dom.contentTabs.forEach((button) => {
+    const isActive = button.dataset.content === contentName;
+    button.classList.toggle('active', isActive);
+    button.setAttribute('aria-selected', String(isActive));
+    button.tabIndex = isActive ? 0 : -1;
+  });
 
   dom.contentPanels.forEach((panel) => panel.classList.remove('active'));
   document.getElementById(`${contentName}-content`)?.classList.add('active');
@@ -416,6 +596,7 @@ function switchContentTab(contentName) {
 
 function renderPointGeometryItems(items) {
   const grouped = new Map();
+  let selectedMarker = null;
 
   items.forEach((item) => {
     const override = getPointGeometryOverride(item);
@@ -442,7 +623,7 @@ function renderPointGeometryItems(items) {
         : highest;
     }, null);
 
-    L.circleMarker(override.coordinates, {
+    const marker = L.circleMarker(override.coordinates, {
       radius: 8,
       fillColor: getStatusColor(state.config, primaryItem.transmissionStatus),
       color: '#333',
@@ -452,7 +633,13 @@ function renderPointGeometryItems(items) {
     })
       .addTo(state.countriesLayerGroup)
       .bindPopup(createCountryPopup(groupItems, override.label || groupItems[0].country));
+
+    if (state.filters.country !== 'all' && groupItems.some((item) => item.country === state.filters.country)) {
+      selectedMarker = marker;
+    }
   });
+
+  return selectedMarker;
 }
 
 function updateMapCountries() {
@@ -465,6 +652,11 @@ function updateMapCountries() {
   const visibleItems = getRenderableItems();
   if (!visibleItems.length || !state.geoData) {
     return;
+  }
+
+  if (state.filters.country === 'all' && state.focusedCountry) {
+    state.map.setView(state.config.map.center, state.config.map.zoom);
+    state.focusedCountry = null;
   }
 
   const pointGeometryItems = visibleItems.filter((item) => usesPointGeometry(item));
@@ -494,6 +686,7 @@ function updateMapCountries() {
 
   const dataCountries = Array.from(countryItems.keys());
   const matchedCountries = new Set();
+  let selectedLayer = null;
 
   if (polygonItems.length > 0) {
     L.geoJSON(state.geoData, {
@@ -520,11 +713,26 @@ function updateMapCountries() {
 
         matchedCountries.add(mappedCountry);
         layer.bindPopup(createCountryPopup(countryItems.get(mappedCountry) || [], mappedCountry));
+        if (mappedCountry === state.filters.country) {
+          selectedLayer = layer;
+        }
       },
     }).addTo(state.countriesLayerGroup);
   }
 
-  renderPointGeometryItems(pointGeometryItems);
+  const selectedMarker = renderPointGeometryItems(pointGeometryItems);
+
+  if (state.filters.country !== 'all') {
+    if (selectedLayer?.getBounds) {
+      state.map.fitBounds(selectedLayer.getBounds(), { padding: [24, 24], maxZoom: 6 });
+      selectedLayer.openPopup();
+      state.focusedCountry = state.filters.country;
+    } else if (selectedMarker) {
+      state.map.setView(selectedMarker.getLatLng(), 6);
+      selectedMarker.openPopup();
+      state.focusedCountry = state.filters.country;
+    }
+  }
 
   const unmatchedCountries = dataCountries.filter((country) => !matchedCountries.has(country));
   if (unmatchedCountries.length > 0) {
@@ -578,9 +786,10 @@ function createPopupEntry(item, countryName) {
   if (item.notes) {
     lines.push(`<strong>Notes:</strong> ${escapeHtml(item.notes)}`);
   }
-  if (item.reference) {
+  const referenceUrl = getSafeReferenceUrl(item.reference);
+  if (referenceUrl) {
     lines.push(
-      `<strong>Source:</strong> <a href="${escapeHtml(item.reference)}" target="_blank" rel="noopener noreferrer" style="color: #0072BC;">Link</a>`
+      `<strong>Source:</strong> <a href="${escapeHtml(referenceUrl)}" target="_blank" rel="noopener noreferrer" style="color: #0072BC;">Link</a>`
     );
   }
 
@@ -606,13 +815,14 @@ async function initApp() {
   applyConfigToUI();
   initializeMap();
   setupEventListeners();
+  setLoading(true);
 
-  await loadData();
-  await loadCountryBoundaries();
+  await Promise.all([loadData(), loadCountryBoundaries()]);
 
   refreshValidation();
   populateFilters();
   applyFilters();
+  setLoading(false);
 }
 
 document.addEventListener('DOMContentLoaded', initApp);

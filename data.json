@@ -5,1450 +5,1305 @@
       "location": "Multiple regions",
       "country": "Burundi",
       "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Clade 1b",
-      "reference": "https://worldhealthorg.shinyapps.io/mpx_global/",
-      "surveillanceWindow": 21
+      "reference": "https://worldhealthorg.shinyapps.io/mpx_global/"
     },
     {
       "disease": "Mpox Clade Ib",
       "location": "Multiple regions",
       "country": "Kenya",
       "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Clade 1b",
-      "reference": "https://worldhealthorg.shinyapps.io/mpx_global/",
-      "surveillanceWindow": 21
+      "reference": "https://worldhealthorg.shinyapps.io/mpx_global/"
     },
     {
       "disease": "Mpox Clade Ib",
       "location": "Multiple regions",
       "country": "Congo",
       "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Clade 1b",
-      "reference": "https://worldhealthorg.shinyapps.io/mpx_global/",
-      "surveillanceWindow": 21
+      "reference": "https://worldhealthorg.shinyapps.io/mpx_global/"
     },
     {
       "disease": "Mpox Clade Ib",
       "location": "Multiple regions",
       "country": "South Sudan",
       "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Clade 1b",
-      "reference": "https://worldhealthorg.shinyapps.io/mpx_global/",
-      "surveillanceWindow": 21
+      "reference": "https://worldhealthorg.shinyapps.io/mpx_global/"
     },
     {
       "disease": "Mpox Clade Ib",
       "location": "Multiple regions",
       "country": "Madagascar",
       "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Clade 1b",
-      "reference": "https://worldhealthorg.shinyapps.io/mpx_global/",
-      "surveillanceWindow": 21
+      "reference": "https://worldhealthorg.shinyapps.io/mpx_global/"
     },
     {
       "disease": "Mpox Clade Ib",
       "location": "Multiple regions",
       "country": "Spain",
       "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Clade 1b",
-      "reference": "https://worldhealthorg.shinyapps.io/mpx_global/",
-      "surveillanceWindow": 21
+      "reference": "https://worldhealthorg.shinyapps.io/mpx_global/"
     },
     {
       "disease": "Lassa Fever",
       "location": "Multiple states",
       "country": "Nigeria",
       "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic with active transmission",
-      "reference": "https://www.promedmail.org/alert/8731337",
-      "surveillanceWindow": 21
+      "reference": "https://www.promedmail.org/alert/8731337"
     },
     {
       "disease": "Nipah Virus",
       "location": "Multiple regions",
       "country": "Bangladesh",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.who.int/news-room/fact-sheets/detail/nipah-virus",
-      "surveillanceWindow": 45
+      "reference": "https://www.who.int/news-room/fact-sheets/detail/nipah-virus"
     },
     {
       "disease": "Lassa Fever",
       "location": "Multiple regions",
       "country": "Benin",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.who.int/news-room/fact-sheets/detail/lassa-fever",
-      "surveillanceWindow": 21
+      "reference": "https://www.who.int/news-room/fact-sheets/detail/lassa-fever"
     },
     {
       "disease": "Lassa Fever",
       "location": "Multiple regions",
       "country": "Côte d'Ivoire",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.who.int/news-room/fact-sheets/detail/lassa-fever",
-      "surveillanceWindow": 21
+      "reference": "https://www.who.int/news-room/fact-sheets/detail/lassa-fever"
     },
     {
       "disease": "Lassa Fever",
       "location": "Multiple regions",
       "country": "Ghana",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.who.int/news-room/fact-sheets/detail/lassa-fever",
-      "surveillanceWindow": 21
+      "reference": "https://www.who.int/news-room/fact-sheets/detail/lassa-fever"
     },
     {
       "disease": "Lassa Fever",
       "location": "Multiple regions",
       "country": "Guinea",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.who.int/news-room/fact-sheets/detail/lassa-fever",
-      "surveillanceWindow": 21
+      "reference": "https://www.who.int/news-room/fact-sheets/detail/lassa-fever"
     },
     {
       "disease": "Lassa Fever",
       "location": "Bong County",
       "country": "Liberia",
       "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Outbreak. Source: BEACON",
-      "reference": "https://beaconbio.org/en/event/?eventid=dcdd6fd6-32ae-4259-b37f-1b47322cc836&page=3",
-      "surveillanceWindow": 21
+      "reference": "https://beaconbio.org/en/event/?eventid=dcdd6fd6-32ae-4259-b37f-1b47322cc836&page=3"
     },
     {
       "disease": "Lassa Fever",
       "location": "Multiple regions",
       "country": "Mali",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.who.int/news-room/fact-sheets/detail/lassa-fever",
-      "surveillanceWindow": 21
+      "reference": "https://www.who.int/news-room/fact-sheets/detail/lassa-fever"
     },
     {
       "disease": "Lassa Fever",
       "location": "Multiple regions",
       "country": "Sierra Leone",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.who.int/news-room/fact-sheets/detail/lassa-fever",
-      "surveillanceWindow": 21
+      "reference": "https://www.who.int/news-room/fact-sheets/detail/lassa-fever"
     },
     {
       "disease": "Lassa Fever",
       "location": "Multiple regions",
       "country": "Togo",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.who.int/news-room/fact-sheets/detail/lassa-fever",
-      "surveillanceWindow": 21
+      "reference": "https://www.who.int/news-room/fact-sheets/detail/lassa-fever"
     },
     {
       "disease": "Nipah Virus",
       "location": "Multiple regions",
       "country": "India",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.who.int/news-room/fact-sheets/detail/nipah-virus",
-      "surveillanceWindow": 45
+      "reference": "https://www.who.int/news-room/fact-sheets/detail/nipah-virus"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Multiple regions",
       "country": "Afghanistan",
       "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Continued transmission per June Travel Screening update",
-      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Multiple regions",
       "country": "Iran",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Multiple regions",
       "country": "Pakistan",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Southern endemic foci",
       "country": "Russia",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Southern endemic foci",
-      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html"
     },
     {
       "disease": "MERS",
       "location": "Multiple regions",
       "country": "Jordan",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.emro.who.int/health-topics/mers-cov/mers-cov.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.emro.who.int/health-topics/mers-cov/mers-cov.html"
     },
     {
       "disease": "MERS",
       "location": "Multiple regions",
       "country": "Kuwait",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.emro.who.int/health-topics/mers-cov/mers-cov.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.emro.who.int/health-topics/mers-cov/mers-cov.html"
     },
     {
       "disease": "MERS",
       "location": "Multiple regions",
       "country": "Oman",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.emro.who.int/health-topics/mers-cov/mers-cov.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.emro.who.int/health-topics/mers-cov/mers-cov.html"
     },
     {
       "disease": "MERS",
       "location": "Multiple regions",
       "country": "Qatar",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.emro.who.int/health-topics/mers-cov/mers-cov.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.emro.who.int/health-topics/mers-cov/mers-cov.html"
     },
     {
       "disease": "MERS",
       "location": "Multiple regions",
       "country": "Saudi Arabia",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.emro.who.int/health-topics/mers-cov/mers-cov.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.emro.who.int/health-topics/mers-cov/mers-cov.html"
     },
     {
       "disease": "MERS",
       "location": "Multiple regions",
       "country": "United Arab Emirates",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.emro.who.int/health-topics/mers-cov/mers-cov.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.emro.who.int/health-topics/mers-cov/mers-cov.html"
     },
     {
       "disease": "MERS",
       "location": "Multiple regions",
       "country": "Yemen",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.emro.who.int/health-topics/mers-cov/mers-cov.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.emro.who.int/health-topics/mers-cov/mers-cov.html"
     },
     {
       "disease": "Ebola",
       "location": "Multiple regions",
       "country": "Côte d'Ivoire",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.gov.uk/government/publications/ebola-origins-reservoirs-transmission-and-guidelines/ebola-overview-history-origins-and-transmission",
-      "surveillanceWindow": 21
+      "reference": "https://www.gov.uk/government/publications/ebola-origins-reservoirs-transmission-and-guidelines/ebola-overview-history-origins-and-transmission"
     },
     {
       "disease": "Ebola",
       "location": "Multiple regions",
       "country": "Democratic Republic of the Congo",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.gov.uk/government/publications/ebola-origins-reservoirs-transmission-and-guidelines/ebola-overview-history-origins-and-transmission",
-      "surveillanceWindow": 21
+      "reference": "https://www.gov.uk/government/publications/ebola-origins-reservoirs-transmission-and-guidelines/ebola-overview-history-origins-and-transmission"
     },
     {
       "disease": "Ebola",
       "location": "Multiple regions",
       "country": "Gabon",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.gov.uk/government/publications/ebola-origins-reservoirs-transmission-and-guidelines/ebola-overview-history-origins-and-transmission",
-      "surveillanceWindow": 21
+      "reference": "https://www.gov.uk/government/publications/ebola-origins-reservoirs-transmission-and-guidelines/ebola-overview-history-origins-and-transmission"
     },
     {
       "disease": "Ebola",
       "location": "Multiple regions",
       "country": "Guinea",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.gov.uk/government/publications/ebola-origins-reservoirs-transmission-and-guidelines/ebola-overview-history-origins-and-transmission",
-      "surveillanceWindow": 21
+      "reference": "https://www.gov.uk/government/publications/ebola-origins-reservoirs-transmission-and-guidelines/ebola-overview-history-origins-and-transmission"
     },
     {
       "disease": "Ebola",
       "location": "Multiple regions",
       "country": "Liberia",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.gov.uk/government/publications/ebola-origins-reservoirs-transmission-and-guidelines/ebola-overview-history-origins-and-transmission",
-      "surveillanceWindow": 21
+      "reference": "https://www.gov.uk/government/publications/ebola-origins-reservoirs-transmission-and-guidelines/ebola-overview-history-origins-and-transmission"
     },
     {
       "disease": "Ebola",
       "location": "Multiple regions",
       "country": "Congo",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.gov.uk/government/publications/ebola-origins-reservoirs-transmission-and-guidelines/ebola-overview-history-origins-and-transmission",
-      "surveillanceWindow": 21
+      "reference": "https://www.gov.uk/government/publications/ebola-origins-reservoirs-transmission-and-guidelines/ebola-overview-history-origins-and-transmission"
     },
     {
       "disease": "Ebola",
       "location": "Multiple regions",
       "country": "Sierra Leone",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.gov.uk/government/publications/ebola-origins-reservoirs-transmission-and-guidelines/ebola-overview-history-origins-and-transmission",
-      "surveillanceWindow": 21
+      "reference": "https://www.gov.uk/government/publications/ebola-origins-reservoirs-transmission-and-guidelines/ebola-overview-history-origins-and-transmission"
     },
     {
       "disease": "Ebola",
       "location": "Multiple regions",
       "country": "South Sudan",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.gov.uk/government/publications/ebola-origins-reservoirs-transmission-and-guidelines/ebola-overview-history-origins-and-transmission",
-      "surveillanceWindow": 21
+      "reference": "https://www.gov.uk/government/publications/ebola-origins-reservoirs-transmission-and-guidelines/ebola-overview-history-origins-and-transmission"
     },
     {
       "disease": "Ebola",
       "location": "Multiple regions",
       "country": "Uganda",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.gov.uk/government/publications/ebola-origins-reservoirs-transmission-and-guidelines/ebola-overview-history-origins-and-transmission",
-      "surveillanceWindow": 21
+      "reference": "https://www.gov.uk/government/publications/ebola-origins-reservoirs-transmission-and-guidelines/ebola-overview-history-origins-and-transmission"
     },
     {
       "disease": "Marburg",
       "location": "Multiple regions",
       "country": "Angola",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.who.int/news-room/fact-sheets/detail/marburg-virus-disease",
-      "surveillanceWindow": 21
+      "reference": "https://www.who.int/news-room/fact-sheets/detail/marburg-virus-disease"
     },
     {
       "disease": "Marburg",
       "location": "Multiple regions",
       "country": "Democratic Republic of the Congo",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.who.int/news-room/fact-sheets/detail/marburg-virus-disease",
-      "surveillanceWindow": 21
+      "reference": "https://www.who.int/news-room/fact-sheets/detail/marburg-virus-disease"
     },
     {
       "disease": "Marburg",
       "location": "Multiple regions",
       "country": "Ghana",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.who.int/news-room/fact-sheets/detail/marburg-virus-disease",
-      "surveillanceWindow": 21
+      "reference": "https://www.who.int/news-room/fact-sheets/detail/marburg-virus-disease"
     },
     {
       "disease": "Marburg",
       "location": "Multiple regions",
       "country": "Guinea",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.who.int/news-room/fact-sheets/detail/marburg-virus-disease",
-      "surveillanceWindow": 21
+      "reference": "https://www.who.int/news-room/fact-sheets/detail/marburg-virus-disease"
     },
     {
       "disease": "Marburg",
       "location": "Multiple regions",
       "country": "Kenya",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.who.int/news-room/fact-sheets/detail/marburg-virus-disease",
-      "surveillanceWindow": 21
+      "reference": "https://www.who.int/news-room/fact-sheets/detail/marburg-virus-disease"
     },
     {
       "disease": "Marburg",
       "location": "Multiple regions",
       "country": "Rwanda",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.who.int/news-room/fact-sheets/detail/marburg-virus-disease",
-      "surveillanceWindow": 21
+      "reference": "https://www.who.int/news-room/fact-sheets/detail/marburg-virus-disease"
     },
     {
       "disease": "Marburg",
       "location": "Multiple regions",
       "country": "Tanzania",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.who.int/news-room/fact-sheets/detail/marburg-virus-disease",
-      "surveillanceWindow": 21
+      "reference": "https://www.who.int/news-room/fact-sheets/detail/marburg-virus-disease"
     },
     {
       "disease": "Marburg",
       "location": "Multiple regions",
       "country": "Uganda",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.who.int/news-room/fact-sheets/detail/marburg-virus-disease",
-      "surveillanceWindow": 21
+      "reference": "https://www.who.int/news-room/fact-sheets/detail/marburg-virus-disease"
     },
     {
       "disease": "Sudan Virus",
       "location": "Multiple regions",
       "country": "South Sudan",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.who.int/news-room/fact-sheets/detail/ebola-disease",
-      "surveillanceWindow": 21
+      "reference": "https://www.who.int/news-room/fact-sheets/detail/ebola-disease"
     },
     {
       "disease": "Sudan Virus",
       "location": "Multiple regions",
       "country": "Uganda",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.who.int/news-room/fact-sheets/detail/ebola-disease",
-      "surveillanceWindow": 21
+      "reference": "https://www.who.int/news-room/fact-sheets/detail/ebola-disease"
     },
     {
       "disease": "Bundibugyo Virus",
       "location": "Multiple regions",
       "country": "Democratic Republic of the Congo",
       "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "endemic with active transmission; Ebola virus strain has been identified as Bundibugyo virus",
-      "reference": "https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON608",
-      "surveillanceWindow": 21
+      "reference": "https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON608"
     },
     {
       "disease": "Bundibugyo Virus",
       "location": "Multiple regions",
       "country": "Uganda",
       "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "endemic with active transmission; Ebola virus strain has been identified as Bundibugyo virus",
-      "reference": "https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON608",
-      "surveillanceWindow": 21
+      "reference": "https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON608"
     },
     {
       "disease": "Bundibugyo Virus",
       "location": "Multiple regions",
       "country": "South Sudan",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "endemic; authorities remain on alert due to regional Bundibugyo virus activity in DRC and Uganda",
-      "reference": "https://www.promedmail.org/alert/8733080",
-      "surveillanceWindow": 21
+      "reference": "https://www.promedmail.org/alert/8733080"
     },
     {
       "disease": "Taï Forest Virus",
       "location": "Multiple regions",
       "country": "Côte d'Ivoire",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.cdc.gov/ebola/outbreaks/index.html",
-      "surveillanceWindow": 21
+      "reference": "https://www.cdc.gov/ebola/outbreaks/index.html"
     },
     {
       "disease": "Ravn Virus",
       "location": "Multiple regions",
       "country": "Democratic Republic of the Congo",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.nature.com/articles/s44298-026-00180-x",
-      "surveillanceWindow": 21
+      "reference": "https://www.nature.com/articles/s44298-026-00180-x"
     },
     {
       "disease": "Ravn Virus",
       "location": "Multiple regions",
       "country": "Kenya",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.nature.com/articles/s44298-026-00180-x",
-      "surveillanceWindow": 21
+      "reference": "https://www.nature.com/articles/s44298-026-00180-x"
     },
     {
       "disease": "Ravn Virus",
       "location": "Multiple regions",
       "country": "Uganda",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.nature.com/articles/s44298-026-00180-x",
-      "surveillanceWindow": 21
+      "reference": "https://www.nature.com/articles/s44298-026-00180-x"
     },
     {
       "disease": "Lujo Virus",
       "location": "Multiple regions",
       "country": "Zambia",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.cdc.gov/lujo-fever/about/index.html",
-      "surveillanceWindow": 13
+      "reference": "https://www.cdc.gov/lujo-fever/about/index.html"
     },
     {
       "disease": "Junin Virus",
       "location": "Argentine Pampas",
       "country": "Argentina",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.gov.uk/guidance/argentine-haemorrhagic-fever-origins-reservoirs-transmission-and-guidelines",
-      "surveillanceWindow": 21
+      "reference": "https://www.gov.uk/guidance/argentine-haemorrhagic-fever-origins-reservoirs-transmission-and-guidelines"
     },
     {
       "disease": "Chapare Virus",
       "location": "Chapare region",
       "country": "Bolivia",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.who.int/emergencies/disease-outbreak-news/item/2025-DON553",
-      "surveillanceWindow": 21
+      "reference": "https://www.who.int/emergencies/disease-outbreak-news/item/2025-DON553"
     },
     {
       "disease": "Sabia Virus",
       "location": "São Paulo state",
       "country": "Brazil",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://stacks.cdc.gov/view/cdc/88893",
-      "surveillanceWindow": 21
+      "reference": "https://stacks.cdc.gov/view/cdc/88893"
     },
     {
       "disease": "Machupo Virus",
       "location": "Beni department",
       "country": "Bolivia",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.gov.uk/guidance/haemorrhagic-fevers-in-bolivia-origins-reservoirs-transmission-and-guidelines",
-      "surveillanceWindow": 21
+      "reference": "https://www.gov.uk/guidance/haemorrhagic-fevers-in-bolivia-origins-reservoirs-transmission-and-guidelines"
     },
     {
       "disease": "Guanarito Virus",
       "location": "Portuguesa state",
       "country": "Venezuela",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9110938/",
-      "surveillanceWindow": 19
+      "reference": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9110938/"
     },
     {
       "disease": "Alkhurma Hemorrhagic Fever Virus",
       "location": "Multiple regions",
       "country": "Saudi Arabia",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.cdc.gov/alkhurma/about/index.html",
-      "surveillanceWindow": 8
+      "reference": "https://www.cdc.gov/alkhurma/about/index.html"
     },
     {
       "disease": "Alkhurma Hemorrhagic Fever Virus",
       "location": "Multiple regions",
       "country": "Egypt",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.cdc.gov/alkhurma/about/index.html",
-      "surveillanceWindow": 8
+      "reference": "https://www.cdc.gov/alkhurma/about/index.html"
     },
     {
       "disease": "Kyasanur Forest Disease Virus",
       "location": "Karnataka State",
       "country": "India",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.cdc.gov/kyasanur/about/index.html",
-      "surveillanceWindow": 8
+      "reference": "https://www.cdc.gov/kyasanur/about/index.html"
     },
     {
       "disease": "Omsk Hemorrhagic Fever Virus",
       "location": "Western Siberia",
       "country": "Russia",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region - Omsk, Novosibirsk, Kurgan, Tyumen",
-      "reference": "https://www.cdc.gov/omsk-fever/about/index.html",
-      "surveillanceWindow": 8
+      "reference": "https://www.cdc.gov/omsk-fever/about/index.html"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Multiple regions",
       "country": "Uganda",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html"
     },
     {
       "disease": "Lassa Fever",
       "location": "Multiple regions",
       "country": "Burkina Faso",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.who.int/news-room/fact-sheets/detail/lassa-fever",
-      "surveillanceWindow": 21
+      "reference": "https://www.who.int/news-room/fact-sheets/detail/lassa-fever"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Multiple regions",
       "country": "Albania",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Multiple regions",
       "country": "Bulgaria",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Multiple regions",
       "country": "Georgia",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Multiple regions",
       "country": "Iraq",
       "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Dhi Qar governorate outbreak. Outbreak Source: BEACON; ProMed Alert ID: 8732293",
-      "reference": "https://beaconbio.org/en/event/?eventid=6f7b5778-20f7-40d1-b723-c7e59ffb7806&page=2",
-      "surveillanceWindow": 14
+      "reference": "https://beaconbio.org/en/event/?eventid=6f7b5778-20f7-40d1-b723-c7e59ffb7806&page=2"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Multiple regions",
       "country": "Kazakhstan",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Multiple regions",
       "country": "Kosovo",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7110796/",
-      "surveillanceWindow": 14
+      "reference": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7110796/"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Multiple regions",
       "country": "North Macedonia",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Multiple regions",
       "country": "Spain",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7110796/",
-      "surveillanceWindow": 14
+      "reference": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7110796/"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Multiple regions",
       "country": "Tajikistan",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Multiple regions",
       "country": "Türkiye",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Multiple regions",
       "country": "Turkmenistan",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Multiple regions",
       "country": "Uzbekistan",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Northwestern/Xinjiang",
       "country": "China",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region (northwestern/Xinjiang)",
-      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html"
     },
     {
       "disease": "Marburg",
       "location": "Multiple regions",
       "country": "Equatorial Guinea",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.who.int/news-room/fact-sheets/detail/marburg-virus-disease",
-      "surveillanceWindow": 21
+      "reference": "https://www.who.int/news-room/fact-sheets/detail/marburg-virus-disease"
     },
     {
       "disease": "Nipah Virus",
       "location": "Multiple regions",
       "country": "Malaysia",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.who.int/news-room/fact-sheets/detail/nipah-virus",
-      "surveillanceWindow": 45
+      "reference": "https://www.who.int/news-room/fact-sheets/detail/nipah-virus"
     },
     {
       "disease": "Nipah Virus",
       "location": "Multiple regions",
       "country": "Singapore",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.who.int/news-room/fact-sheets/detail/nipah-virus",
-      "surveillanceWindow": 45
+      "reference": "https://www.who.int/news-room/fact-sheets/detail/nipah-virus"
     },
     {
       "disease": "Nipah Virus",
       "location": "Multiple regions",
       "country": "Philippines",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.who.int/news-room/fact-sheets/detail/nipah-virus",
-      "surveillanceWindow": 45
+      "reference": "https://www.who.int/news-room/fact-sheets/detail/nipah-virus"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Multiple regions",
       "country": "Armenia",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Multiple regions",
       "country": "Azerbaijan",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Multiple regions",
       "country": "Benin",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Multiple regions",
       "country": "Bosnia and Herzegovina",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Multiple regions",
       "country": "Burkina Faso",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Multiple regions",
       "country": "Central African Republic",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Multiple regions",
       "country": "Croatia",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Multiple regions",
       "country": "Democratic Republic of the Congo",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Multiple regions",
       "country": "Egypt",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Multiple regions",
       "country": "Ethiopia",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Multiple regions",
       "country": "Greece",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Multiple regions",
       "country": "Guinea",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Multiple regions",
       "country": "India",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Multiple regions",
       "country": "Kenya",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Multiple regions",
       "country": "Kyrgyzstan",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Multiple regions",
       "country": "Kuwait",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Multiple regions",
       "country": "Madagascar",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Multiple regions",
       "country": "Mauritania",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic per WHO/ECDC surveillance data",
-      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Multiple regions",
       "country": "Montenegro",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic per WHO/ECDC surveillance data",
-      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Multiple regions",
       "country": "Namibia",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic per WHO/ECDC surveillance data",
-      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Multiple regions",
       "country": "Nigeria",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic per WHO/ECDC surveillance data",
-      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Multiple regions",
       "country": "Oman",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic per WHO/ECDC surveillance data",
-      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Multiple regions",
       "country": "Saudi Arabia",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic per WHO/ECDC surveillance data",
-      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Multiple regions",
       "country": "Senegal",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic per WHO/ECDC surveillance data",
-      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Multiple regions",
       "country": "Republic of Serbia",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic per WHO/ECDC surveillance data",
-      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Multiple regions",
       "country": "Slovenia",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic per WHO/ECDC surveillance data",
-      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Multiple regions",
       "country": "South Africa",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic per WHO/ECDC surveillance data",
-      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Multiple regions",
       "country": "South Sudan",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic per WHO/ECDC surveillance data",
-      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Multiple regions",
       "country": "Sudan",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic per WHO/ECDC surveillance data",
-      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Multiple regions",
       "country": "Tanzania",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic per WHO/ECDC surveillance data",
-      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Multiple regions",
       "country": "Ukraine",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic per WHO/ECDC surveillance data",
-      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Multiple regions",
       "country": "United Arab Emirates",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic per WHO/ECDC surveillance data",
-      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Multiple regions",
       "country": "Zimbabwe",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic per WHO/ECDC surveillance data",
-      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html"
     },
     {
       "disease": "Severe Fever with Thrombocytopenia Syndrome (SFTS)",
       "location": "Multiple regions",
       "country": "China",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.gov.uk/guidance/severe-fever-with-thrombocytopaenia-syndrome-sfts-epidemiology-outbreaks-and-guidance",
-      "surveillanceWindow": 14
+      "reference": "https://www.gov.uk/guidance/severe-fever-with-thrombocytopaenia-syndrome-sfts-epidemiology-outbreaks-and-guidance"
     },
     {
       "disease": "Severe Fever with Thrombocytopenia Syndrome (SFTS)",
       "location": "Multiple regions",
       "country": "Japan",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.gov.uk/guidance/severe-fever-with-thrombocytopaenia-syndrome-sfts-epidemiology-outbreaks-and-guidance",
-      "surveillanceWindow": 14
+      "reference": "https://www.gov.uk/guidance/severe-fever-with-thrombocytopaenia-syndrome-sfts-epidemiology-outbreaks-and-guidance"
     },
     {
       "disease": "Severe Fever with Thrombocytopenia Syndrome (SFTS)",
       "location": "Multiple regions",
       "country": "South Korea",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.gov.uk/guidance/severe-fever-with-thrombocytopaenia-syndrome-sfts-epidemiology-outbreaks-and-guidance",
-      "surveillanceWindow": 14
+      "reference": "https://www.gov.uk/guidance/severe-fever-with-thrombocytopaenia-syndrome-sfts-epidemiology-outbreaks-and-guidance"
     },
     {
       "disease": "Severe Fever with Thrombocytopenia Syndrome (SFTS)",
       "location": "Multiple regions",
       "country": "Myanmar",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.gov.uk/guidance/severe-fever-with-thrombocytopaenia-syndrome-sfts-epidemiology-outbreaks-and-guidance",
-      "surveillanceWindow": 14
+      "reference": "https://www.gov.uk/guidance/severe-fever-with-thrombocytopaenia-syndrome-sfts-epidemiology-outbreaks-and-guidance"
     },
     {
       "disease": "Severe Fever with Thrombocytopenia Syndrome (SFTS)",
       "location": "Multiple regions",
       "country": "Pakistan",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.gov.uk/guidance/severe-fever-with-thrombocytopaenia-syndrome-sfts-epidemiology-outbreaks-and-guidance",
-      "surveillanceWindow": 14
+      "reference": "https://www.gov.uk/guidance/severe-fever-with-thrombocytopaenia-syndrome-sfts-epidemiology-outbreaks-and-guidance"
     },
     {
       "disease": "Severe Fever with Thrombocytopenia Syndrome (SFTS)",
       "location": "Multiple regions",
       "country": "Thailand",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.gov.uk/guidance/severe-fever-with-thrombocytopaenia-syndrome-sfts-epidemiology-outbreaks-and-guidance",
-      "surveillanceWindow": 14
+      "reference": "https://www.gov.uk/guidance/severe-fever-with-thrombocytopaenia-syndrome-sfts-epidemiology-outbreaks-and-guidance"
     },
     {
       "disease": "Severe Fever with Thrombocytopenia Syndrome (SFTS)",
       "location": "Multiple regions",
       "country": "Vietnam",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.gov.uk/guidance/severe-fever-with-thrombocytopaenia-syndrome-sfts-epidemiology-outbreaks-and-guidance",
-      "surveillanceWindow": 14
+      "reference": "https://www.gov.uk/guidance/severe-fever-with-thrombocytopaenia-syndrome-sfts-epidemiology-outbreaks-and-guidance"
     },
     {
       "disease": "Andes Virus",
       "location": "Multiple regions",
       "country": "Argentina",
-      "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-06-10",
-      "notes": "Outbreak associated with the MV Hondius cruise ship hantavirus cluster",
-      "reference": "https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON599",
-      "surveillanceWindow": 40
+      "transmissionStatus": "Endemic",
+      "lastUpdated": "2026-07-12",
+      "notes": "Endemic region",
+      "reference": "https://www.who.int/news-room/fact-sheets/detail/hantavirus"
     },
     {
       "disease": "Andes Virus",
       "location": "Multiple regions",
       "country": "Chile",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://wwwnc.cdc.gov/eid/article/26/4/19-0799_article",
-      "surveillanceWindow": 40
+      "reference": "https://wwwnc.cdc.gov/eid/article/26/4/19-0799_article"
     },
     {
       "disease": "Mpox Clade Ib",
       "country": "Comoros",
       "location": "Multiple regions",
       "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Clade 1b",
-      "reference": "https://worldhealthorg.shinyapps.io/mpx_global/",
-      "surveillanceWindow": 21
+      "reference": "https://worldhealthorg.shinyapps.io/mpx_global/"
     },
     {
       "disease": "Mpox Clade Ib",
       "location": "Multiple regions",
       "country": "Germany",
       "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Clade 1b",
-      "reference": "https://worldhealthorg.shinyapps.io/mpx_global/",
-      "surveillanceWindow": 21
+      "reference": "https://worldhealthorg.shinyapps.io/mpx_global/"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Multiple regions",
       "country": "Portugal",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html"
     },
     {
       "disease": "MERS",
       "location": "Multiple regions",
       "country": "Bahrain",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.emro.who.int/health-topics/mers-cov/mers-cov.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.emro.who.int/health-topics/mers-cov/mers-cov.html"
     },
     {
       "disease": "MERS",
       "location": "Multiple regions",
       "country": "Egypt",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.emro.who.int/health-topics/mers-cov/mers-cov.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.emro.who.int/health-topics/mers-cov/mers-cov.html"
     },
     {
       "disease": "MERS",
       "location": "Multiple regions",
       "country": "Iran",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.emro.who.int/health-topics/mers-cov/mers-cov.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.emro.who.int/health-topics/mers-cov/mers-cov.html"
     },
     {
       "disease": "MERS",
       "location": "Multiple regions",
       "country": "Lebanon",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.emro.who.int/health-topics/mers-cov/mers-cov.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.emro.who.int/health-topics/mers-cov/mers-cov.html"
     },
     {
       "disease": "MERS",
       "location": "Multiple regions",
       "country": "Tunisia",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.emro.who.int/health-topics/mers-cov/mers-cov.html",
-      "surveillanceWindow": 14
+      "reference": "https://www.emro.who.int/health-topics/mers-cov/mers-cov.html"
     },
     {
       "disease": "Severe Fever with Thrombocytopenia Syndrome (SFTS)",
       "location": "Multiple regions",
       "country": "Kenya",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.gov.uk/guidance/severe-fever-with-thrombocytopaenia-syndrome-sfts-epidemiology-outbreaks-and-guidance",
-      "surveillanceWindow": 14
+      "reference": "https://www.gov.uk/guidance/severe-fever-with-thrombocytopaenia-syndrome-sfts-epidemiology-outbreaks-and-guidance"
     },
     {
       "disease": "Severe Fever with Thrombocytopenia Syndrome (SFTS)",
       "location": "Multiple regions",
       "country": "Taiwan",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://www.gov.uk/guidance/severe-fever-with-thrombocytopaenia-syndrome-sfts-epidemiology-outbreaks-and-guidance",
-      "surveillanceWindow": 14
+      "reference": "https://www.gov.uk/guidance/severe-fever-with-thrombocytopaenia-syndrome-sfts-epidemiology-outbreaks-and-guidance"
     },
     {
       "disease": "Mpox Clade Ia",
       "location": "Multiple regions",
       "country": "Cameroon",
       "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Clade 1a",
-      "reference": "https://worldhealthorg.shinyapps.io/mpx_global/",
-      "surveillanceWindow": 21
+      "reference": "https://worldhealthorg.shinyapps.io/mpx_global/"
     },
     {
       "disease": "Mpox Clade Ia",
       "location": "Multiple regions",
       "country": "Central African Republic",
       "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Clade 1a",
-      "reference": "https://worldhealthorg.shinyapps.io/mpx_global/",
-      "surveillanceWindow": 21
+      "reference": "https://worldhealthorg.shinyapps.io/mpx_global/"
     },
     {
       "disease": "Mpox Clade Ia",
       "location": "Multiple regions",
       "country": "Congo",
       "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Clade 1a",
-      "reference": "https://worldhealthorg.shinyapps.io/mpx_global/",
-      "surveillanceWindow": 21
+      "reference": "https://worldhealthorg.shinyapps.io/mpx_global/"
     },
     {
       "disease": "Mpox Clade Ia",
       "location": "Multiple regions",
       "country": "Democratic Republic of the Congo",
       "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Clade 1a",
-      "reference": "https://worldhealthorg.shinyapps.io/mpx_global/",
-      "surveillanceWindow": 21
+      "reference": "https://worldhealthorg.shinyapps.io/mpx_global/"
     },
     {
       "disease": "Mpox Clade Ia",
       "location": "Multiple regions",
       "country": "Sudan",
       "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Clade 1a",
-      "reference": "https://worldhealthorg.shinyapps.io/mpx_global/",
-      "surveillanceWindow": 21
+      "reference": "https://worldhealthorg.shinyapps.io/mpx_global/"
     },
     {
       "disease": "Avian Influenza, H9N2",
       "location": "Multiple regions",
       "country": "China",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://beaconbio.org/en/event/?eventid=332198d8-8c87-4f05-86a6-4503d1df4185&page=2",
-      "surveillanceWindow": 14
+      "reference": "https://beaconbio.org/en/event/?eventid=332198d8-8c87-4f05-86a6-4503d1df4185&page=2"
     },
     {
       "disease": "Avian Influenza, H5N1",
       "location": "Multiple regions",
       "country": "Cambodia",
       "transmissionStatus": "Endemic",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Endemic region",
-      "reference": "https://beaconbio.org/en/event/?eventid=999496bb-0b95-44ec-85c3-42e5d79b8820",
-      "surveillanceWindow": 14
+      "reference": "https://beaconbio.org/en/event/?eventid=999496bb-0b95-44ec-85c3-42e5d79b8820"
     },
     {
       "disease": "Mpox Clade Ib",
       "location": "Multiple regions",
       "country": "Denmark",
       "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Clade 1b",
-      "reference": "https://worldhealthorg.shinyapps.io/mpx_global/",
-      "surveillanceWindow": 21
+      "reference": "https://worldhealthorg.shinyapps.io/mpx_global/"
     },
     {
       "disease": "Mpox Clade Ib",
       "location": "Multiple regions",
       "country": "Thailand",
       "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Clade 1b",
-      "reference": "https://worldhealthorg.shinyapps.io/mpx_global/",
-      "surveillanceWindow": 21
+      "reference": "https://worldhealthorg.shinyapps.io/mpx_global/"
     },
     {
       "disease": "Mpox Clade Ib",
       "location": "Multiple regions",
       "country": "Switzerland",
       "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-06-10",
+      "lastUpdated": "2026-07-12",
       "notes": "Clade 1b",
-      "reference": "https://worldhealthorg.shinyapps.io/mpx_global/",
-      "surveillanceWindow": 21
+      "reference": "https://worldhealthorg.shinyapps.io/mpx_global/"
     }
   ]
 }

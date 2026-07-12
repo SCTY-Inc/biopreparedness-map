@@ -1,8 +1,10 @@
 node_modules/
-.DS_Store
-*.log
-# Keep data.json as example, but you can ignore it if you want
-# data.json
-.superdesign
+test-results/
+playwright-report/
+
 .claude/
 .pi/
+.superdesign/
+
+.DS_Store
+*.log

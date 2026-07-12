@@ -4,16 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Special Pathogens Biopreparedness Map</title>
-
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+    <link rel="icon" href="assets/logos/hhs_logo.png" type="image/png" />
 
     <!-- Leaflet CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+      integrity="sha384-sHL9NAb7lN7rfvG5lfHpm643Xkcjzp4jFvuavGOndn6pjVqS6ny56CAt3nsEVT4H"
+      crossorigin="anonymous"
+    />
 
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="styles.css" />
+    <!-- Compiled utility CSS and custom CSS -->
+    <link rel="stylesheet" href="css/tailwind.css" />
+    <link rel="stylesheet" href="css/site.css" />
   </head>
 
   <body>
@@ -29,7 +32,7 @@
             class="shrink-0"
           >
             <img
-              src="assets/hhs_logo.png"
+              src="assets/logos/hhs_logo.png"
               alt="NYC Health + Hospitals"
               class="h-10 lg:h-12 w-auto"
             />
@@ -37,8 +40,9 @@
 
           <!-- Donate button -->
           <button
-            onclick="document.getElementById('donateModal').classList.remove('hidden')"
-            class="bg-[#F28B46] hover:bg-[#e07a35] text-white px-6 py-3 rounded text-lg font-bold transition-all shadow-md"
+            id="open-donate-modal"
+            type="button"
+            class="bg-[#F28B46] hover:bg-[#e07a35] text-white px-6 py-3 rounded text-lg font-bold transition-colors shadow-md"
           >
             Donate Here
           </button>
@@ -47,9 +51,9 @@
         <!-- Nav bar with orange accent -->
         <div class="border-b-4 border-[#F28B46]">
           <nav class="max-w-[1440px] mx-auto px-4 lg:px-6 flex items-center justify-between">
-            <div class="flex items-center gap-6">
-              <button class="nav-tab active" data-tab="home">Home</button>
-              <button class="nav-tab" data-tab="about">About</button>
+            <div class="flex items-center gap-6" role="tablist" aria-label="Primary navigation">
+              <button id="nav-home" class="nav-tab active" data-tab="home" role="tab" aria-selected="true" aria-controls="home-tab">Home</button>
+              <button id="nav-about" class="nav-tab" data-tab="about" role="tab" aria-selected="false" aria-controls="about-tab-content" tabindex="-1">About</button>
             </div>
           </nav>
         </div>
@@ -76,14 +80,27 @@
 
       <main class="flex-grow max-w-[1440px] mx-auto w-full px-4 lg:px-6 py-6">
         <!-- Home Tab Content -->
-        <div id="home-tab" class="main-tab-content active">
+        <div id="home-tab" class="main-tab-content active" role="tabpanel" aria-labelledby="nav-home">
           <div class="flex flex-col lg:flex-row gap-6">
             <!-- Sidebar Filters -->
             <aside class="w-full lg:w-72 xl:w-80 shrink-0">
               <div
                 class="bg-white rounded-xl shadow-sm border border-slate-200 p-4 lg:p-5 space-y-4"
               >
-                <h4 class="text-xl font-bold text-[#003976] mb-2">Filters</h4>
+                <div class="flex items-center justify-between gap-3">
+                  <h4 class="text-xl font-bold text-[#003976]">Filters</h4>
+                  <button
+                    id="filter-toggle"
+                    type="button"
+                    class="filter-toggle lg:hidden"
+                    aria-expanded="false"
+                    aria-controls="filter-panel"
+                  >
+                    Show filters
+                  </button>
+                </div>
+
+                <div id="filter-panel" class="filter-panel space-y-4">
 
                 <!-- Country Filter -->
                 <div class="space-y-2">
@@ -166,29 +183,37 @@
                     Data updated on <span id="data-update-date"></span>
                   </p>
                 </div>
+                </div>
               </div>
             </aside>
 
             <!-- Map & Content Section -->
             <div class="flex-grow min-w-0 space-y-4">
               <!-- Content Tabs -->
-              <div class="content-tabs">
-                <button class="content-tab active" data-content="map">Map</button>
-                <button class="content-tab" data-content="resources">
+              <div class="content-tabs" role="tablist" aria-label="Map and resources">
+                <button id="content-map-tab" class="content-tab active" data-content="map" role="tab" aria-selected="true" aria-controls="map-content">Map</button>
+                <button id="content-resources-tab" class="content-tab" data-content="resources" role="tab" aria-selected="false" aria-controls="resources-content" tabindex="-1">
                   NYC Health + Hospitals Resources
                 </button>
               </div>
 
+              <div id="active-filters" class="active-filters hidden" aria-label="Active filters"></div>
+
               <!-- Map Tab Content -->
-              <div id="map-content" class="content-panel active">
+              <div id="map-content" class="content-panel active" role="tabpanel" aria-labelledby="content-map-tab">
                 <p class="text-sm text-slate-600 mb-4">
                   <strong>Instructions:</strong> Click on individual countries for details. Some
                   countries may differ slightly from legend colors due to the presence of multiple
                   outbreaks. Region-specific endemic zones and countries too small for the base
                   polygon dataset are shown as map markers instead of full-country fills.
                 </p>
+                <p id="filter-status" class="filter-status hidden" role="status" aria-live="polite"></p>
                 <div class="map-card">
-                  <div id="map" class="map-container w-full"></div>
+                  <div id="map" class="map-container w-full" aria-busy="true"></div>
+                  <div id="map-loading" class="map-loading" role="status">
+                    <span class="loading-spinner" aria-hidden="true"></span>
+                    <span>Loading map data…</span>
+                  </div>
 
                   <!-- Floating Map Controls -->
                   <div class="map-overlay top-right">
@@ -232,46 +257,40 @@
                     Enhancing biopreparedness one outbreak at a time
                   </h4>
                   <div class="partner-logos-grid">
-                    <img
-                      src="assets/HealthforUS_Color.png"
+                    <img loading="lazy"
+                      src="assets/logos/HealthforUS_Color.png"
                       alt="Health for US"
-                      onerror="this.style.display = 'none'"
                     />
-                    <img
-                      src="assets/ceidlogo.png"
+                    <img loading="lazy"
+                      src="assets/logos/ceidlogo.png"
                       alt="CEID"
-                      onerror="this.style.display = 'none'"
                     />
-                    <img
-                      src="assets/beacon.png"
+                    <img loading="lazy"
+                      src="assets/logos/beacon.png"
                       alt="Beacon"
-                      onerror="this.style.display = 'none'"
                     />
-                    <img
-                      src="assets/georgetown.png"
+                    <img loading="lazy"
+                      src="assets/logos/georgetown.png"
                       alt="Georgetown"
-                      onerror="this.style.display = 'none'"
                     />
-                    <img
-                      src="assets/bluedot-logo.png"
+                    <img loading="lazy"
+                      src="assets/logos/bluedot-logo.png"
                       alt="BlueDot"
-                      onerror="this.style.display = 'none'"
                     />
-                    <img src="assets/brown.jpg" alt="Brown" onerror="this.style.display = 'none'" />
-                    <img
-                      src="assets/healthmap.png"
+                    <img loading="lazy" src="assets/logos/brown.jpg" alt="Brown" />
+                    <img loading="lazy"
+                      src="assets/logos/healthmap.png"
                       alt="HealthMap"
-                      onerror="this.style.display = 'none'"
                     />
-                    <img src="assets/cuny.png" alt="CUNY" onerror="this.style.display = 'none'" />
-                    <img src="assets/icap.png" alt="ICAP" onerror="this.style.display = 'none'" />
-                    <img src="assets/pri.png" alt="PRI" onerror="this.style.display = 'none'" />
+                    <img loading="lazy" src="assets/logos/cuny.png" alt="CUNY" />
+                    <img loading="lazy" src="assets/logos/icap.png" alt="ICAP" />
+                    <img loading="lazy" src="assets/logos/pri.png" alt="PRI" />
                   </div>
                 </div>
               </div>
 
               <!-- Resources Tab Content -->
-              <div id="resources-content" class="content-panel">
+              <div id="resources-content" class="content-panel" role="tabpanel" aria-labelledby="content-resources-tab">
                 <section class="resources-section">
                   <h4>NYC Health + Hospitals Special Pathogens Clinician Fact Sheets</h4>
                   <div class="space-y-4">
@@ -346,6 +365,14 @@
                         Sars Virus
                       </option>
                     </select>
+                    <button
+                      id="resource-open"
+                      type="button"
+                      disabled
+                      class="resource-open"
+                    >
+                      Open fact sheet
+                    </button>
                   </div>
                 </section>
               </div>
@@ -354,7 +381,7 @@
         </div>
 
         <!-- About Tab Content -->
-        <div id="about-tab-content" class="main-tab-content">
+        <div id="about-tab-content" class="main-tab-content" role="tabpanel" aria-labelledby="nav-about">
           <section class="about-section">
             <h2>About the Special Pathogens Biopreparedness Map</h2>
             <p>
@@ -487,7 +514,10 @@
                 href="mailto:SystemBiopreparedness@nychhc.org"
                 class="text-blue-200 hover:text-white transition-colors flex items-center gap-2"
               >
-                <iconify-icon icon="lucide:mail"></iconify-icon>
+                <svg aria-hidden="true" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="h-4 w-4">
+                  <path d="m4 4 8 8 8-8" />
+                  <rect x="3" y="5" width="18" height="14" rx="2" />
+                </svg>
                 SystemBiopreparedness@nychhc.org
               </a>
               <a
@@ -509,20 +539,36 @@
     </div>
 
     <!-- Leaflet JS -->
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script
+      src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+      integrity="sha384-cxOPjt7s7Iz04uaHJceBmS+qpjv2JkIHNVcuOrM+YHwZOmJGBXI00mdUXEq65HTH"
+      crossorigin="anonymous"
+    ></script>
 
     <!-- Custom JS -->
     <script type="module" src="js/app.js"></script>
 
     <!-- Donate Modal -->
-    <div id="donateModal" class="hidden fixed inset-0 z-[9999] flex items-center justify-center p-4">
+    <div
+      id="donateModal"
+      class="hidden fixed inset-0 z-[9999] flex items-center justify-center p-4"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="donate-modal-title"
+    >
       <!-- Backdrop -->
-      <div class="absolute inset-0 bg-black/50" onclick="document.getElementById('donateModal').classList.add('hidden')"></div>
+      <button
+        type="button"
+        class="absolute inset-0 bg-black/50 cursor-default"
+        data-close-donate-modal
+        aria-label="Close donation dialog"
+        tabindex="-1"
+      ></button>
       
       <!-- Modal Content -->
       <div class="relative bg-white rounded-lg shadow-2xl max-w-xl w-full max-h-[90vh] overflow-y-auto">
         <div class="p-6 md:p-8">
-          <h2 class="text-2xl md:text-3xl font-bold text-[#003976] mb-4">Support the System Biopreparedness Program</h2>
+          <h2 id="donate-modal-title" class="text-2xl md:text-3xl font-bold text-[#003976] mb-4">Support the System Biopreparedness Program</h2>
           
           <p class="text-gray-700 mb-6">
             Thank you for your interest in supporting our work! Your donation helps us maintain this dashboard and continue our mission to enhance biopreparedness and protect public health.
@@ -545,7 +591,8 @@
           
           <div class="flex flex-col sm:flex-row gap-3">
             <button 
-              onclick="document.getElementById('donateModal').classList.add('hidden')"
+              type="button"
+              data-close-donate-modal
               class="flex-1 px-6 py-3 border border-gray-300 rounded text-gray-700 font-semibold hover:bg-gray-100 transition-colors"
             >
               Cancel
@@ -554,7 +601,7 @@
               href="https://www.nychealthandhospitals.org/philanthropy/#donationForm"
               target="_blank"
               rel="noopener noreferrer"
-              onclick="document.getElementById('donateModal').classList.add('hidden')"
+              data-close-donate-modal
               class="flex-1 px-6 py-3 bg-[#F28B46] hover:bg-[#e07a35] text-white rounded font-semibold text-center transition-colors"
             >
               Continue to Donation Page
