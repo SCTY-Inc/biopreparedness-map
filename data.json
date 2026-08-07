@@ -1,51 +1,6 @@
 {
   "pathogens": [
     {
-      "disease": "Mpox Clade Ib",
-      "location": "Multiple regions",
-      "country": "Burundi",
-      "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-07-13",
-      "notes": "Clade 1b",
-      "reference": "https://worldhealthorg.shinyapps.io/mpx_global/"
-    },
-    {
-      "disease": "Mpox Clade Ib",
-      "location": "Multiple regions",
-      "country": "Kenya",
-      "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-07-13",
-      "notes": "Clade 1b",
-      "reference": "https://worldhealthorg.shinyapps.io/mpx_global/"
-    },
-    {
-      "disease": "Mpox Clade Ib",
-      "location": "Multiple regions",
-      "country": "South Sudan",
-      "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-07-13",
-      "notes": "Clade 1b",
-      "reference": "https://worldhealthorg.shinyapps.io/mpx_global/"
-    },
-    {
-      "disease": "Mpox Clade Ib",
-      "location": "Multiple regions",
-      "country": "Madagascar",
-      "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-07-13",
-      "notes": "Clade 1b",
-      "reference": "https://worldhealthorg.shinyapps.io/mpx_global/"
-    },
-    {
-      "disease": "Mpox Clade Ib",
-      "location": "Multiple regions",
-      "country": "Spain",
-      "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-07-13",
-      "notes": "Clade 1b",
-      "reference": "https://worldhealthorg.shinyapps.io/mpx_global/"
-    },
-    {
       "disease": "Lassa Fever",
       "location": "Multiple states",
       "country": "Nigeria",
@@ -148,10 +103,10 @@
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Multiple regions",
       "country": "Afghanistan",
-      "transmissionStatus": "Endemic",
+      "transmissionStatus": "Continued Transmission",
       "lastUpdated": "2026-07-13",
-      "notes": "Endemic region",
-      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html"
+      "notes": "Active outbreak",
+      "reference": "https://beaconbio.org/en/report/?search=afghanistan&reportid=6220392c-7615-47be-81f8-3b1e812a1002&filtersOpen=false"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
@@ -389,12 +344,12 @@
     },
     {
       "disease": "Marburg",
-      "location": "Kyegegwa District, Western Region",
+      "location": "Multiple regions",
       "country": "Uganda",
-      "transmissionStatus": "No Continued Transmission",
+      "transmissionStatus": "Endemic",
       "lastUpdated": "2026-07-13",
-      "notes": "Active outbreak disease; no continued transmission",
-      "reference": "https://beaconbio.org/en/report/?search=&diseases=b84bec35-cdd7-4518-b22a-90dcc97d1f7f&reportid=82c3d2e0-a715-47e2-89e8-ea98296d23bb&filtersOpen=false"
+      "notes": "Endemic region",
+      "reference": "https://www.who.int/news-room/fact-sheets/detail/marburg-virus-disease"
     },
     {
       "disease": "Sudan Virus",
@@ -418,15 +373,6 @@
       "disease": "Bundibugyo Virus",
       "location": "Multiple regions",
       "country": "Democratic Republic of the Congo",
-      "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-07-13",
-      "notes": "endemic with active transmission; Ebola virus strain has been identified as Bundibugyo virus",
-      "reference": "https://www.who.int/emergencies/disease-outbreak-news/item/2026-DON608"
-    },
-    {
-      "disease": "Bundibugyo Virus",
-      "location": "Multiple regions",
-      "country": "Uganda",
       "transmissionStatus": "Continued Transmission",
       "lastUpdated": "2026-07-13",
       "notes": "endemic with active transmission; Ebola virus strain has been identified as Bundibugyo virus",
@@ -652,10 +598,10 @@
       "disease": "Crimean-Congo Hemorrhagic Fever",
       "location": "Multiple regions",
       "country": "Spain",
-      "transmissionStatus": "Endemic",
+      "transmissionStatus": "Continued Transmission",
       "lastUpdated": "2026-07-13",
-      "notes": "Endemic region",
-      "reference": "https://pmc.ncbi.nlm.nih.gov/articles/PMC7110796/"
+      "notes": "Active outbreak",
+      "reference": "https://beaconbio.org/en/report/?search=spain&reportid=4576e372-b30c-4634-85b5-328b6dc39799&filtersOpen=false"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
@@ -1189,51 +1135,6 @@
       "reference": "https://www.gov.uk/guidance/severe-fever-with-thrombocytopaenia-syndrome-sfts-epidemiology-outbreaks-and-guidance"
     },
     {
-      "disease": "Mpox Clade Ia",
-      "location": "Multiple regions",
-      "country": "Cameroon",
-      "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-07-13",
-      "notes": "Clade 1a",
-      "reference": "https://worldhealthorg.shinyapps.io/mpx_global/"
-    },
-    {
-      "disease": "Mpox Clade Ia",
-      "location": "Multiple regions",
-      "country": "Central African Republic",
-      "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-07-13",
-      "notes": "Clade 1a",
-      "reference": "https://worldhealthorg.shinyapps.io/mpx_global/"
-    },
-    {
-      "disease": "Mpox Clade Ia",
-      "location": "Multiple regions",
-      "country": "Congo",
-      "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-07-13",
-      "notes": "Clade 1a",
-      "reference": "https://worldhealthorg.shinyapps.io/mpx_global/"
-    },
-    {
-      "disease": "Mpox Clade Ia",
-      "location": "Multiple regions",
-      "country": "Democratic Republic of the Congo",
-      "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-07-13",
-      "notes": "Clade 1a",
-      "reference": "https://worldhealthorg.shinyapps.io/mpx_global/"
-    },
-    {
-      "disease": "Mpox Clade Ia",
-      "location": "Multiple regions",
-      "country": "Sudan",
-      "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-07-13",
-      "notes": "Clade 1a",
-      "reference": "https://worldhealthorg.shinyapps.io/mpx_global/"
-    },
-    {
       "disease": "Avian Influenza, H9N2",
       "location": "Multiple regions",
       "country": "China",
@@ -1250,96 +1151,6 @@
       "lastUpdated": "2026-07-13",
       "notes": "Active outbreak disease; no continued transmission",
       "reference": "https://beaconbio.org/en/report/?eventid=999496bb-0b95-44ec-85c3-42e5d79b8820&page=2&reportid=2ccbb76a-47d2-472b-935f-158a905840bd"
-    },
-    {
-      "disease": "Mpox Clade Ib",
-      "location": "Multiple regions",
-      "country": "Thailand",
-      "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-07-13",
-      "notes": "Clade 1b",
-      "reference": "https://worldhealthorg.shinyapps.io/mpx_global/"
-    },
-    {
-      "disease": "Mpox Clade Ib",
-      "location": "Multiple regions",
-      "country": "Switzerland",
-      "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-07-13",
-      "notes": "Clade 1b",
-      "reference": "https://worldhealthorg.shinyapps.io/mpx_global/"
-    },
-    {
-      "disease": "Mpox Clade Ib",
-      "location": "Multiple regions",
-      "country": "Democratic Republic of the Congo",
-      "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-07-13",
-      "notes": "Clade 1b",
-      "reference": "https://worldhealthorg.shinyapps.io/mpx_global/"
-    },
-    {
-      "disease": "Mpox Clade Ib",
-      "location": "Multiple regions",
-      "country": "France",
-      "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-07-13",
-      "notes": "Clade 1b",
-      "reference": "https://worldhealthorg.shinyapps.io/mpx_global/"
-    },
-    {
-      "disease": "Mpox Clade Ib",
-      "location": "Multiple regions",
-      "country": "Belgium",
-      "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-07-13",
-      "notes": "Clade 1b",
-      "reference": "https://worldhealthorg.shinyapps.io/mpx_global/"
-    },
-    {
-      "disease": "Mpox Clade Ib",
-      "location": "Multiple regions",
-      "country": "Italy",
-      "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-07-13",
-      "notes": "Clade 1b",
-      "reference": "https://worldhealthorg.shinyapps.io/mpx_global/"
-    },
-    {
-      "disease": "Mpox Clade Ib",
-      "location": "Multiple regions",
-      "country": "United Kingdom",
-      "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-07-13",
-      "notes": "Clade 1b",
-      "reference": "https://worldhealthorg.shinyapps.io/mpx_global/"
-    },
-    {
-      "disease": "Mpox Clade Ib",
-      "location": "Multiple regions",
-      "country": "Netherlands",
-      "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-07-13",
-      "notes": "Clade 1b",
-      "reference": "https://worldhealthorg.shinyapps.io/mpx_global/"
-    },
-    {
-      "disease": "Mpox Clade Ib",
-      "location": "Multiple regions",
-      "country": "Portugal",
-      "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-07-13",
-      "notes": "Clade 1b",
-      "reference": "https://worldhealthorg.shinyapps.io/mpx_global/"
-    },
-    {
-      "disease": "Mpox Clade Ib",
-      "location": "Multiple regions",
-      "country": "Austria",
-      "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-07-13",
-      "notes": "Clade 1b",
-      "reference": "https://worldhealthorg.shinyapps.io/mpx_global/"
     }
   ]
 }
