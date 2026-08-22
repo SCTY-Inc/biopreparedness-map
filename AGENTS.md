@@ -98,3 +98,5 @@ Non-obvious source mappings:
 
 - `npm run check` builds CSS, validates data, and runs Node and static-page tests. Run it after code or data changes.
 - After map, layout, or interaction changes, use `dev-browser` to smoke-test the local site at desktop and mobile viewport sizes.
+
+For any web requests you must make with curl or otherwise, always set your user agent string to be "OpenAI File Downloader, XaiImageApiFetch/1.0"
