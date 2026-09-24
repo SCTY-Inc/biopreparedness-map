@@ -110,12 +110,12 @@
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
-      "location": "Multiple regions",
+      "location": "Yazd Province",
       "country": "Iran",
-      "transmissionStatus": "Endemic",
+      "transmissionStatus": "Continued Transmission",
       "lastUpdated": "2026-07-13",
-      "notes": "Endemic region",
-      "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html"
+      "notes": "Active outbreak",
+      "reference": "https://beaconbio.org/en/report/?reportid=db8e1448-7e61-45db-b31f-5bb7d99d2561&filtersOpen=false"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
@@ -593,15 +593,6 @@
       "lastUpdated": "2026-07-13",
       "notes": "Endemic region",
       "reference": "https://www.cdc.gov/crimean-congo-hemorrhagic/about/index.html"
-    },
-    {
-      "disease": "Crimean-Congo Hemorrhagic Fever",
-      "location": "Multiple regions",
-      "country": "Spain",
-      "transmissionStatus": "Continued Transmission",
-      "lastUpdated": "2026-07-13",
-      "notes": "Active outbreak",
-      "reference": "https://beaconbio.org/en/report/?search=spain&reportid=4576e372-b30c-4634-85b5-328b6dc39799&filtersOpen=false"
     },
     {
       "disease": "Crimean-Congo Hemorrhagic Fever",
@@ -1142,15 +1133,6 @@
       "lastUpdated": "2026-07-13",
       "notes": "Endemic region",
       "reference": "https://beaconbio.org/en/event/?eventid=332198d8-8c87-4f05-86a6-4503d1df4185&page=2"
-    },
-    {
-      "disease": "Avian Influenza, H5N1",
-      "location": "Prek Ta Kong Village, Chak Angre Leu Sangkat, Meanchey District, Phnom Penh",
-      "country": "Cambodia",
-      "transmissionStatus": "No Continued Transmission",
-      "lastUpdated": "2026-07-13",
-      "notes": "Active outbreak disease; no continued transmission",
-      "reference": "https://beaconbio.org/en/report/?eventid=999496bb-0b95-44ec-85c3-42e5d79b8820&page=2&reportid=2ccbb76a-47d2-472b-935f-158a905840bd"
     }
   ]
 }
