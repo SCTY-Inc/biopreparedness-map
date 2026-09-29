@@ -14,7 +14,8 @@ export const DEFAULT_CONFIG = {
   map: {
     center: [20, 15],
     zoom: 2,
-    tileUrl: 'https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png',
+    tileUrl:
+      'https://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}{r}.png?key=__CARTO_API_KEY__',
     attribution:
       '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>',
     geojsonSources: ['assets/world.geojson'],

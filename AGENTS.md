@@ -93,6 +93,7 @@ Non-obvious source mappings:
 - Browser and CLI validation must stay equivalent.
 - Treat `css/tailwind.css` as generated output. Edit `css/tailwind.input.css`, site styles, or utility classes, then rebuild it.
 - Keep `.claude/` ignored; its local symlink breaks Cloudflare Pages builds if committed.
+- `js/data.js` `map.tileUrl` must carry a CARTO API key (`?key=...`), required since 23 Sep 2026; an unkeyed URL renders an "API KEY REQUIRED" watermark instead of the basemap. The key is referer-restricted to `biopreparednessmap.org`. When editing the tile URL, bump the `?v=` on the `data.js` import in `js/app.js` and the `js/app.js?v=` tag in `index.html` so cached browsers pick up the change.
 
 ## Verification
 

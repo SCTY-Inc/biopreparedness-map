@@ -11,7 +11,7 @@ import {
   getVisibleItems,
   groupItemsByDisease,
   validateEntries,
-} from './data.js';
+} from './data.js?v=20260929-1';
 import { findMatchingCountryName, getPointGeometryOverride, usesPointGeometry } from './geo.js';
 
 const MAP_RESIZE_DELAY_MS = 100;

@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "build:css": "BROWSERSLIST_IGNORE_OLD_DATA=true tailwindcss -i ./css/tailwind.input.css -o ./css/tailwind.css --minify",
+    "build": "node scripts/inject-carto-key.mjs && npm run build:css",
     "start": "python3 -m http.server 8000",
     "validate": "node validate.js",
     "test": "node --test",
