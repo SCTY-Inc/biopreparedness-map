@@ -22,7 +22,7 @@ The project did not use release tags during this period, so historical entries a
 - Added stricter validation for disease names, required fields, source links, duplicate entries, dates, and unsupported data fields.
 - Improved donation-dialog accessibility, optimized partner logos, and reduced reliance on third-party runtime assets without changing the page layout.
 - Improved mobile filters, active-filter feedback, map loading and empty states, selected-country focus, resource-link behavior, and keyboard-accessible tabs.
-- Added unit, static-page, and Playwright browser smoke coverage.
+- Added unit and static-page test coverage.
 
 ## [2026-06-30] - June outbreak list and partner update
 
