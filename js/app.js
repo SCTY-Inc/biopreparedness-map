@@ -148,7 +148,7 @@ function initializeMap() {
     maxZoom: 19,
   }).addTo(state.map);
 
-  state.map.getContainer().style.backgroundColor = '#D8DCDC';
+  state.map.getContainer().style.backgroundColor = '#DCE9F0';
   state.baseCountriesLayerGroup = L.layerGroup().addTo(state.map);
   state.countriesLayerGroup = L.layerGroup().addTo(state.map);
 }
@@ -161,10 +161,10 @@ function renderBaseCountries() {
   state.baseCountriesLayerGroup.clearLayers();
   L.geoJSON(state.geoData, {
     style: () => ({
-      fillColor: '#C7CCCC',
-      fillOpacity: 0.5,
-      color: '#A9AFAF',
-      weight: 0.5,
+      fillColor: '#EDEFEF',
+      fillOpacity: 0.9,
+      color: '#8F9797',
+      weight: 0.75,
     }),
   }).addTo(state.baseCountriesLayerGroup);
 }
