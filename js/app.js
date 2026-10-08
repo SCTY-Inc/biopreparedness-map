@@ -18,6 +18,7 @@ const MAP_RESIZE_DELAY_MS = 100;
 
 const state = {
   map: null,
+  baseCountriesLayerGroup: null,
   countriesLayerGroup: null,
   allData: [],
   geoData: null,
@@ -148,7 +149,24 @@ function initializeMap() {
   }).addTo(state.map);
 
   state.map.getContainer().style.backgroundColor = '#D8DCDC';
+  state.baseCountriesLayerGroup = L.layerGroup().addTo(state.map);
   state.countriesLayerGroup = L.layerGroup().addTo(state.map);
+}
+
+function renderBaseCountries() {
+  if (!state.baseCountriesLayerGroup || !state.geoData) {
+    return;
+  }
+
+  state.baseCountriesLayerGroup.clearLayers();
+  L.geoJSON(state.geoData, {
+    style: () => ({
+      fillColor: '#C7CCCC',
+      fillOpacity: 0.5,
+      color: '#A9AFAF',
+      weight: 0.5,
+    }),
+  }).addTo(state.baseCountriesLayerGroup);
 }
 
 async function loadData() {
@@ -485,8 +503,12 @@ function updateDiseaseCount() {
   dom.diseaseCount.textContent = activeDiseases.length;
 
   if (dom.activeDiseaseList) {
-    dom.activeDiseaseList.textContent = activeDiseases.join(', ');
+    dom.activeDiseaseList.textContent = activeDiseases.map(formatActiveDiseaseLabel).join('; ');
   }
+}
+
+function formatActiveDiseaseLabel(disease) {
+  return disease.startsWith('Avian Influenza, ') ? disease.replace('Avian Influenza, ', '') : disease;
 }
 
 function updateFilterSummary() {
@@ -819,6 +841,7 @@ async function initApp() {
 
   await Promise.all([loadData(), loadCountryBoundaries()]);
 
+  renderBaseCountries();
   refreshValidation();
   populateFilters();
   applyFilters();
