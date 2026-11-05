@@ -1138,19 +1138,19 @@
       "disease": "Bundibugyo Virus",
       "location": "Nairobi",
       "country": "Kenya",
-      "transmissionStatus": "No Continued Transmission",
+      "transmissionStatus": "Continued Transmission",
       "lastUpdated": "2026-07-13",
-      "notes": "Imported case; exposure in DRC, confirmed and died in Kenya",
+      "notes": "9 confirmed cases and 2 deaths",
       "reference": "https://afro.who.int/countries/kenya/news/kenya-confirms-first-imported-bundibugyo-virus-disease-case-who-supports-control-efforts"
     },
     {
-      "disease": "Avian Influenza, H5N1",
-      "location": "Oddar Meanchey Province",
-      "country": "Cambodia",
-      "transmissionStatus": "Continued Transmission",
+      "disease": "Bundibugyo Virus",
+      "location": "Multiple regions",
+      "country": "Nigeria",
+      "transmissionStatus": "No Continued Transmission",
       "lastUpdated": "2026-07-13",
-      "notes": "Sixth human case in Cambodia in 2026; poultry exposure, no human-to-human transmission",
-      "reference": "https://beaconbio.org/en/report/?reportid=2f0a9230-ea2a-486d-b11c-75486d3b6a95&filtersOpen=false"
+      "notes": "Imported case; first case reported October 20, 2026; 21-day surveillance window; Level 2 VHF PPE",
+      "reference": "https://beaconbio.org/en/event?eventid=1a9a0ef4-262f-45a1-9018-aa8f99d93a7c"
     }
   ]
 }
